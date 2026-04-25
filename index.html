@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PsyCalc LLM Wiki</title>
+    <meta name="description" content="Визуальная оболочка для PsyCalc LLM Wiki: Socionics, Psychosophy, Temporistics и латентные процессы." />
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <header class="hero" id="top">
+      <nav class="nav">
+        <a class="brand" href="#top"><span>Ψ</span>PsyCalc LLM Wiki</a>
+        <div>
+          <a href="#model">Модель</a>
+          <a href="#graph">Граф</a>
+          <a href="#pages">Страницы</a>
+        </div>
+      </nav>
+      <section class="hero-grid">
+        <div>
+          <p class="eyebrow">GitHub Pages · static site</p>
+          <h1>Визуальная карта PsyCalc LLM Wiki</h1>
+          <p class="lead">PsyCalc — исследовательская рамка, где Соционика, Психософия и Темпористика используются как эвристические языки гипотез о латентных процессах: информационном, операционном и temporal/existential.</p>
+          <div class="actions">
+            <a class="button primary" href="#model">Смотреть схему</a>
+            <a class="button" href="https://github.com/psycalc/psycalc-wiki">LLM wiki repo</a>
+          </div>
+          <p class="note">Не утверждение доказанной науки и не детерминированный оракул совместимости: типы здесь — рабочие гипотезы, которые требуют проверки.</p>
+        </div>
+        <div class="orbital" aria-label="Three typological systems around latent process hypothesis">
+          <div class="core">latent<br />process<br /><small>hypothesis</small></div>
+          <div class="node n1">Socionics<br /><small>information</small></div>
+          <div class="node n2">Psychosophy<br /><small>action</small></div>
+          <div class="node n3">Temporistics<br /><small>time</small></div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="section" id="model">
+        <p class="eyebrow">Core mapping</p>
+        <h2>Три уровня совместимости</h2>
+        <div class="cards" id="levelCards"></div>
+      </section>
+
+      <section class="section split">
+        <div>
+          <p class="eyebrow">Research pipeline</p>
+          <h2>От наблюдений к проверке</h2>
+          <p class="muted">PsyCalc отделяет наблюдаемое поведение от гипотез о скрытых процессах. Сайт показывает эту логику как исследовательский конвейер, а не как финальные ярлыки личности.</p>
+        </div>
+        <div class="pipeline" id="pipeline"></div>
+      </section>
+
+      <section class="section split reverse" id="graph">
+        <div class="panel"><svg id="wikiGraph" viewBox="0 0 760 520" role="img" aria-label="Mini graph of wiki concepts"></svg></div>
+        <div>
+          <p class="eyebrow">Wiki graph</p>
+          <h2>Мини-граф ключевых страниц</h2>
+          <p class="muted">Первый прототип визуализирует стартовые узлы wiki. Следующий шаг — автогенерация этого графа из markdown-файлов и wikilinks.</p>
+          <div class="filters">
+            <button data-filter="all">Все</button>
+            <button data-filter="theory">Теория</button>
+            <button data-filter="systems">Системы</button>
+            <button data-filter="research">Research</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="pages">
+        <p class="eyebrow">Start here</p>
+        <h2>Стартовые страницы LLM Wiki</h2>
+        <div class="pages" id="pageCards"></div>
+      </section>
+    </main>
+
+    <footer class="footer">PsyCalc LLM Wiki · hosted on GitHub Pages · github.com/psycalc/psycalc.github.io</footer>
+    <script src="assets/site.js"></script>
+  </body>
+</html>
