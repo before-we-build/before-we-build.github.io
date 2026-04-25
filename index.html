@@ -13,6 +13,7 @@
         <a class="brand" href="#top"><span>Ψ</span>PsyCalc LLM Wiki</a>
         <div>
           <a href="#model">Модель</a>
+          <a href="#process3d">3D</a>
           <a href="#graph">Граф</a>
           <a href="#pages">Страницы</a>
         </div>
@@ -51,6 +52,26 @@
           <p class="muted">PsyCalc отделяет наблюдаемое поведение от гипотез о скрытых процессах. Сайт показывает эту логику как исследовательский конвейер, а не как финальные ярлыки личности.</p>
         </div>
         <div class="pipeline" id="pipeline"></div>
+      </section>
+
+      <section class="section split" id="process3d">
+        <div>
+          <p class="eyebrow">3D process space</p>
+          <h2>Трёхмерная модель сложных процессов</h2>
+          <p class="muted">Canvas-визуализация показывает PsyCalc как пространство трёх осей: информация, действие и temporal/existential смысл. Узлы — wiki-концепты и гипотезы; линии — предполагаемые связи между наблюдениями, типологическими паттернами и проверкой.</p>
+          <div class="process-controls" aria-label="3D visualization controls">
+            <button data-mode="orbit">Орбита</button>
+            <button data-mode="layers">Слои</button>
+            <button data-mode="flow">Поток</button>
+          </div>
+          <p class="caption">Интерактивность без backend: можно двигать мышью/тачем, анимация рендерится прямо в браузере.</p>
+        </div>
+        <div class="process-panel">
+          <canvas id="processCanvas" width="920" height="680" aria-label="3D latent process visualization"></canvas>
+          <div class="axis-label axis-x">information</div>
+          <div class="axis-label axis-y">action</div>
+          <div class="axis-label axis-z">time / meaning</div>
+        </div>
       </section>
 
       <section class="section split reverse" id="graph">
