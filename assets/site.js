@@ -9,6 +9,41 @@ document.querySelector('#pageCards').innerHTML=pages.map(p=>`<article class="pag
 function draw(filter='all'){const active=n=>filter==='all'||n[4]===filter;const lines=links.map(([a,b])=>{const A=byId[a],B=byId[b],dim=!(active(A)||active(B));return`<line x1="${A[2]}" y1="${A[3]}" x2="${B[2]}" y2="${B[3]}" stroke="rgba(255,255,255,.25)" stroke-width="2" class="${dim?'dim':''}"/>`}).join('');const ns=nodes.map(n=>{const c=n[4]==='research'?'#ffd166':n[4]==='systems'?'#66d6ff':'#77e6b3';return`<a href="https://github.com/psycalc/psycalc-wiki/blob/main/wiki/concepts/${n[0]}.md" class="${active(n)?'':'dim'}"><circle cx="${n[2]}" cy="${n[3]}" r="44" fill="${c}" opacity=".16" stroke="${c}" stroke-width="2"/><text x="${n[2]}" y="${n[3]+5}" text-anchor="middle" class="svg-label">${n[1]}</text></a>`}).join('');document.querySelector('#wikiGraph').innerHTML=lines+ns}draw();
 document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>draw(b.dataset.filter)));
 
+function renderProcessMechanics(){
+  const temporal=document.querySelector('#temporalViz');
+  if(temporal)temporal.innerHTML=`
+    <defs><marker id="arr-green" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#77e6b3"/></marker></defs>
+    <path d="M54 218 C130 174 156 156 225 128" class="viz-arrow pulse" stroke="#77e6b3" stroke-width="4" marker-end="url(#arr-green)"/>
+    <path d="M296 128 C365 156 392 174 466 218" class="viz-arrow pulse" stroke="#ffd166" stroke-width="4" marker-end="url(#arr-green)"/>
+    ${[54,100,146,190].map((x,i)=>`<circle cx="${x}" cy="${218-i*18}" r="10" fill="#77e6b3" opacity="${.35+i*.15}"/>`).join('')}
+    <rect x="212" y="82" width="96" height="92" rx="24" fill="rgba(119,230,179,.15)" stroke="#77e6b3"/>
+    <text x="260" y="120" text-anchor="middle" class="viz-text">паттерн</text><text x="260" y="142" text-anchor="middle" class="viz-small">общая рамка</text>
+    <rect x="386" y="190" width="104" height="52" rx="18" fill="rgba(255,209,102,.13)" stroke="#ffd166"/>
+    <text x="438" y="221" text-anchor="middle" class="viz-text">сценарий</text>
+    <text x="114" y="258" text-anchor="middle" class="viz-small">события / эпизоды</text><text x="260" y="46" text-anchor="middle" class="viz-small">индукция ↑</text><text x="408" y="160" text-anchor="middle" class="viz-small">дедукция →</text>`;
+  const modeling=document.querySelector('#modelingViz');
+  if(modeling)modeling.innerHTML=`
+    <defs><marker id="arr-blue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#66d6ff"/></marker></defs>
+    ${[[68,86,'люди'],[58,180,'факты'],[130,138,'контекст'],[185,76,'сигнал']].map(n=>`<g><circle cx="${n[0]}" cy="${n[1]}" r="24" fill="rgba(102,214,255,.14)" stroke="#66d6ff"/><text x="${n[0]}" y="${n[1]+4}" text-anchor="middle" class="viz-small">${n[2]}</text></g>`).join('')}
+    ${[[252,88],[305,122],[250,178],[338,190],[382,95]].map((n,i)=>`<circle class="pulse" cx="${n[0]}" cy="${n[1]}" r="12" fill="${i%2?'#aa8cff':'#66d6ff'}"/>`).join('')}
+    <path d="M252 88 L305 122 L250 178 L338 190 L382 95 L305 122 L338 190" stroke="rgba(255,255,255,.38)" stroke-width="2" fill="none"/>
+    <path d="M204 138 C225 138 228 138 240 138" class="viz-arrow" stroke="#66d6ff" stroke-width="3" marker-end="url(#arr-blue)"/>
+    <path d="M394 138 C418 138 420 138 438 138" class="viz-arrow" stroke="#66d6ff" stroke-width="3" marker-end="url(#arr-blue)"/>
+    <rect x="438" y="98" width="64" height="80" rx="18" fill="rgba(119,230,179,.13)" stroke="#77e6b3"/>
+    <text x="470" y="130" text-anchor="middle" class="viz-text">модель</text><text x="470" y="152" text-anchor="middle" class="viz-small">ситуации</text>
+    <text x="110" y="254" text-anchor="middle" class="viz-small">сигналы</text><text x="312" y="254" text-anchor="middle" class="viz-small">связи</text><text x="470" y="254" text-anchor="middle" class="viz-small">интерпретация</text>`;
+  const synthesis=document.querySelector('#synthesisViz');
+  if(synthesis)synthesis.innerHTML=`
+    <defs><marker id="arr-violet" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#aa8cff"/></marker></defs>
+    <rect x="28" y="104" width="92" height="68" rx="18" fill="rgba(255,255,255,.08)" stroke="rgba(255,255,255,.28)"/><text x="74" y="144" text-anchor="middle" class="viz-text">задача</text>
+    <path d="M128 138 C158 138 164 90 194 90" class="viz-arrow" stroke="#aa8cff" stroke-width="3" marker-end="url(#arr-violet)"/><path d="M128 138 C158 138 164 138 194 138" class="viz-arrow" stroke="#aa8cff" stroke-width="3" marker-end="url(#arr-violet)"/><path d="M128 138 C158 138 164 186 194 186" class="viz-arrow" stroke="#aa8cff" stroke-width="3" marker-end="url(#arr-violet)"/>
+    ${[[204,70,'часть A'],[204,118,'часть B'],[204,166,'часть C']].map(n=>`<rect x="${n[0]}" y="${n[1]}" width="82" height="40" rx="13" fill="rgba(170,140,255,.13)" stroke="#aa8cff"/><text x="${n[0]+41}" y="${n[1]+25}" text-anchor="middle" class="viz-small">${n[2]}</text>`).join('')}
+    <path d="M296 90 C326 90 330 138 360 138" class="viz-arrow pulse" stroke="#77e6b3" stroke-width="3" marker-end="url(#arr-violet)"/><path d="M296 138 C326 138 330 138 360 138" class="viz-arrow pulse" stroke="#77e6b3" stroke-width="3" marker-end="url(#arr-violet)"/><path d="M296 186 C326 186 330 138 360 138" class="viz-arrow pulse" stroke="#77e6b3" stroke-width="3" marker-end="url(#arr-violet)"/>
+    <rect x="370" y="104" width="120" height="68" rx="20" fill="rgba(119,230,179,.14)" stroke="#77e6b3"/><text x="430" y="132" text-anchor="middle" class="viz-text">решение</text><text x="430" y="154" text-anchor="middle" class="viz-small">действие</text>
+    <text x="180" y="248" text-anchor="middle" class="viz-small">анализ: разложить</text><text x="372" y="248" text-anchor="middle" class="viz-small">синтез: собрать</text>`;
+}
+renderProcessMechanics();
+
 const canvas=document.querySelector('#processCanvas');
 const ctx=canvas?.getContext('2d');
 let mode='orbit',rx=-0.48,ry=0.72,drag=false,lastX=0,lastY=0,t=0;

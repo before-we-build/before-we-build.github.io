@@ -13,6 +13,7 @@
         <a class="brand" href="#top"><span>Ψ</span>PsyCalc LLM Wiki</a>
         <div>
           <a href="#model">Модель</a>
+          <a href="#processes">Процессы</a>
           <a href="#process3d">3D</a>
           <a href="#graph">Граф</a>
           <a href="#pages">Страницы</a>
@@ -52,6 +53,33 @@
           <p class="muted">PsyCalc отделяет наблюдаемое поведение от гипотез о скрытых процессах. Сайт показывает эту логику как исследовательский конвейер, а не как финальные ярлыки личности.</p>
         </div>
         <div class="pipeline" id="pipeline"></div>
+      </section>
+
+      <section class="section" id="processes">
+        <p class="eyebrow">Process mechanics</p>
+        <h2>Как работают индукция, дедукция, моделирование и синтез</h2>
+        <p class="muted intro">Это эвристическая карта PsyCalc: она показывает не «типы людей», а три класса процессов, через которые можно задавать вопросы о понимании, действии, времени и совместимости.</p>
+        <div class="process-cards">
+          <article class="process-card temporal">
+            <div class="process-head"><span>01</span><h3>Индукция ↔ дедукция</h3></div>
+            <p>Как опыт превращается в паттерн, а паттерн — в ожидание, сценарий или смысловую интерпретацию.</p>
+            <svg id="temporalViz" viewBox="0 0 520 290" role="img" aria-label="Induction and deduction visualization"></svg>
+            <div class="micro"><b>Индукция:</b> наблюдения → рамка<br><b>Дедукция:</b> рамка → ожидание</div>
+          </article>
+          <article class="process-card information">
+            <div class="process-head"><span>02</span><h3>Моделирование информации</h3></div>
+            <p>Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
+            <svg id="modelingViz" viewBox="0 0 520 290" role="img" aria-label="Information modeling visualization"></svg>
+            <div class="micro"><b>Отбор:</b> что важно<br><b>Связи:</b> как элементы образуют структуру</div>
+          </article>
+          <article class="process-card action">
+            <div class="process-head"><span>03</span><h3>Анализ ↔ синтез</h3></div>
+            <p>Как задача раскладывается на части, а затем собирается в решение, координацию или действие.</p>
+            <svg id="synthesisViz" viewBox="0 0 520 290" role="img" aria-label="Analysis and synthesis visualization"></svg>
+            <div class="micro"><b>Анализ:</b> разделить и уточнить<br><b>Синтез:</b> собрать и реализовать</div>
+          </article>
+        </div>
+        <p class="disclaimer">PsyCalc — исследовательский фреймворк и генератор гипотез, не диагностический инструмент и не валидированный оракул совместимости.</p>
       </section>
 
       <section class="section split" id="process3d">
