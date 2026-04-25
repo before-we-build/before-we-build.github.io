@@ -33,7 +33,7 @@
         <a class="brand" href="#top"><span>Ψ</span>PsyCalc LLM Wiki</a>
         <div class="nav-links">
           <a href="#model" data-i18n="nav.model">Модель</a>
-          <a href="#processes" data-i18n="nav.processes">Процессы</a>
+          <a href="#strategic" data-i18n="nav.processes">Процессы</a>
           <a href="#process3d">3D</a>
           <a href="#graph" data-i18n="nav.graph">Граф</a>
           <a href="#pages" data-i18n="nav.pages">Страницы</a>
@@ -81,11 +81,11 @@
         <div class="pipeline" id="pipeline"></div>
       </section>
 
-      <section class="section" id="processes">
+      <section class="section level-zone strategic-zone" id="strategic">
         <p class="eyebrow" data-i18n="eyebrow.mechanics">Механика процессов</p>
-        <h2 data-i18n="processes.title">Процессы внутри каждого уровня</h2>
-        <p class="muted intro" data-i18n="processes.intro">Каждый уровень имеет свой главный процесс: стратегический работает с временем и смыслом, оперативный — с организацией действия, тактический — с моделированием информации.</p>
-        <div class="process-cards">
+        <h2 data-i18n="processes.strategic.title">Стратегический · Темпористика</h2>
+        <p class="muted intro" data-i18n="processes.strategic.text">Как опыт превращается в паттерн, а паттерн — в ожидание, сценарий или смысловую интерпретацию.</p>
+        <div class="process-cards single-process">
           <article class="process-card temporal">
             <div class="process-head"><span>01</span><h3 data-i18n="processes.strategic.title">Стратегический · Темпористика</h3></div>
             <p class="level-tag" data-i18n="processes.strategic.tag">Индукция ↔ дедукция во времени и смысле</p>
@@ -93,6 +93,15 @@
             <svg id="temporalViz" viewBox="0 0 520 290" role="img" aria-label="Induction and deduction visualization"></svg>
             <div class="micro"><b>Индукция:</b> наблюдения → рамка<br><b>Дедукция:</b> рамка → ожидание</div>
           </article>
+        </div>
+        <p class="disclaimer" data-i18n="disclaimer">PsyCalc — исследовательский фреймворк и генератор гипотез, не диагностический инструмент и не валидированный оракул совместимости.</p>
+      </section>
+
+      <section class="section level-zone operational-zone" id="operational">
+        <p class="eyebrow" data-i18n="eyebrow.process3d">3D-пространство процессов</p>
+        <h2 data-i18n="processes.operational.title">Оперативный · Психософия</h2>
+        <p class="muted intro" data-i18n="processes.operational.text">Как задача раскладывается на части, а затем собирается в решение, координацию или действие.</p>
+        <div class="process-cards single-process">
           <article class="process-card action">
             <div class="process-head"><span>02</span><h3 data-i18n="processes.operational.title">Оперативный · Психософия</h3></div>
             <p class="level-tag" data-i18n="processes.operational.tag">Анализ ↔ синтез в действии</p>
@@ -100,15 +109,7 @@
             <svg id="synthesisViz" viewBox="0 0 520 290" role="img" aria-label="Analysis and synthesis visualization"></svg>
             <div class="micro"><b>Анализ:</b> разделить и уточнить<br><b>Синтез:</b> собрать и реализовать</div>
           </article>
-          <article class="process-card information">
-            <div class="process-head"><span>03</span><h3 data-i18n="processes.tactical.title">Тактический · Соционика</h3></div>
-            <p class="level-tag" data-i18n="processes.tactical.tag">Моделирование информации</p>
-            <p data-i18n="processes.tactical.text">Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
-            <svg id="modelingViz" viewBox="0 0 520 290" role="img" aria-label="Information modeling visualization"></svg>
-            <div class="micro"><b>Отбор:</b> что важно<br><b>Связи:</b> как элементы образуют структуру</div>
-          </article>
         </div>
-        <p class="disclaimer" data-i18n="disclaimer">PsyCalc — исследовательский фреймворк и генератор гипотез, не диагностический инструмент и не валидированный оракул совместимости.</p>
       </section>
 
       <section class="section split" id="process3d">
@@ -128,6 +129,21 @@
           <div class="axis-label axis-x" data-i18n="axis.information">информация</div>
           <div class="axis-label axis-y" data-i18n="axis.action">действие</div>
           <div class="axis-label axis-z" data-i18n="axis.time">время / смысл</div>
+        </div>
+      </section>
+
+      <section class="section level-zone tactical-zone" id="tactical">
+        <p class="eyebrow" data-i18n="eyebrow.graph">Граф wiki</p>
+        <h2 data-i18n="processes.tactical.title">Тактический · Соционика</h2>
+        <p class="muted intro" data-i18n="processes.tactical.text">Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
+        <div class="process-cards single-process">
+          <article class="process-card information">
+            <div class="process-head"><span>03</span><h3 data-i18n="processes.tactical.title">Тактический · Соционика</h3></div>
+            <p class="level-tag" data-i18n="processes.tactical.tag">Моделирование информации</p>
+            <p data-i18n="processes.tactical.text">Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
+            <svg id="modelingViz" viewBox="0 0 520 290" role="img" aria-label="Information modeling visualization"></svg>
+            <div class="micro"><b>Отбор:</b> что важно<br><b>Связи:</b> как элементы образуют структуру</div>
+          </article>
         </div>
       </section>
 
