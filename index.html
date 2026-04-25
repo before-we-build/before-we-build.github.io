@@ -11,24 +11,29 @@
     <header class="hero" id="top">
       <nav class="nav">
         <a class="brand" href="#top"><span>Ψ</span>PsyCalc LLM Wiki</a>
-        <div>
-          <a href="#model">Модель</a>
-          <a href="#processes">Процессы</a>
+        <div class="nav-links">
+          <a href="#model" data-i18n="nav.model">Модель</a>
+          <a href="#processes" data-i18n="nav.processes">Процессы</a>
           <a href="#process3d">3D</a>
-          <a href="#graph">Граф</a>
-          <a href="#pages">Страницы</a>
+          <a href="#graph" data-i18n="nav.graph">Граф</a>
+          <a href="#pages" data-i18n="nav.pages">Страницы</a>
+          <span class="lang-switch" aria-label="Language switcher">
+            <button data-lang="ru">RU</button>
+            <button data-lang="en">EN</button>
+            <button data-lang="uk">UK</button>
+          </span>
         </div>
       </nav>
       <section class="hero-grid">
         <div>
           <p class="eyebrow">GitHub Pages · static site</p>
-          <h1>Визуальная карта PsyCalc LLM Wiki</h1>
-          <p class="lead">PsyCalc — исследовательская рамка, где Соционика, Психософия и Темпористика используются как эвристические языки гипотез о латентных процессах: информационном, операционном и temporal/existential.</p>
+          <h1 data-i18n="hero.title">Визуальная карта PsyCalc LLM Wiki</h1>
+          <p class="lead" data-i18n="hero.lead">PsyCalc — исследовательская рамка, где Соционика, Психософия и Темпористика используются как эвристические языки гипотез о латентных процессах: информационном, операционном и temporal/existential.</p>
           <div class="actions">
-            <a class="button primary" href="#model">Смотреть схему</a>
+            <a class="button primary" href="#model" data-i18n="hero.cta">Смотреть схему</a>
             <a class="button" href="https://github.com/psycalc/psycalc-wiki">LLM wiki repo</a>
           </div>
-          <p class="note">Не утверждение доказанной науки и не детерминированный оракул совместимости: типы здесь — рабочие гипотезы, которые требуют проверки.</p>
+          <p class="note" data-i18n="hero.note">Не утверждение доказанной науки и не детерминированный оракул совместимости: типы здесь — рабочие гипотезы, которые требуют проверки.</p>
         </div>
         <div class="orbital" aria-label="Three typological systems around latent process hypothesis">
           <div class="core">latent<br />process<br /><small>hypothesis</small></div>
@@ -42,61 +47,61 @@
     <main>
       <section class="section" id="model">
         <p class="eyebrow">Core mapping</p>
-        <h2>Три уровня: стратегический, оперативный, тактический</h2>
-        <p class="muted intro">PsyCalc группирует информацию не вокруг одного «типа», а вокруг трёх уровней: куда человек движется, как организует действие и как моделирует ситуацию.</p>
+        <h2 data-i18n="model.title">Три уровня: стратегический, оперативный, тактический</h2>
+        <p class="muted intro" data-i18n="model.intro">PsyCalc группирует информацию не вокруг одного «типа», а вокруг трёх уровней: куда человек движется, как организует действие и как моделирует ситуацию.</p>
         <div class="cards" id="levelCards"></div>
       </section>
 
       <section class="section split">
         <div>
           <p class="eyebrow">Research pipeline</p>
-          <h2>От наблюдений к проверке</h2>
-          <p class="muted">PsyCalc отделяет наблюдаемое поведение от гипотез о скрытых процессах. Сайт показывает эту логику как исследовательский конвейер, а не как финальные ярлыки личности.</p>
+          <h2 data-i18n="pipeline.title">От наблюдений к проверке</h2>
+          <p class="muted" data-i18n="pipeline.text">PsyCalc отделяет наблюдаемое поведение от гипотез о скрытых процессах. Сайт показывает эту логику как исследовательский конвейер, а не как финальные ярлыки личности.</p>
         </div>
         <div class="pipeline" id="pipeline"></div>
       </section>
 
       <section class="section" id="processes">
         <p class="eyebrow">Process mechanics</p>
-        <h2>Процессы внутри каждого уровня</h2>
-        <p class="muted intro">Каждый уровень имеет свой главный процесс: стратегический работает с временем и смыслом, оперативный — с организацией действия, тактический — с моделированием информации.</p>
+        <h2 data-i18n="processes.title">Процессы внутри каждого уровня</h2>
+        <p class="muted intro" data-i18n="processes.intro">Каждый уровень имеет свой главный процесс: стратегический работает с временем и смыслом, оперативный — с организацией действия, тактический — с моделированием информации.</p>
         <div class="process-cards">
           <article class="process-card temporal">
-            <div class="process-head"><span>01</span><h3>Стратегический · Temporistics</h3></div>
-            <p class="level-tag">Индукция ↔ дедукция во времени и смысле</p>
-            <p>Как опыт превращается в паттерн, а паттерн — в ожидание, сценарий или смысловую интерпретацию.</p>
+            <div class="process-head"><span>01</span><h3 data-i18n="processes.strategic.title">Стратегический · Temporistics</h3></div>
+            <p class="level-tag" data-i18n="processes.strategic.tag">Индукция ↔ дедукция во времени и смысле</p>
+            <p data-i18n="processes.strategic.text">Как опыт превращается в паттерн, а паттерн — в ожидание, сценарий или смысловую интерпретацию.</p>
             <svg id="temporalViz" viewBox="0 0 520 290" role="img" aria-label="Induction and deduction visualization"></svg>
             <div class="micro"><b>Индукция:</b> наблюдения → рамка<br><b>Дедукция:</b> рамка → ожидание</div>
           </article>
           <article class="process-card action">
-            <div class="process-head"><span>02</span><h3>Оперативный · Psychosophy</h3></div>
-            <p class="level-tag">Анализ ↔ синтез в действии</p>
-            <p>Как задача раскладывается на части, а затем собирается в решение, координацию или действие.</p>
+            <div class="process-head"><span>02</span><h3 data-i18n="processes.operational.title">Оперативный · Psychosophy</h3></div>
+            <p class="level-tag" data-i18n="processes.operational.tag">Анализ ↔ синтез в действии</p>
+            <p data-i18n="processes.operational.text">Как задача раскладывается на части, а затем собирается в решение, координацию или действие.</p>
             <svg id="synthesisViz" viewBox="0 0 520 290" role="img" aria-label="Analysis and synthesis visualization"></svg>
             <div class="micro"><b>Анализ:</b> разделить и уточнить<br><b>Синтез:</b> собрать и реализовать</div>
           </article>
           <article class="process-card information">
-            <div class="process-head"><span>03</span><h3>Тактический · Socionics</h3></div>
-            <p class="level-tag">Моделирование информации</p>
-            <p>Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
+            <div class="process-head"><span>03</span><h3 data-i18n="processes.tactical.title">Тактический · Socionics</h3></div>
+            <p class="level-tag" data-i18n="processes.tactical.tag">Моделирование информации</p>
+            <p data-i18n="processes.tactical.text">Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
             <svg id="modelingViz" viewBox="0 0 520 290" role="img" aria-label="Information modeling visualization"></svg>
             <div class="micro"><b>Отбор:</b> что важно<br><b>Связи:</b> как элементы образуют структуру</div>
           </article>
         </div>
-        <p class="disclaimer">PsyCalc — исследовательский фреймворк и генератор гипотез, не диагностический инструмент и не валидированный оракул совместимости.</p>
+        <p class="disclaimer" data-i18n="disclaimer">PsyCalc — исследовательский фреймворк и генератор гипотез, не диагностический инструмент и не валидированный оракул совместимости.</p>
       </section>
 
       <section class="section split" id="process3d">
         <div>
           <p class="eyebrow">3D process space</p>
-          <h2>Трёхмерная модель сложных процессов</h2>
-          <p class="muted">Canvas-визуализация показывает PsyCalc как пространство трёх осей: информация, действие и temporal/existential смысл. Узлы — wiki-концепты и гипотезы; линии — предполагаемые связи между наблюдениями, типологическими паттернами и проверкой.</p>
+          <h2 data-i18n="process3d.title">Трёхмерная модель сложных процессов</h2>
+          <p class="muted" data-i18n="process3d.text">Canvas-визуализация показывает PsyCalc как пространство трёх осей: информация, действие и temporal/existential смысл. Узлы — wiki-концепты и гипотезы; линии — предполагаемые связи между наблюдениями, типологическими паттернами и проверкой.</p>
           <div class="process-controls" aria-label="3D visualization controls">
-            <button data-mode="orbit">Орбита</button>
-            <button data-mode="layers">Слои</button>
-            <button data-mode="flow">Поток</button>
+            <button data-mode="orbit" data-i18n="process3d.orbit">Орбита</button>
+            <button data-mode="layers" data-i18n="process3d.layers">Слои</button>
+            <button data-mode="flow" data-i18n="process3d.flow">Поток</button>
           </div>
-          <p class="caption">Интерактивность без backend: можно двигать мышью/тачем, анимация рендерится прямо в браузере.</p>
+          <p class="caption" data-i18n="process3d.caption">Интерактивность без backend: можно двигать мышью/тачем, анимация рендерится прямо в браузере.</p>
         </div>
         <div class="process-panel">
           <canvas id="processCanvas" width="920" height="680" aria-label="3D latent process visualization"></canvas>
@@ -110,12 +115,12 @@
         <div class="panel"><svg id="wikiGraph" viewBox="0 0 760 520" role="img" aria-label="Mini graph of wiki concepts"></svg></div>
         <div>
           <p class="eyebrow">Wiki graph</p>
-          <h2>Мини-граф ключевых страниц</h2>
-          <p class="muted">Первый прототип визуализирует стартовые узлы wiki. Следующий шаг — автогенерация этого графа из markdown-файлов и wikilinks.</p>
+          <h2 data-i18n="graph.title">Мини-граф ключевых страниц</h2>
+          <p class="muted" data-i18n="graph.text">Первый прототип визуализирует стартовые узлы wiki. Следующий шаг — автогенерация этого графа из markdown-файлов и wikilinks.</p>
           <div class="filters">
-            <button data-filter="all">Все</button>
-            <button data-filter="theory">Теория</button>
-            <button data-filter="systems">Системы</button>
+            <button data-filter="all" data-i18n="graph.all">Все</button>
+            <button data-filter="theory" data-i18n="graph.theory">Теория</button>
+            <button data-filter="systems" data-i18n="graph.systems">Системы</button>
             <button data-filter="research">Research</button>
           </div>
         </div>
@@ -123,7 +128,7 @@
 
       <section class="section" id="pages">
         <p class="eyebrow">Start here</p>
-        <h2>Стартовые страницы LLM Wiki</h2>
+        <h2 data-i18n="pages.title">Стартовые страницы LLM Wiki</h2>
         <div class="pages" id="pageCards"></div>
       </section>
     </main>
