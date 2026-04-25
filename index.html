@@ -112,11 +112,19 @@
       </section>
 
       <section class="section split reverse" id="graph">
-        <div class="panel"><svg id="wikiGraph" viewBox="0 0 760 520" role="img" aria-label="Mini graph of wiki concepts"></svg></div>
+        <div class="panel graph-panel" id="graphPanel">
+          <div class="graph-toolbar">
+            <button data-zoom="in">+</button>
+            <button data-zoom="out">−</button>
+            <button data-zoom="reset" data-i18n="graph.reset">Сброс</button>
+            <button data-fullscreen data-i18n="graph.fullscreen">На весь экран</button>
+          </div>
+          <svg id="wikiGraph" viewBox="0 0 1200 820" role="img" aria-label="Full graph of wiki concepts"></svg>
+        </div>
         <div>
           <p class="eyebrow" data-i18n="eyebrow.graph">Граф wiki</p>
-          <h2 data-i18n="graph.title">Мини-граф ключевых страниц</h2>
-          <p class="muted" data-i18n="graph.text">Первый прототип визуализирует стартовые узлы wiki. Следующий шаг — автогенерация этого графа из markdown-файлов и wikilinks.</p>
+          <h2 data-i18n="graph.title">Полный граф LLM Wiki</h2>
+          <p class="muted" data-i18n="graph.text">Граф показывает основные кластеры wiki: ядро теории, три системы, отношения, прикладные страницы, методологию и исследования. Можно масштабировать, перетаскивать и открыть на весь экран.</p>
           <div class="filters">
             <button data-filter="all" data-i18n="graph.all">Все</button>
             <button data-filter="theory" data-i18n="graph.theory">Теория</button>
