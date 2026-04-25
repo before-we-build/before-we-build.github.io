@@ -34,7 +34,7 @@
         <div class="nav-links">
           <a href="#model" data-i18n="nav.model">Модель</a>
           <a href="#strategic" data-i18n="nav.processes">Процессы</a>
-          <a href="#process3d">3D</a>
+          <a href="#layers" data-i18n="layers.nav">Шари</a>
           <a href="#graph" data-i18n="nav.graph">Граф</a>
           <a href="#pages" data-i18n="nav.pages">Страницы</a>
           <span class="lang-switch" aria-label="Language switcher">
@@ -98,7 +98,7 @@
       </section>
 
       <section class="section level-zone operational-zone" id="operational">
-        <p class="eyebrow" data-i18n="eyebrow.process3d">3D-пространство процессов</p>
+        <p class="eyebrow" data-i18n="layers.eyebrow">Три шари</p>
         <h2 data-i18n="processes.operational.title">Оперативный · Психософия</h2>
         <p class="muted intro" data-i18n="processes.operational.text">Как задача раскладывается на части, а затем собирается в решение, координацию или действие.</p>
         <div class="process-cards single-process">
@@ -112,23 +112,33 @@
         </div>
       </section>
 
-      <section class="section split" id="process3d">
-        <div>
-          <p class="eyebrow" data-i18n="eyebrow.process3d">3D-пространство процессов</p>
-          <h2 data-i18n="process3d.title">Трёхмерная модель сложных процессов</h2>
-          <p class="muted" data-i18n="process3d.text">Визуализация на холсте показывает PsyCalc как пространство трёх осей: информация, действие и время/смысл. Узлы — понятия wiki и гипотезы; линии — предполагаемые связи между наблюдениями, типологическими паттернами и проверкой.</p>
-          <div class="process-controls" aria-label="3D visualization controls">
-            <button data-mode="orbit" data-i18n="process3d.orbit">Орбита</button>
-            <button data-mode="layers" data-i18n="process3d.layers">Слои</button>
-            <button data-mode="flow" data-i18n="process3d.flow">Поток</button>
-          </div>
-          <p class="caption" data-i18n="process3d.caption">Интерактивность без серверной части: можно двигать мышью/касанием, анимация строится прямо в браузере.</p>
-        </div>
-        <div class="process-panel">
-          <canvas id="processCanvas" width="920" height="680" aria-label="3D latent process visualization"></canvas>
-          <div class="axis-label axis-x" data-i18n="axis.information">информация</div>
-          <div class="axis-label axis-y" data-i18n="axis.action">действие</div>
-          <div class="axis-label axis-z" data-i18n="axis.time">время / смысл</div>
+      <section class="section level-zone operational-zone" id="layers">
+        <p class="eyebrow" data-i18n="layers.eyebrow">Три шари</p>
+        <h2 data-i18n="layers.title">Сумісність не зводиться до одного типу</h2>
+        <p class="muted intro" data-i18n="layers.intro">PsyCalc пропонує дивитися на сумісність у 3 шарах: стратегія, дія, інформація.</p>
+        <div class="layer-viz" id="layerViz">
+          <button class="layer-row active" data-layer="0">
+            <span class="layer-index">01</span>
+            <span><b data-i18n="layers.strategic.name">Стратегічний рівень</b><small data-i18n="layers.strategic.short">Темпористика · час, сенс, індукція ↔ дедукція</small></span>
+            <em data-i18n="layers.strategic.question">Як людина будує сенс і бачить рух у часі?</em>
+          </button>
+          <button class="layer-row" data-layer="1">
+            <span class="layer-index">02</span>
+            <span><b data-i18n="layers.operational.name">Оперативний рівень</b><small data-i18n="layers.operational.short">Психософія · дія, аналіз ↔ синтез</small></span>
+            <em data-i18n="layers.operational.question">Як людина організовує дію та рішення?</em>
+          </button>
+          <button class="layer-row" data-layer="2">
+            <span class="layer-index">03</span>
+            <span><b data-i18n="layers.tactical.name">Тактичний рівень</b><small data-i18n="layers.tactical.short">Соціоніка · інформація, моделювання</small></span>
+            <em data-i18n="layers.tactical.question">Як людина сприймає й обробляє інформацію?</em>
+          </button>
+          <article class="layer-explain">
+            <h3 data-layer-title>Стратегічний · Темпористика</h3>
+            <p data-layer-text>Цей рівень описує не “тип людини”, а гіпотезу про те, як вона вибудовує час, сенс і напрям.</p>
+            <p class="example" data-layer-example>Приклад: двоє можуть добре спілкуватися, але по-різному бачити темп життя, розвиток і майбутнє.</p>
+          </article>
+          <button class="button primary show-all" data-show-layers data-i18n="layers.showAll">Показати разом</button>
+          <p class="layer-summary" data-i18n="layers.summary">Сумісність — це не одна “мітка”, а поєднання трьох рівнів: як люди узгоджують сенс у часі, організовують дію та працюють з інформацією.</p>
         </div>
       </section>
 
