@@ -3,95 +3,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PsyCalc LLM Wiki</title>
-    <meta name="description" content="Визуальная оболочка для PsyCalc LLM Wiki: Соционика, Психософия, Темпористика и латентные процессы." />
+    <title>PsyCalc</title>
+    <meta name="description" content="PsyCalc помогает получить предварительный профиль и исследовать различия в общении, решениях и совместимости без ярлыков и приговоров." />
     <link rel="stylesheet" href="assets/site.css" />
   </head>
   <body>
-    <div class="people-bg" aria-hidden="true">
-      <svg class="person person-left" viewBox="0 0 260 720" focusable="false">
-        <path d="M95 94c0-34 27-61 60-61s60 27 60 61-27 61-60 61-60-27-60-61Z" />
-        <path d="M151 168c-58 0-107 47-107 105v84c0 22 18 40 40 40h19l-28 243c-3 26 17 49 43 49h73c26 0 46-23 43-49l-28-243h20c22 0 40-18 40-40v-84c0-58-48-105-106-105h-9Z" />
-        <path class="face-line" d="M182 72c-18 14-27 33-22 59" />
-      </svg>
-      <svg class="person person-right" viewBox="0 0 260 720" focusable="false">
-        <path d="M95 94c0-34 27-61 60-61s60 27 60 61-27 61-60 61-60-27-60-61Z" />
-        <path d="M151 168c-58 0-107 47-107 105v84c0 22 18 40 40 40h19l-28 243c-3 26 17 49 43 49h73c26 0 46-23 43-49l-28-243h20c22 0 40-18 40-40v-84c0-58-48-105-106-105h-9Z" />
-        <path class="face-line" d="M182 72c-18 14-27 33-22 59" />
-      </svg>
-      <div class="compat-badge compat-badge-left">
-        <span data-compat-label>Стратегический</span>
-        <small data-compat-system>Темпористика · время / смысл</small>
-      </div>
-      <div class="compat-badge compat-badge-right">
-        <span data-compat-label>Стратегический</span>
-        <small data-compat-system>Темпористика · время / смысл</small>
-      </div>
-      <div class="silhouette-model model-left" data-model-side="left"></div>
-      <div class="silhouette-model model-right" data-model-side="right"></div>
-      <svg class="relation-arc" viewBox="0 0 1000 260" preserveAspectRatio="none" focusable="false">
-        <defs>
-          <marker id="relationArrowLeft" markerWidth="10" markerHeight="10" refX="2" refY="5" orient="auto-start-reverse">
-            <path d="M10 0 L0 5 L10 10" />
-          </marker>
-          <marker id="relationArrowRight" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <path d="M0 0 L10 5 L0 10" />
-          </marker>
-        </defs>
-        <path id="relationArcPath" d="M120 190 C300 36 700 36 880 190" />
-        <text>
-          <textPath href="#relationArcPath" startOffset="50%" text-anchor="middle" data-relation-label>Агапе</textPath>
-        </text>
-      </svg>
-    </div>
-    <div class="mobile-level-indicator" aria-hidden="true">
-      <span data-mobile-level>Стратегічний</span>
-      <small data-mobile-system>Темпористика · час / сенс</small>
-    </div>
     <header class="hero" id="top">
-      <nav class="nav">
-        <a class="brand" href="#top"><span>Ψ</span>PsyCalc LLM Wiki</a>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="index.html"><span>Ψ</span>PsyCalc</a>
         <div class="nav-links">
-          <a href="#model" data-i18n="nav.model">Модель</a>
-          <a href="#strategic" data-i18n="nav.processes">Процессы</a>
-          <a href="#layers" data-i18n="layers.nav">Шари</a>
-          <a href="tests.html" data-i18n="nav.tests">Тесты</a>
-          <a href="#graph" data-i18n="nav.graph">Граф</a>
-          <a href="#pages" data-i18n="nav.pages">Страницы</a>
-          <span class="lang-switch" aria-label="Language switcher">
-            <button data-lang="ru">RU</button>
-            <button data-lang="en">EN</button>
-            <button data-lang="uk">UK</button>
-          </span>
+          <a href="#what">Что это</a>
+          <a href="tests.html">Пройти тест</a>
+          <a href="result-guide.html">Результат</a>
+          <a href="compatibility.html">Совместимость</a>
+          <a href="research.html">Для исследователей</a>
         </div>
       </nav>
+
       <section class="hero-grid">
         <div>
-          <p class="eyebrow" data-i18n="eyebrow.hero">GitHub Pages · статический сайт</p>
-          <h1 data-i18n="hero.title">Визуальная карта PsyCalc LLM Wiki</h1>
-          <p class="lead" data-i18n="hero.lead">PsyCalc — исследовательская рамка, где Соционика, Психософия и Темпористика используются как эвристические языки гипотез о латентных процессах: информационных, операционных и временно-смысловых.</p>
+          <p class="eyebrow">Для себя · без ярлыков</p>
+          <h1>PsyCalc помогает читать человеческие паттерны</h1>
+          <p class="lead">Пройдите пилотный тест, получите предварительный профиль и посмотрите, какие различия могут влиять на общение, решения и совместимость.</p>
           <div class="actions">
-            <a class="button primary" href="#model" data-i18n="hero.cta">Смотреть схему</a>
-            <a class="button" href="https://github.com/psycalc/psycalc-wiki">LLM wiki repo</a>
+            <a class="button primary" href="tests.html">Пройти тест</a>
+            <a class="button" href="result-guide.html">Как читать результат</a>
           </div>
-          <p class="note" data-i18n="hero.note">Не утверждение доказанной науки и не детерминированный оракул совместимости: типы здесь — рабочие гипотезы, которые требуют проверки.</p>
+          <p class="note">PsyCalc не является диагностикой, научно доказанным предсказателем или гарантией совместимости. Результаты — рабочие гипотезы для самонаблюдения и разговора.</p>
         </div>
-        <div class="map-hero" aria-label="PsyCalc as a map with three transparent layers">
+        <div class="map-hero" aria-label="Two paths into PsyCalc">
           <div class="map-card">
-            <div class="map-person left">A</div>
-            <div class="map-person right">B</div>
-            <svg viewBox="0 0 620 420" role="img" aria-label="Route map with three overlays">
+            <div class="map-person left">Я</div>
+            <div class="map-person right">Мы</div>
+            <svg viewBox="0 0 620 420" role="img" aria-label="Map with three layers">
               <path class="map-river" d="M55 90 C155 150 150 260 260 285 C380 318 415 180 565 255" />
               <path class="map-route" d="M92 322 C165 250 240 260 305 210 C392 142 455 165 530 94" />
               <circle class="route-dot" cx="92" cy="322" r="10" />
               <circle class="route-dot" cx="530" cy="94" r="10" />
-              <g class="overlay-sheet time"><rect x="122" y="54" width="360" height="86" rx="22"/><text x="302" y="105">Time layer</text></g>
-              <g class="overlay-sheet action"><rect x="78" y="166" width="430" height="86" rx="22"/><text x="293" y="217">Action layer</text></g>
-              <g class="overlay-sheet info"><rect x="150" y="278" width="340" height="86" rx="22"/><text x="320" y="329">Information layer</text></g>
+              <g class="overlay-sheet time"><rect x="122" y="54" width="360" height="86" rx="22"/><text x="302" y="105">Смысл</text></g>
+              <g class="overlay-sheet action"><rect x="78" y="166" width="430" height="86" rx="22"/><text x="293" y="217">Действие</text></g>
+              <g class="overlay-sheet info"><rect x="150" y="278" width="340" height="86" rx="22"/><text x="320" y="329">Информация</text></g>
             </svg>
             <div class="map-caption">
-              <b data-i18n="map.caption.title">Карта, а не приговор</b>
-              <span data-i18n="map.caption.text">Три слоя помогают увидеть паттерны, трения и вопросы для проверки.</span>
+              <b>Карта, а не приговор</b>
+              <span>Сайт разделён на быстрый пользовательский путь и глубокий исследовательский слой.</span>
             </div>
           </div>
         </div>
@@ -99,167 +54,39 @@
     </header>
 
     <main>
-      <section class="section" id="model">
-        <p class="eyebrow" data-i18n="eyebrow.mapping">Ключевая карта</p>
-        <h2 data-i18n="model.title">Три уровня: стратегический, оперативный, тактический</h2>
-        <p class="muted intro" data-i18n="model.intro">PsyCalc группирует информацию не вокруг одного «типа», а вокруг трёх уровней: куда человек движется, как организует действие и как моделирует ситуацию.</p>
-        <div class="cards" id="levelCards"></div>
+      <section class="section" id="what">
+        <p class="eyebrow">Что вы получите</p>
+        <h2>Не “истинный тип”, а полезную гипотезу</h2>
+        <div class="cards">
+          <article class="card"><span class="chip" style="color:var(--green)">01</span><h3>Профиль</h3><p>Предварительное описание заметных паттернов: как вы видите направление, организуете действие и понимаете ситуацию.</p></article>
+          <article class="card"><span class="chip" style="color:var(--violet)">02</span><h3>Вопросы для проверки</h3><p>Не финальный ярлык, а список тем, которые можно сверить с реальным опытом, отношениями и работой.</p></article>
+          <article class="card"><span class="chip" style="color:var(--blue)">03</span><h3>Язык для разговора</h3><p>Более понятные слова для обсуждения ожиданий, трений, темпа, решений и стиля общения.</p></article>
+        </div>
       </section>
 
       <section class="section split">
         <div>
-          <p class="eyebrow" data-i18n="eyebrow.pipeline">Исследовательский конвейер</p>
-          <h2 data-i18n="pipeline.title">От наблюдений к проверке</h2>
-          <p class="muted" data-i18n="pipeline.text">PsyCalc отделяет наблюдаемое поведение от гипотез о скрытых процессах. Сайт показывает эту логику как исследовательский конвейер, а не как финальные ярлыки личности.</p>
+          <p class="eyebrow">Выберите путь</p>
+          <h2>Коротко для себя или глубоко для исследования</h2>
+          <p class="muted">Обычному пользователю не нужно начинать с методологии. Исследователю, наоборот, важны модель, ограничения, wiki-граф и статус валидации.</p>
         </div>
-        <div class="pipeline" id="pipeline"></div>
-      </section>
-
-      <section class="section level-zone strategic-zone" id="strategic">
-        <p class="eyebrow" data-i18n="eyebrow.mechanics">Механика процессов</p>
-        <h2 data-i18n="processes.strategic.title">Стратегический · Темпористика</h2>
-        <p class="muted intro" data-i18n="processes.strategic.text">Как опыт превращается в паттерн, а паттерн — в ожидание, сценарий или смысловую интерпретацию.</p>
-        <div class="process-cards single-process">
-          <article class="process-card temporal">
-            <div class="process-head"><span>01</span><h3 data-i18n="processes.strategic.title">Стратегический · Темпористика</h3></div>
-            <p class="level-tag" data-i18n="processes.strategic.tag">Индукция ↔ дедукция во времени и смысле</p>
-            <p data-i18n="processes.strategic.text">Как опыт превращается в паттерн, а паттерн — в ожидание, сценарий или смысловую интерпретацию.</p>
-            <svg id="temporalViz" viewBox="0 0 520 290" role="img" aria-label="Induction and deduction visualization"></svg>
-            <div class="micro"><b>Индукция:</b> наблюдения → рамка<br><b>Дедукция:</b> рамка → ожидание</div>
-          </article>
-        </div>
-        <p class="disclaimer" data-i18n="disclaimer">PsyCalc — исследовательский фреймворк и генератор гипотез, не диагностический инструмент и не валидированный оракул совместимости.</p>
-      </section>
-
-      <section class="section level-zone operational-zone" id="operational">
-        <p class="eyebrow" data-i18n="layers.eyebrow">Три шари</p>
-        <h2 data-i18n="processes.operational.title">Оперативный · Психософия</h2>
-        <p class="muted intro" data-i18n="processes.operational.text">Как задача раскладывается на части, а затем собирается в решение, координацию или действие.</p>
-        <div class="process-cards single-process">
-          <article class="process-card action">
-            <div class="process-head"><span>02</span><h3 data-i18n="processes.operational.title">Оперативный · Психософия</h3></div>
-            <p class="level-tag" data-i18n="processes.operational.tag">Анализ ↔ синтез в действии</p>
-            <p data-i18n="processes.operational.text">Как задача раскладывается на части, а затем собирается в решение, координацию или действие.</p>
-            <svg id="synthesisViz" viewBox="0 0 520 290" role="img" aria-label="Analysis and synthesis visualization"></svg>
-            <div class="micro"><b>Анализ:</b> разделить и уточнить<br><b>Синтез:</b> собрать и реализовать</div>
-          </article>
+        <div class="pipeline">
+          <article class="step"><b>Для себя</b><br>Пройти тест, понять результат простыми словами и увидеть следующие шаги.<div class="actions"><a class="button primary" href="tests.html">Начать</a><a class="button" href="compatibility.html">Про совместимость</a></div></article>
+          <article class="step"><b>Для исследователей</b><br>Открыть модель, гипотезы, caveats, методологию, wiki-граф и research roadmap.<div class="actions"><a class="button" href="research.html">Research hub</a><a class="button" href="limitations.html">Ограничения</a></div></article>
         </div>
       </section>
 
-      <section class="section split comparison-section" id="comparison">
-        <div>
-          <p class="eyebrow" data-i18n="compare.eyebrow">Сравнение двух людей</p>
-          <h2 data-i18n="compare.title">Силуэты остаются там, где они объясняют сравнение</h2>
-          <p class="muted" data-i18n="compare.text">PsyCalc смотрит не на одну метку, а на три слоя между двумя людьми: общий маршрут, организацию действия и обмен информацией.</p>
+      <section class="section">
+        <p class="eyebrow">Три слоя простыми словами</p>
+        <h2>На что смотрит PsyCalc</h2>
+        <div class="cards">
+          <article class="card"><h3>Время и смысл</h3><p>Как человек видит направление, прошлое, будущее и большое “зачем”.</p></article>
+          <article class="card"><h3>Действие</h3><p>Как человек принимает решения, распределяет усилие и организует практические шаги.</p></article>
+          <article class="card"><h3>Информация</h3><p>Как человек замечает сигналы, связывает факты и понимает контекст общения.</p></article>
         </div>
-        <div class="people-compare" aria-label="Two people compared through three layers">
-          <div class="compare-person">
-            <svg viewBox="0 0 180 360" focusable="false"><path d="M56 50c0-25 20-45 44-45s44 20 44 45-20 45-44 45-44-20-44-45Z"/><path d="M98 104c-44 0-80 35-80 78v54c0 16 13 29 29 29h14l-18 82c-3 14 8 27 22 27h70c14 0 25-13 22-27l-18-82h14c16 0 29-13 29-29v-54c0-43-36-78-80-78h-4Z"/></svg>
-            <div class="silhouette-model compare-model" data-model-side="left"></div>
-          </div>
-          <div class="compare-map">
-            <span data-i18n="compare.time">Time</span>
-            <span data-i18n="compare.action">Action</span>
-            <span data-i18n="compare.info">Information</span>
-            <strong data-i18n="compare.center">questions to test</strong>
-          </div>
-          <div class="compare-person">
-            <svg viewBox="0 0 180 360" focusable="false"><path d="M56 50c0-25 20-45 44-45s44 20 44 45-20 45-44 45-44-20-44-45Z"/><path d="M98 104c-44 0-80 35-80 78v54c0 16 13 29 29 29h14l-18 82c-3 14 8 27 22 27h70c14 0 25-13 22-27l-18-82h14c16 0 29-13 29-29v-54c0-43-36-78-80-78h-4Z"/></svg>
-            <div class="silhouette-model compare-model" data-model-side="right"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section relation-preview" id="relations-preview">
-        <p class="eyebrow" data-i18n="relations.eyebrow">Динамика отношений</p>
-        <h2 data-i18n="relations.title">Дуги отношений — не для первого экрана, а для исследования динамики</h2>
-        <p class="muted intro" data-i18n="relations.text">Когда базовая карта понятна, можно смотреть на конкретные relation patterns: поддержка, трение, перевод между стилями и зоны риска.</p>
-        <div class="relation-stage">
-          <div class="relation-person">A</div>
-          <svg viewBox="0 0 900 260" preserveAspectRatio="none" focusable="false">
-            <path id="previewArcPath" d="M95 190 C270 25 630 25 805 190" />
-            <text><textPath href="#previewArcPath" startOffset="50%" text-anchor="middle" data-relation-label>Agape</textPath></text>
-          </svg>
-          <div class="relation-person">B</div>
-        </div>
-      </section>
-
-      <section class="section level-zone operational-zone" id="layers">
-        <p class="eyebrow" data-i18n="layers.eyebrow">Три шари</p>
-        <h2 data-i18n="layers.title">Сумісність не зводиться до одного типу</h2>
-        <p class="muted intro" data-i18n="layers.intro">PsyCalc пропонує дивитися на сумісність у 3 шарах: стратегія, дія, інформація.</p>
-        <div class="layer-viz" id="layerViz">
-          <button class="layer-row active" data-layer="0">
-            <span class="layer-index">01</span>
-            <span><b data-i18n="layers.strategic.name">Стратегічний рівень</b><small data-i18n="layers.strategic.short">Темпористика · час, сенс, індукція ↔ дедукція</small></span>
-            <em data-i18n="layers.strategic.question">Як людина будує сенс і бачить рух у часі?</em>
-          </button>
-          <button class="layer-row" data-layer="1">
-            <span class="layer-index">02</span>
-            <span><b data-i18n="layers.operational.name">Оперативний рівень</b><small data-i18n="layers.operational.short">Психософія · дія, аналіз ↔ синтез</small></span>
-            <em data-i18n="layers.operational.question">Як людина організовує дію та рішення?</em>
-          </button>
-          <button class="layer-row" data-layer="2">
-            <span class="layer-index">03</span>
-            <span><b data-i18n="layers.tactical.name">Тактичний рівень</b><small data-i18n="layers.tactical.short">Соціоніка · інформація, моделювання</small></span>
-            <em data-i18n="layers.tactical.question">Як людина сприймає й обробляє інформацію?</em>
-          </button>
-          <article class="layer-explain">
-            <h3 data-layer-title>Стратегічний · Темпористика</h3>
-            <p data-layer-text>Цей рівень описує не “тип людини”, а гіпотезу про те, як вона вибудовує час, сенс і напрям.</p>
-            <p class="example" data-layer-example>Приклад: двоє можуть добре спілкуватися, але по-різному бачити темп життя, розвиток і майбутнє.</p>
-          </article>
-          <button class="button primary show-all" data-show-layers data-i18n="layers.showAll">Показати разом</button>
-          <p class="layer-summary" data-i18n="layers.summary">Сумісність — це не одна “мітка”, а поєднання трьох рівнів: як люди узгоджують сенс у часі, організовують дію та працюють з інформацією.</p>
-        </div>
-      </section>
-
-      <section class="section level-zone tactical-zone" id="tactical">
-        <p class="eyebrow" data-i18n="eyebrow.graph">Граф wiki</p>
-        <h2 data-i18n="processes.tactical.title">Тактический · Соционика</h2>
-        <p class="muted intro" data-i18n="processes.tactical.text">Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
-        <div class="process-cards single-process">
-          <article class="process-card information">
-            <div class="process-head"><span>03</span><h3 data-i18n="processes.tactical.title">Тактический · Соционика</h3></div>
-            <p class="level-tag" data-i18n="processes.tactical.tag">Моделирование информации</p>
-            <p data-i18n="processes.tactical.text">Как сигналы, факты и контекст связываются во внутреннюю модель ситуации: «что здесь происходит?»</p>
-            <svg id="modelingViz" viewBox="0 0 520 290" role="img" aria-label="Information modeling visualization"></svg>
-            <div class="micro"><b>Отбор:</b> что важно<br><b>Связи:</b> как элементы образуют структуру</div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section split reverse" id="graph">
-        <div class="panel graph-panel" id="graphPanel">
-          <div class="graph-toolbar">
-            <button data-zoom="in">+</button>
-            <button data-zoom="out">−</button>
-            <button data-zoom="reset" data-i18n="graph.reset">Сброс</button>
-            <button data-fullscreen data-i18n="graph.fullscreen">На весь экран</button>
-          </div>
-          <svg id="wikiGraph" viewBox="0 0 1200 820" role="img" aria-label="Full graph of wiki concepts"></svg>
-        </div>
-        <div>
-          <p class="eyebrow" data-i18n="eyebrow.graph">Граф wiki</p>
-          <h2 data-i18n="graph.title">Полный граф LLM Wiki</h2>
-          <p class="muted" data-i18n="graph.text">Граф показывает основные кластеры wiki: ядро теории, три системы, отношения, прикладные страницы, методологию и исследования. Можно масштабировать, перетаскивать и открыть на весь экран.</p>
-          <div class="filters">
-            <button data-filter="all" data-i18n="graph.all">Все</button>
-            <button data-filter="theory" data-i18n="graph.theory">Теория</button>
-            <button data-filter="systems" data-i18n="graph.systems">Системы</button>
-            <button data-filter="research" data-i18n="graph.research">Исследования</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="pages">
-        <p class="eyebrow" data-i18n="eyebrow.start">Начать здесь</p>
-        <h2 data-i18n="pages.title">Стартовые страницы LLM Wiki</h2>
-        <div class="pages" id="pageCards"></div>
       </section>
     </main>
 
-    <footer class="footer" data-i18n="footer">PsyCalc LLM Wiki · размещено на GitHub Pages · github.com/psycalc/psycalc.github.io</footer>
-    <script src="assets/site.js"></script>
+    <footer class="footer">PsyCalc · рабочие гипотезы, не диагнозы · <a href="research.html">Research</a> · <a href="wiki.html">Wiki</a></footer>
   </body>
 </html>
