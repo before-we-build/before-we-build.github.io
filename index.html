@@ -12,24 +12,25 @@
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="index.html"><span>Ψ</span>PsyCalc</a>
         <div class="nav-links">
-          <a href="#what">Что это</a>
-          <a href="tests.html">Пройти тест</a>
-          <a href="result-guide.html">Результат</a>
-          <a href="compatibility.html">Совместимость</a>
-          <a href="research.html">Для исследователей</a>
+          <a href="#what" data-i18n="nav.what">Что это</a>
+          <a href="tests.html" data-i18n="nav.test">Пройти тест</a>
+          <a href="result-guide.html" data-i18n="nav.result">Результат</a>
+          <a href="compatibility.html" data-i18n="nav.compat">Совместимость</a>
+          <a href="research.html" data-i18n="nav.research">Для исследователей</a>
+          <span class="lang-switch" role="group" aria-label="Language switcher"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="uk">UK</button></span>
         </div>
       </nav>
 
       <section class="hero-grid">
         <div>
-          <p class="eyebrow">Для себя · без ярлыков</p>
-          <h1>PsyCalc помогает читать человеческие паттерны</h1>
-          <p class="lead">Пройдите пилотный тест, получите предварительный профиль и посмотрите, какие различия могут влиять на общение, решения и совместимость.</p>
+          <p class="eyebrow" data-i18n="home.eyebrow">Для себя · без ярлыков</p>
+          <h1 data-i18n="home.title">PsyCalc помогает читать человеческие паттерны</h1>
+          <p class="lead" data-i18n="home.lead">Пройдите пилотный тест, получите предварительный профиль и посмотрите, какие различия могут влиять на общение, решения и совместимость.</p>
           <div class="actions">
-            <a class="button primary" href="tests.html">Пройти тест</a>
-            <a class="button" href="result-guide.html">Как читать результат</a>
+            <a class="button primary" href="tests.html" data-i18n="home.cta.test">Пройти тест</a>
+            <a class="button" href="result-guide.html" data-i18n="home.cta.result">Как читать результат</a>
           </div>
-          <p class="note">PsyCalc не является диагностикой, научно доказанным предсказателем или гарантией совместимости. Результаты — рабочие гипотезы для самонаблюдения и разговора.</p>
+          <p class="note" data-i18n="home.note">PsyCalc не является диагностикой, научно доказанным предсказателем или гарантией совместимости. Результаты — рабочие гипотезы для самонаблюдения и разговора.</p>
         </div>
         <div class="map-hero" aria-label="Two paths into PsyCalc">
           <div class="map-card">
@@ -45,8 +46,8 @@
               <g class="overlay-sheet info"><rect x="150" y="278" width="340" height="86" rx="22"/><text x="320" y="329">Информация</text></g>
             </svg>
             <div class="map-caption">
-              <b>Карта, а не приговор</b>
-              <span>Сайт разделён на быстрый пользовательский путь и глубокий исследовательский слой.</span>
+              <b data-i18n="home.map.title">Карта, а не приговор</b>
+              <span data-i18n="home.map.text">Сайт разделён на быстрый пользовательский путь и глубокий исследовательский слой.</span>
             </div>
           </div>
         </div>
@@ -55,38 +56,39 @@
 
     <main>
       <section class="section" id="what">
-        <p class="eyebrow">Что вы получите</p>
-        <h2>Не “истинный тип”, а полезную гипотезу</h2>
+        <p class="eyebrow" data-i18n="home.get">Что вы получите</p>
+        <h2 data-i18n="home.hyp">Не “истинный тип”, а полезную гипотезу</h2>
         <div class="cards">
-          <article class="card"><span class="chip" style="color:var(--green)">01</span><h3>Профиль</h3><p>Предварительное описание заметных паттернов: как вы видите направление, организуете действие и понимаете ситуацию.</p></article>
-          <article class="card"><span class="chip" style="color:var(--violet)">02</span><h3>Вопросы для проверки</h3><p>Не финальный ярлык, а список тем, которые можно сверить с реальным опытом, отношениями и работой.</p></article>
-          <article class="card"><span class="chip" style="color:var(--blue)">03</span><h3>Язык для разговора</h3><p>Более понятные слова для обсуждения ожиданий, трений, темпа, решений и стиля общения.</p></article>
+          <article class="card"><span class="chip" style="color:var(--green)">01</span><h3 data-i18n="home.profile">Профиль</h3><p data-i18n="home.profile.text">Предварительное описание заметных паттернов: как вы видите направление, организуете действие и понимаете ситуацию.</p></article>
+          <article class="card"><span class="chip" style="color:var(--violet)">02</span><h3 data-i18n="home.questions">Вопросы для проверки</h3><p data-i18n="home.questions.text">Не финальный ярлык, а список тем, которые можно сверить с реальным опытом, отношениями и работой.</p></article>
+          <article class="card"><span class="chip" style="color:var(--blue)">03</span><h3 data-i18n="home.lang">Язык для разговора</h3><p data-i18n="home.lang.text">Более понятные слова для обсуждения ожиданий, трений, темпа, решений и стиля общения.</p></article>
         </div>
       </section>
 
       <section class="section split">
         <div>
-          <p class="eyebrow">Выберите путь</p>
-          <h2>Коротко для себя или глубоко для исследования</h2>
-          <p class="muted">Обычному пользователю не нужно начинать с методологии. Исследователю, наоборот, важны модель, ограничения, wiki-граф и статус валидации.</p>
+          <p class="eyebrow" data-i18n="home.choose">Выберите путь</p>
+          <h2 data-i18n="home.choose.title">Коротко для себя или глубоко для исследования</h2>
+          <p class="muted" data-i18n="home.choose.text">Обычному пользователю не нужно начинать с методологии. Исследователю, наоборот, важны модель, ограничения, wiki-граф и статус валидации.</p>
         </div>
         <div class="pipeline">
-          <article class="step"><b>Для себя</b><br>Пройти тест, понять результат простыми словами и увидеть следующие шаги.<div class="actions"><a class="button primary" href="tests.html">Начать</a><a class="button" href="compatibility.html">Про совместимость</a></div></article>
-          <article class="step"><b>Для исследователей</b><br>Открыть модель, гипотезы, caveats, методологию, wiki-граф и research roadmap.<div class="actions"><a class="button" href="research.html">Research hub</a><a class="button" href="limitations.html">Ограничения</a></div></article>
+          <article class="step"><b data-i18n="home.self">Для себя</b><br><span data-i18n="home.self.text">Пройти тест, понять результат простыми словами и увидеть следующие шаги.</span><div class="actions"><a class="button primary" href="tests.html" data-i18n="cta.start">Начать</a><a class="button" href="compatibility.html" data-i18n="cta.compat">Про совместимость</a></div></article>
+          <article class="step"><b data-i18n="home.research">Для исследователей</b><br><span data-i18n="home.research.text">Открыть модель, гипотезы, caveats, методологию, wiki-граф и research roadmap.</span><div class="actions"><a class="button" href="research.html">Research hub</a><a class="button" href="limitations.html" data-i18n="cta.limits">Ограничения</a></div></article>
         </div>
       </section>
 
       <section class="section">
-        <p class="eyebrow">Три слоя простыми словами</p>
-        <h2>На что смотрит PsyCalc</h2>
+        <p class="eyebrow" data-i18n="home.layers">Три слоя простыми словами</p>
+        <h2 data-i18n="home.layers.title">На что смотрит PsyCalc</h2>
         <div class="cards">
-          <article class="card"><h3>Время и смысл</h3><p>Как человек видит направление, прошлое, будущее и большое “зачем”.</p></article>
-          <article class="card"><h3>Действие</h3><p>Как человек принимает решения, распределяет усилие и организует практические шаги.</p></article>
-          <article class="card"><h3>Информация</h3><p>Как человек замечает сигналы, связывает факты и понимает контекст общения.</p></article>
+          <article class="card"><h3 data-i18n="home.time">Время и смысл</h3><p data-i18n="home.time.text">Как человек видит направление, прошлое, будущее и большое “зачем”.</p></article>
+          <article class="card"><h3 data-i18n="home.action">Действие</h3><p data-i18n="home.action.text">Как человек принимает решения, распределяет усилие и организует практические шаги.</p></article>
+          <article class="card"><h3 data-i18n="home.info">Информация</h3><p data-i18n="home.info.text">Как человек замечает сигналы, связывает факты и понимает контекст общения.</p></article>
         </div>
       </section>
     </main>
 
     <footer class="footer">PsyCalc · рабочие гипотезы, не диагнозы · <a href="research.html">Research</a> · <a href="wiki.html">Wiki</a></footer>
+    <script src="assets/pages-i18n.js"></script>
   </body>
 </html>
