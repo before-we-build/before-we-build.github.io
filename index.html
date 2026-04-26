@@ -32,22 +32,44 @@
           </div>
           <p class="note" data-i18n="home.note">Библейская опора: 1 Кор. 13:4–7, Кол. 3:12–14, Мф. 7:24–25. PsyCalc не обещает брак и не определяет волю Божию; типологии — только вспомогательная карта различий.</p>
         </div>
-        <div class="map-hero" aria-label="Two paths into PsyCalc">
-          <div class="map-card">
-            <div class="map-person left">Я</div>
-            <div class="map-person right">Мы</div>
-            <svg viewBox="0 0 620 420" role="img" aria-label="Map with three layers">
-              <path class="map-river" d="M55 90 C155 150 150 260 260 285 C380 318 415 180 565 255" />
-              <path class="map-route" d="M92 322 C165 250 240 260 305 210 C392 142 455 165 530 94" />
-              <circle class="route-dot" cx="92" cy="322" r="10" />
-              <circle class="route-dot" cx="530" cy="94" r="10" />
-              <g class="overlay-sheet time"><rect x="122" y="54" width="360" height="86" rx="22"/><text x="302" y="105">Вера</text></g>
-              <g class="overlay-sheet action"><rect x="78" y="166" width="430" height="86" rx="22"/><text x="293" y="217">Община</text></g>
-              <g class="overlay-sheet info"><rect x="150" y="278" width="340" height="86" rx="22"/><text x="320" y="329">Различия</text></g>
+        <div class="map-hero sacred-hero" aria-label="Дом семьи на основании веры">
+          <div class="map-card sacred-card">
+            <svg class="sacred-svg" viewBox="0 0 620 420" role="img" aria-label="Вера как основание, семья как дом, община как поддержка, типологии как карта различий">
+              <defs>
+                <linearGradient id="warmLight" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#fff5c7"/>
+                  <stop offset="1" stop-color="#d6a956"/>
+                </linearGradient>
+              </defs>
+              <ellipse class="sacred-glow" cx="310" cy="142" rx="180" ry="112" />
+              <path class="sacred-foundation" d="M110 306 H510 L548 354 H72 Z" />
+              <path class="sacred-path" d="M286 310 C270 342 242 374 216 420 H404 C378 374 350 342 334 310 Z" />
+              <path class="sacred-support left" d="M110 306 L158 214 L188 214 L160 306 Z" />
+              <path class="sacred-support right" d="M510 306 L462 214 L432 214 L460 306 Z" />
+              <path class="sacred-house" d="M184 304 V180 L310 88 L436 180 V304 Z" />
+              <path class="sacred-roof" d="M158 188 L310 72 L462 188" />
+              <rect class="sacred-door" x="282" y="232" width="56" height="72" rx="18" />
+              <g class="cross-window" aria-hidden="true">
+                <rect x="296" y="132" width="28" height="86" rx="14" />
+                <rect x="268" y="160" width="84" height="28" rx="14" />
+              </g>
+              <g class="community-figures" aria-hidden="true">
+                <circle cx="136" cy="260" r="12"/><path d="M116 296 C120 274 152 274 156 296"/>
+                <circle cx="484" cy="260" r="12"/><path d="M464 296 C468 274 500 274 504 296"/>
+              </g>
+              <g class="typology-map" aria-hidden="true">
+                <path d="M92 330 L148 312 L198 334 L146 354 Z" />
+                <path d="M148 312 L146 354" />
+                <path d="M120 322 C138 332 160 334 182 330" />
+              </g>
+              <text class="sacred-label foundation-label" x="310" y="342" text-anchor="middle" data-i18n="home.visual.faith">Вера</text>
+              <text class="sacred-label family-label" x="310" y="58" text-anchor="middle" data-i18n="home.visual.family">Семья</text>
+              <text class="sacred-label community-label" x="92" y="226" text-anchor="middle" data-i18n="home.visual.community">Община</text>
+              <text class="sacred-label map-label" x="152" y="386" text-anchor="middle" data-i18n="home.visual.map">Карта различий</text>
             </svg>
-            <div class="map-caption">
-               <b data-i18n="home.map.title">Основание, не оракул</b>
-               <span data-i18n="home.map.text">Вера и характер первичны; совместимость и типологии помогают задавать вопросы.</span>
+            <div class="map-caption sacred-caption">
+              <b data-i18n="home.map.title">Основание, не оракул</b>
+              <span data-i18n="home.map.text">Вера и характер первичны; совместимость и типологии помогают задавать вопросы.</span>
             </div>
           </div>
         </div>

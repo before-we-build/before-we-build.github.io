@@ -86,7 +86,11 @@ Object.assign(PAGE_I18N.ru,{
   'home.action':'Характер и община',
   'home.action.text':'Семья требует зрелости, поддержки, совета и готовности к восстановлению после конфликтов. Библейская опора: Кол. 3:13–14.',
   'home.info':'Совместимость и различия',
-  'home.info.text':'Типологические модели — вторичные гипотезы для разговора, а не духовный приговор. Библейская опора: 1 Фес. 5:21.'
+  'home.info.text':'Типологические модели — вторичные гипотезы для разговора, а не духовный приговор. Библейская опора: 1 Фес. 5:21.',
+  'home.visual.faith':'Вера',
+  'home.visual.family':'Семья',
+  'home.visual.community':'Община',
+  'home.visual.map':'Карта различий'
 });
 Object.assign(PAGE_I18N.en,{
   'home.eyebrow':'Faith · family · compatibility',
@@ -115,7 +119,11 @@ Object.assign(PAGE_I18N.en,{
   'home.action':'Character and community',
   'home.action.text':'Family requires maturity, support, counsel, and readiness to repair after conflict. Biblical grounding: Col 3:13–14.',
   'home.info':'Compatibility and differences',
-  'home.info.text':'Typological models are secondary hypotheses for conversation, not spiritual verdicts. Biblical grounding: 1 Thess 5:21.'
+  'home.info.text':'Typological models are secondary hypotheses for conversation, not spiritual verdicts. Biblical grounding: 1 Thess 5:21.',
+  'home.visual.faith':'Faith',
+  'home.visual.family':'Family',
+  'home.visual.community':'Community',
+  'home.visual.map':'Map of differences'
 });
 Object.assign(PAGE_I18N.uk,{
   'home.eyebrow':'Віра · сімʼя · сумісність',
@@ -144,6 +152,10 @@ Object.assign(PAGE_I18N.uk,{
   'home.action':'Характер і спільнота',
   'home.action.text':'Сімʼя потребує зрілості, підтримки, поради і готовності до відновлення після конфліктів. Біблійна опора: Кол. 3:13–14.',
   'home.info':'Сумісність і відмінності',
-  'home.info.text':'Типологічні моделі — вторинні гіпотези для розмови, а не духовний вирок. Біблійна опора: 1 Сол. 5:21.'
+  'home.info.text':'Типологічні моделі — вторинні гіпотези для розмови, а не духовний вирок. Біблійна опора: 1 Сол. 5:21.',
+  'home.visual.faith':'Віра',
+  'home.visual.family':'Сімʼя',
+  'home.visual.community':'Спільнота',
+  'home.visual.map':'Карта відмінностей'
 });
 applyPageLanguage(localStorage.getItem('psycalc-lang')||'ru');
