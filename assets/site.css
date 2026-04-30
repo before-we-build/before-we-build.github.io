@@ -65,3 +65,9 @@ body:before{background:linear-gradient(90deg,rgba(47,93,115,.035) 1px,transparen
 @media(max-width:900px){.test-actions{background:rgba(250,248,243,.94);border-top-color:var(--color-border)}.nav-links a{background:var(--color-surface)}}
 .scripture-callout{margin:18px 0 18px;padding:18px 20px;border:1px solid rgba(200,169,106,.42);border-radius:24px;background:linear-gradient(135deg,var(--color-warm-soft),rgba(255,253,248,.92));box-shadow:0 16px 44px var(--color-shadow)}.scripture-callout blockquote{margin:0;color:var(--color-primary);font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.25rem,2.3vw,1.75rem);line-height:1.28;font-weight:700}.scripture-callout figcaption{margin-top:8px;color:var(--color-muted);font-weight:800}
 .audience-cards,.test-choice-cards{margin-top:24px}.audience-cards .chip{color:var(--color-primary);font-weight:900}.test-choice-cards small{display:block;margin-top:10px;color:var(--color-primary);font-weight:900}.research-details{max-width:920px;margin:22px 0 0;padding:16px 18px;border:1px solid var(--color-border);border-radius:22px;background:var(--color-surface-soft);box-shadow:0 12px 34px var(--color-shadow);color:var(--color-muted)}.research-details summary{cursor:pointer;color:var(--color-primary);font-weight:950}.research-details p{line-height:1.65;margin:12px 0 0}
+
+/* Softer navigation: menu links should feel like the language switch, not square cards */
+.nav-links a{border-color:transparent!important;background:transparent!important;box-shadow:none!important;color:var(--color-muted);border-radius:999px;padding:7px 10px;font-weight:900;transition:background .18s ease,color .18s ease}
+.nav-links a:hover,.nav-links a:focus-visible{background:var(--color-primary-soft)!important;color:var(--color-primary)}
+.lang-switch{box-shadow:0 8px 24px var(--color-shadow)}
+@media(max-width:900px){.nav-links a{background:transparent!important;box-shadow:none!important;padding:7px 10px}.nav div.nav-links{gap:4px 6px}}
