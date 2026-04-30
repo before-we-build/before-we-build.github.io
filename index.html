@@ -23,7 +23,7 @@
           <h1 data-i18n="home.title">Почему хорошие люди всё равно не понимают друг друга?</h1>
           <p class="lead" data-i18n="home.lead">Мы часто говорим мимо друг друга: ждём разного, по-разному реагируем, обижаемся и повторяем одни и те же сценарии. PsyCalc помогает сначала увидеть эти различия простыми словами — без ярлыков и сложной теории.</p>
           <div class="actions">
-            <a class="button primary" href="#journey" data-i18n="home.cta.start">Начать с обычных ситуаций</a>
+            <a class="button primary" href="#start" data-i18n="home.cta.start">Начать с обычных ситуаций</a>
             <a class="button" href="compatibility.html" data-i18n="home.cta.compat">Где нам легко, а где трудно?</a>
           </div>
           <p class="note" data-i18n="home.note">Здесь нет обещания “идеального совпадения”. Это не диагноз и не приговор, а спокойный способ заметить повторяющиеся трудности и начать честный разговор.</p>
@@ -45,6 +45,15 @@
     </header>
 
     <main>
+      <section class="section journey-app" data-journey-app aria-live="polite">
+        <noscript>
+          <div class="card">
+            <h2>Путь по шагам</h2>
+            <p>Включите JavaScript, чтобы пройти мягкий пошаговый маршрут. Без JavaScript можно пользоваться ссылками ниже.</p>
+          </div>
+        </noscript>
+      </section>
+
       <section class="section" id="journey">
         <p class="eyebrow" data-i18n="home.get">Путь без спешки</p>
         <h2 class="rotating-heading"><span data-i18n="home.hyp.prefix">Не “кто кому идеально подходит”, а спокойный путь от обычных трудностей — в</span> <span class="rotating-term" data-rotating-compat aria-live="polite">отношениях</span><span data-i18n="home.hyp.suffix">.</span></h2>
@@ -84,5 +93,6 @@
 
     <footer class="footer">PsyCalc · рабочие гипотезы, не диагнозы · <a href="research.html" data-i18n="nav.research">Для исследователей</a></footer>
     <script src="assets/pages-i18n.js"></script>
+    <script src="assets/app.js"></script>
   </body>
 </html>
