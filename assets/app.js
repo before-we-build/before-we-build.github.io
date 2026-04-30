@@ -46,6 +46,27 @@ function applyJourneyHomeCopy(lang=currentJourneyLang()){
   if(typeof applyPageLanguage==='function')applyPageLanguage(lang);
 }
 function routeId(){return (location.hash||'#start').replace(/^#/,'')||'start'}
+const JOURNEY_UI={
+  ru:{back:'Назад',choose:'Если хочется продолжить',hint:'Показываем следующий слой только по вашему интересу — без полного меню и давления.',test:'Перейти к тесту',compat:'Посмотреть зоны лёгкости и трудности',foundation:'Открыть страницу о фундаменте',christPage:'Открыть страницу о Христе',result:'Как читать результат'},
+  en:{back:'Back',choose:'If you want to continue',hint:'The next layer appears only if you are interested — no full menu and no pressure.',test:'Go to test',compat:'See ease and friction zones',foundation:'Open the foundation page',christPage:'Open the page about Christ',result:'How to read the result'},
+  uk:{back:'Назад',choose:'Якщо хочеться продовжити',hint:'Наступний шар з’являється тільки за вашим інтересом — без повного меню і без тиску.',test:'Перейти до тесту',compat:'Подивитися зони легкості й трудності',foundation:'Відкрити сторінку про фундамент',christPage:'Відкрити сторінку про Христа',result:'Як читати результат'}
+};
+function journeyChoices(step,index,steps,lang){
+  const ui=JOURNEY_UI[lang]||JOURNEY_UI.ru;
+  const byId=Object.fromEntries(steps.map(s=>[s.id,s]));
+  const next=steps[index+1];
+  const mkStep=id=>byId[id]?{href:`#${id}`,label:byId[id].cta,title:byId[id].title}:null;
+  const choices={
+    start:[mkStep('patterns'),{href:'tests.html',label:ui.test,title:byId.test.title}],
+    patterns:[mkStep('limits'),{href:'compatibility.html',label:ui.compat,title:lang==='en'?'Practical compatibility page':lang==='uk'?'Практична сторінка про сумісність':'Практическая страница о совместимости'}],
+    limits:[mkStep('person'),{href:'tests.html',label:ui.test,title:byId.test.title}],
+    person:[mkStep('source'),{href:'foundation.html',label:ui.foundation,title:lang==='en'?'Read as a separate page':lang==='uk'?'Прочитати окремою сторінкою':'Прочитать отдельной страницей'}],
+    source:[mkStep('christ'),{href:'foundation.html',label:ui.foundation,title:lang==='en'?'Stay with the foundation question':lang==='uk'?'Залишитися з питанням фундаменту':'Остаться с вопросом фундамента'}],
+    christ:[{href:'christ.html',label:ui.christPage,title:step.title},{href:'tests.html',label:ui.test,title:byId.test.title}],
+    test:[{href:'tests.html',label:ui.test,title:step.title},{href:'result-guide.html',label:ui.result,title:lang==='en'?'Use the result safely':lang==='uk'?'Безпечно читати результат':'Безопасно читать результат'}]
+  };
+  return (choices[step.id]||[next&&mkStep(next.id)]).filter(Boolean);
+}
 function renderJourney(){
   const root=document.querySelector('[data-journey-app]');
   if(!root)return;
@@ -55,8 +76,9 @@ function renderJourney(){
   const index=Math.max(0,steps.findIndex(step=>step.id===activeId));
   const step=steps[index];
   const prev=steps[index-1];
-  const next=steps[index+1];
   const progress=Math.round(((index+1)/steps.length)*100);
+  const ui=JOURNEY_UI[lang]||JOURNEY_UI.ru;
+  const choices=journeyChoices(step,index,steps,lang);
   root.innerHTML=`
     <div class="journey-shell" id="${step.id}" tabindex="-1">
       <div class="journey-topline">
@@ -71,12 +93,13 @@ function renderJourney(){
           <p class="lead">${step.body}</p>
           <ul class="journey-points">${step.points.map(point=>`<li>${point}</li>`).join('')}</ul>
           <div class="journey-actions">
-            ${prev?`<a class="button" href="#${prev.id}">${lang==='en'?'Back':lang==='uk'?'Назад':'Назад'}</a>`:'<span></span>'}
-            ${step.href?`<a class="button primary" href="${step.href}">${step.cta}</a>`:`<a class="button primary" href="#${next?.id||step.id}">${step.cta}</a>`}
+            ${prev?`<a class="button" href="#${prev.id}">${ui.back}</a>`:'<span></span>'}
           </div>
         </article>
-        <nav class="journey-rail" aria-label="Journey steps">
-          ${steps.map((item,i)=>`<a class="${i===index?'active':''}" href="#${item.id}"><span>${String(i+1).padStart(2,'0')}</span><b>${item.title}</b></a>`).join('')}
+        <nav class="journey-choices" aria-label="${ui.choose}">
+          <p class="eyebrow">${ui.choose}</p>
+          <p class="muted">${ui.hint}</p>
+          ${choices.map((item,i)=>`<a class="${i===0?'primary-choice':''}" href="${item.href}"><span>${String(i+1).padStart(2,'0')}</span><b>${item.label}</b><small>${item.title}</small></a>`).join('')}
         </nav>
       </div>
     </div>`;
