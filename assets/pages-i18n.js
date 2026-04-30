@@ -88,7 +88,7 @@ applyPageLanguage(localStorage.getItem('psycalc-lang')||'ru');
 Object.assign(PAGE_I18N.ru,{
   'home.eyebrow':'Вера · характер · совместимость',
   'home.title':'Строить отношения, дружбу и общее дело на прочном основании',
-  'home.lead':'Христианская совместимость шире романтики: она касается семьи, дружбы, команды, служения, бизнеса и стартапов. В центре — вера, характер, ответственность, честность и способность проходить различия без разрушения.',
+  'home.lead':'Мы смотрим на совместимость шире романтических отношений — как на взаимопонимание в семье, дружбе, команде, служении и совместных проектах.',
   'home.cta.test':'Исследовать совместимость',
   'home.scripture.quote':'«Все исследуйте, хорошего держитесь»',
   'home.scripture.ref':'1 Фессалоникийцам 5:21',
@@ -126,7 +126,7 @@ Object.assign(PAGE_I18N.ru,{
 Object.assign(PAGE_I18N.en,{
   'home.eyebrow':'Faith · character · compatibility',
   'home.title':'Build relationships, friendship, and shared work on a strong foundation',
-  'home.lead':'Christian compatibility is wider than romance: it touches family, friendship, teams, ministry, business, and startups. At the center are faith, character, responsibility, honesty, and the ability to move through differences without destruction.',
+  'home.lead':'We look at compatibility beyond romantic relationships — as mutual understanding in family, friendship, teams, ministry, and shared projects.',
   'home.cta.test':'Explore compatibility',
   'home.scripture.quote':'“Test everything; hold fast what is good.”',
   'home.scripture.ref':'1 Thessalonians 5:21',
@@ -164,7 +164,7 @@ Object.assign(PAGE_I18N.en,{
 Object.assign(PAGE_I18N.uk,{
   'home.eyebrow':'Віра · характер · сумісність',
   'home.title':'Будувати стосунки, дружбу й спільну справу на міцній основі',
-  'home.lead':'Християнська сумісність ширша за романтику: вона стосується сімʼї, дружби, команди, служіння, бізнесу і стартапів. У центрі — віра, характер, відповідальність, чесність і здатність проходити відмінності без руйнування.',
+  'home.lead':'Ми дивимося на сумісність ширше за романтичні стосунки — як на взаєморозуміння в сімʼї, дружбі, команді, служінні та спільних проєктах.',
   'home.cta.test':'Дослідити сумісність',
   'home.scripture.quote':'«Усе досліджуйте, тримайтеся доброго»',
   'home.scripture.ref':'1 Солунян 5:21',
