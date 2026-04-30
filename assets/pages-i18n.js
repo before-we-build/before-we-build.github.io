@@ -54,25 +54,45 @@ function applyPageLanguage(lang){
   localStorage.setItem('psycalc-lang',current);
   document.querySelectorAll('[data-i18n]').forEach(el=>{const value=dict[el.dataset.i18n];if(value)el.textContent=value});
   document.querySelectorAll('[data-lang]').forEach(btn=>{const active=btn.dataset.lang===current;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});
+  updateRotatingCompatibilityTerm(current,true);
 }
+
+let rotatingCompatIndex=0;
+const ROTATING_COMPAT_TERMS={
+  ru:['пара','дружба','команда','бизнес','стартап','служение'],
+  en:['match','friendship','team','business','startup','ministry'],
+  uk:['пара','дружба','команда','бізнес','стартап','служіння']
+};
+function updateRotatingCompatibilityTerm(lang,immediate=false){
+  const el=document.querySelector('[data-rotating-compat]');
+  if(!el)return;
+  const terms=ROTATING_COMPAT_TERMS[lang]||ROTATING_COMPAT_TERMS.ru;
+  const set=()=>{el.textContent=terms[rotatingCompatIndex%terms.length]};
+  if(immediate){set();return}
+  el.classList.add('is-switching');
+  window.setTimeout(()=>{set();el.classList.remove('is-switching')},180);
+}
+window.setInterval(()=>{rotatingCompatIndex+=1;updateRotatingCompatibilityTerm(localStorage.getItem('psycalc-lang')||'ru')},2200);
 
 document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>applyPageLanguage(btn.dataset.lang)));
 applyPageLanguage(localStorage.getItem('psycalc-lang')||'ru');
 
 Object.assign(PAGE_I18N.ru,{
-  'home.eyebrow':'Вера · семья · совместимость',
-  'home.title':'Строить семью на прочном основании',
-  'home.lead':'Крепкая семья строится не только на чувствах, но и на общих ценностях, верности, ответственности, умении прощать и поддерживающем сообществе. Христианская вера даёт этому глубокое основание.',
+  'home.eyebrow':'Вера · характер · совместимость',
+  'home.title':'Строить отношения, дружбу и общее дело на прочном основании',
+  'home.lead':'Христианская совместимость шире романтики: она касается семьи, дружбы, команды, служения, бизнеса и стартапов. В центре — вера, характер, ответственность, честность и способность проходить различия без разрушения.',
   'home.cta.test':'Исследовать совместимость',
   'home.scripture.quote':'«Все исследуйте, хорошего держитесь»',
   'home.scripture.ref':'1 Фессалоникийцам 5:21',
-  'home.note':'Библейская опора: 1 Кор. 13:4–7, Кол. 3:12–14, Мф. 7:24–25. PsyCalc не обещает брак и не определяет волю Божию; типологии — только вспомогательная карта различий.',
+  'home.note':'Библейская опора: 1 Кор. 13:4–7, Кол. 3:12–14, Мф. 7:24–25, Притч. 11:14. PsyCalc не определяет волю Божию и не гарантирует исход отношений, дружбы или общего дела; типологии — только вспомогательная карта различий.',
   'home.map.title':'Основание для разговора, не источник окончательных ответов',
   'home.map.text':'Вера и характер первичны; совместимость и типологии помогают задавать вопросы.',
   'home.get':'Что это',
-  'home.hyp':'Не “идеальная пара”, а более трезвый путь к семье',
-  'home.profile':'Основание семьи',
-  'home.profile.text':'Смотрим глубже притяжения: общая вера, ценности, верность, ответственность и прощение. Библейская опора: 1 Кор. 13:4–7; Кол. 3:12–14.',
+  'home.hyp':'Не “идеальная совместимость: пара”, а трезвый способ проверить реальность',
+  'home.hyp.prefix':'Не “идеальная совместимость:',
+  'home.hyp.suffix':'”, а трезвый способ проверить реальность',
+  'home.profile':'Основание доверия',
+  'home.profile.text':'Смотрим глубже симпатии и выгоды: общая вера, ценности, верность, ответственность, честность и прощение. Библейская опора: 1 Кор. 13:4–7; Кол. 3:12–14.',
   'home.questions':'Община и рассуждение',
   'home.questions.text':'Зрелые отношения не строятся в изоляции: нужен совет, поддержка и время. Библейская опора: Притч. 11:14; Евр. 10:24–25.',
   'home.lang':'Типология как инструмент',
@@ -91,24 +111,26 @@ Object.assign(PAGE_I18N.ru,{
   'home.info':'Совместимость и различия',
   'home.info.text':'Типологические модели — вторичные гипотезы для разговора, а не духовный приговор. Библейская опора: 1 Фес. 5:21.',
   'home.visual.faith':'Вера',
-  'home.visual.family':'Семья',
+  'home.visual.family':'Отношения',
   'home.visual.community':'Община',
   'home.visual.map':'Карта различий'
 });
 Object.assign(PAGE_I18N.en,{
-  'home.eyebrow':'Faith · family · compatibility',
-  'home.title':'Build family on a strong foundation',
-  'home.lead':'A strong family is built not only on feelings, but on shared values, fidelity, responsibility, forgiveness, and a supportive community. Christian faith gives this a deep foundation.',
+  'home.eyebrow':'Faith · character · compatibility',
+  'home.title':'Build relationships, friendship, and shared work on a strong foundation',
+  'home.lead':'Christian compatibility is wider than romance: it touches family, friendship, teams, ministry, business, and startups. At the center are faith, character, responsibility, honesty, and the ability to move through differences without destruction.',
   'home.cta.test':'Explore compatibility',
   'home.scripture.quote':'“Test everything; hold fast what is good.”',
   'home.scripture.ref':'1 Thessalonians 5:21',
-  'home.note':'Biblical grounding: 1 Cor 13:4–7, Col 3:12–14, Matt 7:24–25. PsyCalc does not promise marriage or determine God’s will; typologies are only a supporting map of differences.',
+  'home.note':'Biblical grounding: 1 Cor 13:4–7, Col 3:12–14, Matt 7:24–25, Prov 11:14. PsyCalc does not determine God’s will or guarantee outcomes in relationships, friendship, or shared work; typologies are only a supporting map of differences.',
   'home.map.title':'A foundation for discussion, not a source of final answers',
   'home.map.text':'Faith and character are primary; compatibility and typologies help ask better questions.',
   'home.get':'What it is',
-  'home.hyp':'Not an “ideal match”, but a more sober path toward family',
-  'home.profile':'Family foundation',
-  'home.profile.text':'Look deeper than attraction: shared faith, values, fidelity, responsibility, and forgiveness. Biblical grounding: 1 Cor 13:4–7; Col 3:12–14.',
+  'home.hyp':'Not “perfect compatibility: match”, but a sober way to test reality',
+  'home.hyp.prefix':'Not “perfect compatibility:',
+  'home.hyp.suffix':'”, but a sober way to test reality',
+  'home.profile':'Foundation of trust',
+  'home.profile.text':'Look deeper than attraction or benefit: shared faith, values, fidelity, responsibility, honesty, and forgiveness. Biblical grounding: 1 Cor 13:4–7; Col 3:12–14.',
   'home.questions':'Community and discernment',
   'home.questions.text':'Mature relationships are not built in isolation: counsel, support, and time matter. Biblical grounding: Prov 11:14; Heb 10:24–25.',
   'home.lang':'Typology as a tool',
@@ -127,24 +149,26 @@ Object.assign(PAGE_I18N.en,{
   'home.info':'Compatibility and differences',
   'home.info.text':'Typological models are secondary hypotheses for conversation, not spiritual verdicts. Biblical grounding: 1 Thess 5:21.',
   'home.visual.faith':'Faith',
-  'home.visual.family':'Family',
+  'home.visual.family':'Relations',
   'home.visual.community':'Community',
   'home.visual.map':'Map of differences'
 });
 Object.assign(PAGE_I18N.uk,{
-  'home.eyebrow':'Віра · сімʼя · сумісність',
-  'home.title':'Будувати сімʼю на міцній основі',
-  'home.lead':'Міцна сімʼя будується не лише на почуттях, а й на спільних цінностях, вірності, відповідальності, умінні прощати і підтримувальній спільноті. Християнська віра дає цьому глибоку основу.',
+  'home.eyebrow':'Віра · характер · сумісність',
+  'home.title':'Будувати стосунки, дружбу й спільну справу на міцній основі',
+  'home.lead':'Християнська сумісність ширша за романтику: вона стосується сімʼї, дружби, команди, служіння, бізнесу і стартапів. У центрі — віра, характер, відповідальність, чесність і здатність проходити відмінності без руйнування.',
   'home.cta.test':'Дослідити сумісність',
   'home.scripture.quote':'«Усе досліджуйте, тримайтеся доброго»',
   'home.scripture.ref':'1 Солунян 5:21',
-  'home.note':'Біблійна опора: 1 Кор. 13:4–7, Кол. 3:12–14, Мт. 7:24–25. PsyCalc не обіцяє шлюб і не визначає Божу волю; типології — лише допоміжна карта відмінностей.',
+  'home.note':'Біблійна опора: 1 Кор. 13:4–7, Кол. 3:12–14, Мт. 7:24–25, Прип. 11:14. PsyCalc не визначає Божу волю і не гарантує результат стосунків, дружби чи спільної справи; типології — лише допоміжна карта відмінностей.',
   'home.map.title':'Основа для розмови, не джерело остаточних відповідей',
   'home.map.text':'Віра і характер первинні; сумісність і типології допомагають ставити питання.',
   'home.get':'Що це',
-  'home.hyp':'Не “ідеальна пара”, а тверезіший шлях до сімʼї',
-  'home.profile':'Основа сімʼї',
-  'home.profile.text':'Дивимося глибше за потяг: спільна віра, цінності, вірність, відповідальність і прощення. Біблійна опора: 1 Кор. 13:4–7; Кол. 3:12–14.',
+  'home.hyp':'Не “ідеальна сумісність: пара”, а тверезий спосіб перевірити реальність',
+  'home.hyp.prefix':'Не “ідеальна сумісність:',
+  'home.hyp.suffix':'”, а тверезий спосіб перевірити реальність',
+  'home.profile':'Основа довіри',
+  'home.profile.text':'Дивимося глибше за потяг і вигоду: спільна віра, цінності, вірність, відповідальність, чесність і прощення. Біблійна опора: 1 Кор. 13:4–7; Кол. 3:12–14.',
   'home.questions':'Спільнота і розсудливість',
   'home.questions.text':'Зрілі стосунки не будуються в ізоляції: потрібні порада, підтримка і час. Біблійна опора: Прип. 11:14; Євр. 10:24–25.',
   'home.lang':'Типологія як інструмент',
@@ -163,7 +187,7 @@ Object.assign(PAGE_I18N.uk,{
   'home.info':'Сумісність і відмінності',
   'home.info.text':'Типологічні моделі — вторинні гіпотези для розмови, а не духовний вирок. Біблійна опора: 1 Сол. 5:21.',
   'home.visual.faith':'Віра',
-  'home.visual.family':'Сімʼя',
+  'home.visual.family':'Стосунки',
   'home.visual.community':'Спільнота',
   'home.visual.map':'Карта відмінностей'
 });
