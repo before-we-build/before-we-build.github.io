@@ -29,10 +29,27 @@
         <h1 data-i18n="tests.title">Тест PsyCalc</h1>
         <p class="lead" data-i18n="tests.intro">Тест опирается на три типологии: Темпористику, Психософию и Соционику. Они помогают посмотреть, как вы относитесь ко времени, действуете и общаетесь.</p>
         <p class="note" data-i18n="tests.note">Результат — не ярлык и не диагноз, а осторожная гипотеза, которую стоит сверять с реальным опытом.</p>
-        <div class="test-shell">
+        <div class="actions">
+          <a class="button primary" href="#testShell" data-i18n="tests.start">Начать простой тест</a>
+          <a class="button" href="#researchInfo" data-i18n="tests.researchJump">Для исследователей</a>
+        </div>
+        <div class="cards audience-cards">
+          <article class="card"><span class="chip" data-i18n="tests.people.badge">Для обычного пользователя</span><h3 data-i18n="tests.people.title">Понятный результат без теории</h3><p data-i18n="tests.people.text">Пройдите один блок или все три и получите описание привычных способов думать, действовать и общаться.</p></article>
+          <article class="card"><span class="chip" data-i18n="tests.research.badge">Для исследователей</span><h3 data-i18n="tests.research.title">Методология отдельно</h3><p data-i18n="tests.research.text">Статус пилота, ограничения, шкалы, качество ответов и экспорт данных вынесены ниже, чтобы не мешать прохождению.</p></article>
+        </div>
+        <div class="cards test-choice-cards" aria-label="Test areas">
+          <article class="card"><h3 data-i18n="tests.area.time">Время, смысл и направление</h3><p data-i18n="tests.area.time.text">Как вы переживаете прошлое, настоящее, будущее и большое “зачем”. <small>Темпористика</small></p></article>
+          <article class="card"><h3 data-i18n="tests.area.action">Решения и действия</h3><p data-i18n="tests.area.action.text">Как вы выбираете, объясняете, чувствуете и организуете практические вопросы. <small>Психософия</small></p></article>
+          <article class="card"><h3 data-i18n="tests.area.info">Информация и общение</h3><p data-i18n="tests.area.info.text">Как вы замечаете, сортируете и передаёте информацию в разговоре. <small>Соционика</small></p></article>
+        </div>
+        <div class="test-shell" id="testShell">
           <div class="test-tabs" id="testTabs" aria-label="Typology test selector"></div>
           <div class="test-panel" id="testPanel"></div>
         </div>
+        <details class="research-details" id="researchInfo">
+          <summary data-i18n="tests.research.summary">Технический раздел для исследователей</summary>
+          <p data-i18n="tests.research.details">Эти тесты пока пилотные: они не являются диагностикой, не дают гарантированного типа и не должны использоваться для важных решений. Экспорт ответов нужен только тем, кто хочет сохранить данные для повторного прохождения или анализа.</p>
+        </details>
       </section>
     </header>
     <footer class="footer">PsyCalc · <a href="result-guide.html" data-i18n="footer.resultGuide">как читать результат</a> · <a href="limitations.html" data-i18n="footer.limitations">ограничения</a> · <a href="research.html" data-i18n="footer.research">исследования</a></footer>
