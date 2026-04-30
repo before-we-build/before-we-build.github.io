@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>PsyCalc — совместимость на прочном основании</title>
-    <meta name="description" content="PsyCalc помогает смотреть на совместимость глубже: вера, ценности, характер, ответственность, община и осторожные инструменты для отношений, дружбы, команды и общего дела." />
+    <meta name="description" content="PsyCalc помогает смотреть на совместимость глубже: вера, ценности, характер, ответственность, церковь и осторожные инструменты для отношений, дружбы, команды и общего дела." />
     <link rel="stylesheet" href="assets/site.css" />
   </head>
   <body>
@@ -12,11 +12,11 @@
       <nav class="nav" aria-label="Main navigation">
         <a class="brand" href="index.html"><span>Ψ</span>PsyCalc</a>
         <div class="nav-links">
-          <a href="#what" data-i18n="nav.what">Что это</a>
-          <a href="tests.html" data-i18n="nav.test">Пройти тест</a>
-          <a href="result-guide.html" data-i18n="nav.result">Результат</a>
-          <a href="compatibility.html" data-i18n="nav.compat">Совместимость</a>
-          <a href="research.html" data-i18n="nav.research">Для исследователей</a>
+          <a href="tests.html" data-i18n="nav.personal">Личный путь</a>
+          <a href="compatibility.html" data-i18n="nav.relations">Отношения</a>
+          <a href="christians.html" data-i18n="nav.christian">Христианский взгляд</a>
+          <a href="teams.html" data-i18n="nav.teams">Команды</a>
+          <a href="research.html" data-i18n="nav.researchShort">Исследования</a>
           <span class="lang-switch" role="group" aria-label="Language switcher"><button type="button" data-lang="ru">RU</button><button type="button" data-lang="en">EN</button><button type="button" data-lang="uk">UK</button></span>
         </div>
       </nav>
@@ -38,7 +38,7 @@
         </div>
         <div class="map-hero sacred-hero" aria-label="Совместимость на основании веры и характера">
           <div class="map-card sacred-card">
-            <svg class="sacred-svg" viewBox="0 0 620 420" role="img" aria-label="Вера как основание, отношения как дом, община как поддержка, типологии как карта различий">
+            <svg class="sacred-svg" viewBox="0 0 620 420" role="img" aria-label="Вера как основание, отношения как дом, церковь как поддержка, типологии как карта различий">
               <defs>
                 <linearGradient id="warmLight" x1="0" y1="0" x2="1" y2="1">
                   <stop offset="0" stop-color="#fff5c7"/>
@@ -68,7 +68,7 @@
               </g>
               <text class="sacred-label foundation-label" x="310" y="342" text-anchor="middle" data-i18n="home.visual.faith">Вера</text>
               <text class="sacred-label family-label" x="310" y="58" text-anchor="middle" data-i18n="home.visual.family">Отношения</text>
-              <text class="sacred-label community-label" x="92" y="226" text-anchor="middle" data-i18n="home.visual.community">Община</text>
+              <text class="sacred-label community-label" x="92" y="226" text-anchor="middle" data-i18n="home.visual.community">Церковь</text>
               <text class="sacred-label map-label" x="152" y="386" text-anchor="middle" data-i18n="home.visual.map">Карта различий</text>
             </svg>
             <div class="map-caption sacred-caption">
@@ -87,20 +87,23 @@
         <div class="rotating-term-list" data-rotating-compat-list aria-hidden="true"></div>
         <div class="cards">
           <article class="card"><span class="chip" style="color:var(--green)">01</span><h3 data-i18n="home.profile">Основание доверия</h3><p data-i18n="home.profile.text">Смотрим глубже симпатии и выгоды: общая вера, ценности, верность, ответственность, честность и прощение. Библейская опора: 1 Кор. 13:4–7; Кол. 3:12–14.</p></article>
-          <article class="card"><span class="chip" style="color:var(--violet)">02</span><h3 data-i18n="home.questions">Община и рассуждение</h3><p data-i18n="home.questions.text">Зрелые отношения не строятся в изоляции: нужен совет, поддержка и время. Библейская опора: Притч. 11:14; Евр. 10:24–25.</p></article>
+          <article class="card"><span class="chip" style="color:var(--violet)">02</span><h3 data-i18n="home.questions">Христианское общение и рассуждение</h3><p data-i18n="home.questions.text">Зрелые отношения не строятся в одиночку: нужны время, мудрый совет и поддержка зрелых христиан. Библейская опора: Притч. 11:14; Евр. 10:24–25.</p></article>
           <article class="card"><span class="chip" style="color:var(--blue)">03</span><h3 data-i18n="home.lang">Типология как инструмент</h3><p data-i18n="home.lang.text">Типологии помогают обсуждать различия, но не измеряют духовную зрелость и не решают судьбу отношений. Библейская опора: Мф. 7:16–20; 1 Фес. 5:21.</p></article>
         </div>
       </section>
 
-      <section class="section split">
+      <section class="section" id="paths">
         <div>
           <p class="eyebrow" data-i18n="home.choose">Выберите путь</p>
-          <h2 data-i18n="home.choose.title">Для семьи, общины или исследования</h2>
-          <p class="muted" data-i18n="home.choose.text">Обычный пользователь получает язык для честного разговора. Исследователь видит гипотезы, ограничения и статус проверки. Церковная аудитория получает ясные caveats: сервис не заменяет молитву, пастырский совет и личную ответственность.</p>
+          <h2 data-i18n="home.choose.title">Пять контекстов, чтобы не смешивать аудитории</h2>
+          <p class="muted intro" data-i18n="home.choose.text">Выберите вход под вашу задачу: личное самопонимание, отношения, христианские границы, командная работа или исследовательская модель.</p>
         </div>
-        <div class="pipeline">
-          <article class="step"><b data-i18n="home.self">Для серьёзных отношений</b><br><span data-i18n="home.self.text">Понять, какие вопросы о вере, ценностях, ответственности и различиях стоит обсудить до серьёзных решений.</span><div class="actions"><a class="button primary" href="tests.html" data-i18n="cta.start">Начать</a><a class="button" href="compatibility.html" data-i18n="cta.compat">Про совместимость</a></div></article>
-          <article class="step"><b data-i18n="home.research">Если хочется глубже</b><br><span data-i18n="home.research.text">Исследовательский раздел с моделью, ограничениями, источниками и wiki живёт отдельно, чтобы не перегружать обычный путь.</span><div class="actions"><a class="button" href="research.html" data-i18n="nav.research">Для исследователей</a></div></article>
+        <div class="cards path-cards">
+          <article class="card"><span class="chip">01</span><h3 data-i18n="path.personal.title">Личный путь</h3><p data-i18n="path.personal.text">Тест, самопонимание и результат простыми словами.</p><a class="button primary" href="tests.html" data-i18n="path.personal.cta">Начать тест</a></article>
+          <article class="card"><span class="chip">02</span><h3 data-i18n="path.relations.title">Отношения</h3><p data-i18n="path.relations.text">Семья, дружба и совместимость без ярлыков и приговоров.</p><a class="button" href="compatibility.html" data-i18n="path.relations.cta">Про отношения</a></article>
+          <article class="card"><span class="chip">03</span><h3 data-i18n="path.christian.title">Христианский взгляд</h3><p data-i18n="path.christian.text">Границы, молитва, мудрый совет, церковь и личная ответственность.</p><a class="button" href="christians.html" data-i18n="path.christian.cta">О границах</a></article>
+          <article class="card"><span class="chip">04</span><h3 data-i18n="path.teams.title">Команды и проекты</h3><p data-i18n="path.teams.text">Работа, стартапы, сотрудничество и зоны координации.</p><a class="button" href="teams.html" data-i18n="path.teams.cta">Для команд</a></article>
+          <article class="card"><span class="chip">05</span><h3 data-i18n="path.research.title">Исследования</h3><p data-i18n="path.research.text">Модель, методология, ограничения и wiki.</p><a class="button" href="research.html" data-i18n="path.research.cta">Открыть research</a></article>
         </div>
       </section>
 
@@ -109,7 +112,7 @@
         <h2 data-i18n="home.layers.title">Что первично, а что вторично</h2>
         <div class="cards">
           <article class="card"><h3 data-i18n="home.time">Вера и ценности</h3><p data-i18n="home.time.text">Главное основание: любовь, верность, ответственность, прощение и общее направление жизни. Библейская опора: Мф. 7:24–25.</p></article>
-          <article class="card"><h3 data-i18n="home.action">Характер и община</h3><p data-i18n="home.action.text">Семья требует зрелости, поддержки, совета и готовности к восстановлению после конфликтов. Библейская опора: Кол. 3:13–14.</p></article>
+          <article class="card"><h3 data-i18n="home.action">Характер и церковь</h3><p data-i18n="home.action.text">Отношения требуют зрелости, поддержки, мудрого совета и готовности к восстановлению после конфликтов. Библейская опора: Кол. 3:13–14.</p></article>
           <article class="card"><h3 data-i18n="home.info">Совместимость и различия</h3><p data-i18n="home.info.text">Типологические модели — вторичные гипотезы для разговора, а не духовный приговор. Библейская опора: 1 Фес. 5:21.</p></article>
         </div>
       </section>
