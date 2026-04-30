@@ -89,13 +89,14 @@ function renderTests(){
   if(!tabs||!panel)return;
   const isResearch=document.body.dataset.testAudience==='research';
   const consentAccepted=window.psycalcConsentAccepted===true;
-  tabs.innerHTML=Object.keys(TESTS).map(k=>`<button class="${k===activeTest?'active':''}" data-test-key="${k}">${TESTS[k].labels[currentLang][0]}</button>`).join('');
   const consentCard=`<div class="research-card"><b>${d.pilot}</b><p>${d.instruction}</p><label class="consent"><input id="consent" type="checkbox" ${consentAccepted?'checked':''}> ${d.consent}</label></div>`;
   if(!consentAccepted){
     shownAt={};changed={};
+    tabs.innerHTML='';
     panel.innerHTML=`${consentCard}<div class="test-result"><p class="test-caveat">${d.consent}</p></div>`;
   }else{
     const items=shuffle(test.items,deviceId+activeTest);shownAt={};changed={};
+    tabs.innerHTML=Object.keys(TESTS).map(k=>`<button class="${k===activeTest?'active':''}" data-test-key="${k}">${TESTS[k].labels[currentLang][0]}</button>`).join('');
     const metadata=isResearch?`<div class="metadata-grid"><label>${d.age}<select id="ageBand"><option value="">${d.none}</option><option>under-18</option><option>18-24</option><option>25-34</option><option>35-44</option><option>45-54</option><option>55+</option></select></label><label>${d.exposure}<select id="exposure"><option value="">${d.none}</option><option>none</option><option>beginner</option><option>intermediate</option><option>advanced</option></select></label><label>${d.selftype}<input id="selfType" placeholder="SLI / ЭЛВФ / ..."></label><label>${d.token}<input id="retestToken" type="password" autocomplete="off"></label></div>`:'';
     const caveat=isResearch?`<p>${test.mode==='socionics'?d.caveatSoc:d.caveatPosition}</p>`:'';
     const clearButton=isResearch?`<button data-clear>${d.clear}</button>`:'';
