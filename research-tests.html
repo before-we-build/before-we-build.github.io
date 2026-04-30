@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PsyCalc Research Tests</title>
+    <meta name="description" content="Исследовательская версия пилотных тестов PsyCalc: статус инструмента, ограничения, качество ответов и экспорт данных." />
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body data-test-audience="research">
+    <header class="hero tests-hero" id="top">
+      <nav class="nav" aria-label="Research navigation">
+        <a class="brand" href="research.html"><span>Ψ</span>PsyCalc Research</a>
+        <div class="nav-links">
+          <a href="index.html" data-i18n="nav.self">Для людей</a>
+          <a href="tests.html" data-i18n="nav.tests">Простой тест</a>
+          <a href="research.html" data-i18n="nav.research">Для исследователей</a>
+          <a href="methodology.html" data-i18n="nav.method">Методология</a>
+          <a href="limitations.html" data-i18n="nav.limits">Ограничения</a>
+          <span class="lang-switch" role="group" aria-label="Language switcher">
+            <button type="button" data-lang="ru">RU</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="uk">UK</button>
+          </span>
+        </div>
+      </nav>
+      <section class="section tests-page" id="tests">
+        <p class="eyebrow" data-i18n="researchTests.eyebrow">Исследовательская версия</p>
+        <h1 data-i18n="researchTests.title">Пилотные тесты PsyCalc</h1>
+        <p class="lead" data-i18n="researchTests.intro">Эта страница оставляет технический контекст видимым: статус пилота, ограничения, качество ответов, локальное хранение и экспорт JSON.</p>
+        <p class="note" data-i18n="researchTests.note">Инструмент не валидирован и не предназначен для диагностики, отбора, лечения, военных, образовательных или семейных решений.</p>
+        <div class="actions">
+          <a class="button primary" href="#testShell" data-i18n="researchTests.start">Открыть исследовательский тест</a>
+          <a class="button" href="tests.html" data-i18n="researchTests.peopleLink">Простая версия</a>
+        </div>
+        <div class="cards audience-cards">
+          <article class="card"><span class="chip" data-i18n="researchTests.status.badge">Статус</span><h3 data-i18n="researchTests.status.title">Пилот, не диагностика</h3><p data-i18n="researchTests.status.text">Результаты являются гипотезами по самоотчёту и требуют интервью, ретеста, альтернативных моделей и outcome-проверки.</p></article>
+          <article class="card"><span class="chip" data-i18n="researchTests.data.badge">Данные</span><h3 data-i18n="researchTests.data.title">Локальная обработка</h3><p data-i18n="researchTests.data.text">Ответы считаются в браузере. JSON создаётся только если пользователь сам нажимает экспорт.</p></article>
+        </div>
+        <div class="cards test-choice-cards" aria-label="Research test notes">
+          <article class="card"><h3 data-i18n="tests.area.time">Время, смысл и направление</h3><p data-i18n="tests.area.time.text">Как вы переживаете прошлое, настоящее, будущее и большое “зачем”. Темпористика.</p></article>
+          <article class="card"><h3 data-i18n="tests.area.action">Решения и действия</h3><p data-i18n="tests.area.action.text">Как вы выбираете, объясняете, чувствуете и организуете практические вопросы. Психософия.</p></article>
+          <article class="card"><h3 data-i18n="tests.area.info">Информация и общение</h3><p data-i18n="tests.area.info.text">Как вы замечаете, сортируете и передаёте информацию в разговоре. Соционика.</p></article>
+        </div>
+        <div class="test-shell" id="testShell">
+          <div class="test-tabs" id="testTabs" aria-label="Research typology test selector"></div>
+          <div class="test-panel" id="testPanel"></div>
+        </div>
+      </section>
+    </header>
+    <footer class="footer">PsyCalc · <a href="tests.html" data-i18n="researchTests.peopleLink">простая версия</a> · <a href="limitations.html" data-i18n="footer.limitations">ограничения</a> · <a href="research.html" data-i18n="footer.research">исследования</a></footer>
+    <script src="assets/tests.js"></script>
+  </body>
+</html>
