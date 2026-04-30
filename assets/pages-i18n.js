@@ -59,9 +59,9 @@ function applyPageLanguage(lang){
 
 let rotatingCompatIndex=0;
 const ROTATING_COMPAT_TERMS={
-  ru:['пара','дружба','команда','бизнес','стартап','служение'],
-  en:['match','friendship','team','business','startup','ministry'],
-  uk:['пара','дружба','команда','бізнес','стартап','служіння']
+  ru:['отношениях','дружбе','команде','деле','служении'],
+  en:['relationships','friendship','teams','shared work','ministry'],
+  uk:['стосунках','дружбі','команді','справі','служінні']
 };
 function updateRotatingCompatibilityTerm(lang,immediate=false){
   const el=document.querySelector('[data-rotating-compat]');
@@ -96,9 +96,9 @@ Object.assign(PAGE_I18N.ru,{
   'home.map.title':'Основание для разговора, не источник окончательных ответов',
   'home.map.text':'Вера и характер первичны; совместимость и типологии помогают задавать вопросы.',
   'home.get':'Что это',
-  'home.hyp':'Не “идеальная совместимость: пара”, а трезвый способ проверить реальность',
-  'home.hyp.prefix':'Не “идеальная совместимость:',
-  'home.hyp.suffix':'”, а трезвый способ проверить реальность',
+  'home.hyp':'Не “идеальная совместимость”, а трезвый инструмент для рассуждения — в отношениях.',
+  'home.hyp.prefix':'Не “идеальная совместимость”, а трезвый инструмент для рассуждения — в',
+  'home.hyp.suffix':'.',
   'home.profile':'Основание доверия',
   'home.profile.text':'Смотрим глубже симпатии и выгоды: общая вера, ценности, верность, ответственность, честность и прощение. Библейская опора: 1 Кор. 13:4–7; Кол. 3:12–14.',
   'home.questions':'Община и рассуждение',
@@ -134,9 +134,9 @@ Object.assign(PAGE_I18N.en,{
   'home.map.title':'A foundation for discussion, not a source of final answers',
   'home.map.text':'Faith and character are primary; compatibility and typologies help ask better questions.',
   'home.get':'What it is',
-  'home.hyp':'Not “perfect compatibility: match”, but a sober way to test reality',
-  'home.hyp.prefix':'Not “perfect compatibility:',
-  'home.hyp.suffix':'”, but a sober way to test reality',
+  'home.hyp':'Not “perfect compatibility,” but a sober tool for discernment in relationships.',
+  'home.hyp.prefix':'Not “perfect compatibility,” but a sober tool for discernment in',
+  'home.hyp.suffix':'.',
   'home.profile':'Foundation of trust',
   'home.profile.text':'Look deeper than attraction or benefit: shared faith, values, fidelity, responsibility, honesty, and forgiveness. Biblical grounding: 1 Cor 13:4–7; Col 3:12–14.',
   'home.questions':'Community and discernment',
@@ -172,9 +172,9 @@ Object.assign(PAGE_I18N.uk,{
   'home.map.title':'Основа для розмови, не джерело остаточних відповідей',
   'home.map.text':'Віра і характер первинні; сумісність і типології допомагають ставити питання.',
   'home.get':'Що це',
-  'home.hyp':'Не “ідеальна сумісність: пара”, а тверезий спосіб перевірити реальність',
-  'home.hyp.prefix':'Не “ідеальна сумісність:',
-  'home.hyp.suffix':'”, а тверезий спосіб перевірити реальність',
+  'home.hyp':'Не “ідеальна сумісність”, а тверезий інструмент для розсудливості — у стосунках.',
+  'home.hyp.prefix':'Не “ідеальна сумісність”, а тверезий інструмент для розсудливості — у',
+  'home.hyp.suffix':'.',
   'home.profile':'Основа довіри',
   'home.profile.text':'Дивимося глибше за потяг і вигоду: спільна віра, цінності, вірність, відповідальність, чесність і прощення. Біблійна опора: 1 Кор. 13:4–7; Кол. 3:12–14.',
   'home.questions':'Спільнота і розсудливість',
