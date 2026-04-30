@@ -65,12 +65,20 @@ const ROTATING_COMPAT_TERMS={
 };
 function updateRotatingCompatibilityTerm(lang,immediate=false){
   const el=document.querySelector('[data-rotating-compat]');
+  const list=document.querySelector('[data-rotating-compat-list]');
   if(!el)return;
   const terms=ROTATING_COMPAT_TERMS[lang]||ROTATING_COMPAT_TERMS.ru;
-  const set=()=>{el.textContent=terms[rotatingCompatIndex%terms.length]};
+  const index=rotatingCompatIndex%terms.length;
+  const set=()=>{
+    el.textContent=terms[index];
+    if(list)list.innerHTML=terms.map((term,i)=>`<span class="${i===index?'active':''}">${term}</span>`).join('');
+  };
   if(immediate){set();return}
+  el.classList.remove('is-switching');
+  void el.offsetWidth;
   el.classList.add('is-switching');
-  window.setTimeout(()=>{set();el.classList.remove('is-switching')},180);
+  window.setTimeout(set,170);
+  window.setTimeout(()=>el.classList.remove('is-switching'),420);
 }
 window.setInterval(()=>{rotatingCompatIndex+=1;updateRotatingCompatibilityTerm(localStorage.getItem('psycalc-lang')||'ru')},2200);
 
