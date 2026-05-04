@@ -129,7 +129,7 @@ function renderTests(){
   const tabs=document.querySelector('#testTabs'),panel=document.querySelector('#testPanel');
   if(!tabs||!panel)return;
   const dict=I18N[currentLang]||I18N.ru;
-  tabs.innerHTML=Object.entries(TESTS).map(([key,test])=>`<button type="button" class="${key===activeTest?'active':''}" aria-pressed="${key===activeTest}" data-test-key="${key}" style="--test-color:${test.color}">${test.labels[currentLang]?.[0]||test.labels.ru[0]}</button>`).join('');
+  tabs.innerHTML=Object.entries(TESTS).map(([key,test])=>`<button type="button" class="${key===activeTest?'active':''}" aria-pressed="${key===activeTest}" data-test-key="${key}">${test.labels[currentLang]?.[0]||test.labels.ru[0]}</button>`).join('');
   const test=TESTS[activeTest];
   const label=test.labels[currentLang]||test.labels.ru;
   const items=test.items[currentLang]||test.items.ru;
