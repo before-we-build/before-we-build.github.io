@@ -28,6 +28,10 @@ const PAGE_I18N={
   }
 };
 
+Object.assign(PAGE_I18N.ru,{'brand.main':'Прежде чем строить','brand.research':'Прежде чем строить · Исследования','brand.wiki':'Прежде чем строить · База знаний'});
+Object.assign(PAGE_I18N.en,{'brand.main':'Before We Build','brand.research':'Before We Build · Research','brand.wiki':'Before We Build · Wiki'});
+Object.assign(PAGE_I18N.uk,{'brand.main':'Перш ніж будувати','brand.research':'Перш ніж будувати · Дослідження','brand.wiki':'Перш ніж будувати · База знань'});
+
 Object.assign(PAGE_I18N.ru,{
   'nav.personal':'Личный путь','nav.relations':'Отношения','nav.christian':'Христианский взгляд','nav.teams':'Команды','nav.researchShort':'Исследования',
   'cta.start':'Начать','cta.compat':'Про совместимость','cta.limits':'Ограничения','cta.graph':'Открыть интерактивный граф','cta.repo':'Открыть репозиторий базы знаний',
