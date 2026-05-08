@@ -61,9 +61,9 @@ function applyPageLanguage(lang){
 
 let rotatingBuildIndex=0;
 const ROTATING_BUILD_TERMS={
-  ru:['вместе','отношения','семью','служение','общее дело'],
-  en:['together','a relationship','a family','a ministry','shared work'],
-  uk:['разом','стосунки','сімʼю','служіння','спільну справу']
+  ru:['отношения','семью','дружбу','команду','бизнес','служение','общее дело'],
+  en:['relationships','a family','friendship','a team','a business','ministry','shared work'],
+  uk:['стосунки','сімʼю','дружбу','команду','бізнес','служіння','спільну справу']
 };
 function updateRotatingBuildTerm(lang,immediate=false){
   const el=document.querySelector('[data-rotating-build]');
