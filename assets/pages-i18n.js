@@ -49,7 +49,7 @@ Object.assign(PAGE_I18N.uk,{
 });
 
 function applyPageLanguage(lang){
-  const current=PAGE_I18N[lang]?lang:'ru';
+  const current=PAGE_I18N[lang]?lang:'uk';
   const dict=PAGE_I18N[current];
   document.documentElement.lang=current;
   localStorage.setItem('before-we-build-lang',current);
@@ -68,7 +68,7 @@ const ROTATING_BUILD_TERMS={
 function updateRotatingBuildTerm(lang,immediate=false){
   const el=document.querySelector('[data-rotating-build]');
   if(!el)return;
-  const terms=ROTATING_BUILD_TERMS[lang]||ROTATING_BUILD_TERMS.ru;
+  const terms=ROTATING_BUILD_TERMS[lang]||ROTATING_BUILD_TERMS.uk;
   const index=rotatingBuildIndex%terms.length;
   const set=()=>{el.textContent=terms[index]};
   if(immediate){set();return}
@@ -89,7 +89,7 @@ function updateRotatingCompatibilityTerm(lang,immediate=false){
   const el=document.querySelector('[data-rotating-compat]');
   const list=document.querySelector('[data-rotating-compat-list]');
   if(!el)return;
-  const terms=ROTATING_COMPAT_TERMS[lang]||ROTATING_COMPAT_TERMS.ru;
+  const terms=ROTATING_COMPAT_TERMS[lang]||ROTATING_COMPAT_TERMS.uk;
   const index=rotatingCompatIndex%terms.length;
   const set=()=>{
     el.textContent=terms[index];
@@ -102,8 +102,8 @@ function updateRotatingCompatibilityTerm(lang,immediate=false){
   window.setTimeout(set,170);
   window.setTimeout(()=>el.classList.remove('is-switching'),420);
 }
-window.setInterval(()=>{rotatingCompatIndex+=1;updateRotatingCompatibilityTerm(localStorage.getItem('before-we-build-lang')||'ru')},2200);
-window.setInterval(()=>{rotatingBuildIndex+=1;updateRotatingBuildTerm(localStorage.getItem('before-we-build-lang')||'ru')},2400);
+window.setInterval(()=>{rotatingCompatIndex+=1;updateRotatingCompatibilityTerm(localStorage.getItem('before-we-build-lang')||'uk')},2200);
+window.setInterval(()=>{rotatingBuildIndex+=1;updateRotatingBuildTerm(localStorage.getItem('before-we-build-lang')||'uk')},2400);
 
 document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>applyPageLanguage(btn.dataset.lang)));
 Object.assign(PAGE_I18N.ru,{
@@ -157,7 +157,7 @@ Object.assign(PAGE_I18N.en,{
 Object.assign(PAGE_I18N.uk,{
   'home.eyebrow':'Сімʼя · дружба · команда · стосунки','home.title':'Чому хороші люди все одно не розуміють одне одного?','home.lead':'Ми часто говоримо повз одне одного: очікуємо різного, по-різному реагуємо, ображаємося і повторюємо ті самі сценарії. Before We Build спершу допомагає побачити ці відмінності простими словами — без ярликів і складної теорії.','home.cta.start':'Почати зі звичайних ситуацій','home.cta.compat':'Де нам легко, а де важко?','home.note':'Тут немає обіцянки “ідеального збігу”. Це не діагноз і не вирок, а спокійний спосіб помітити повторювані труднощі й почати чесну розмову.','home.hero.family':'Вдома','home.hero.family.text':'“Я стараюся, а мене ніби не чують.”','home.hero.friend':'У дружбі','home.hero.friend.text':'“Чому ми віддаляємося, хоча не хочемо сваритися?”','home.hero.team':'У команді','home.hero.team.text':'“Хороші люди, але працювати разом важко.”','home.map.title':'Спершу — звичайні ситуації','home.map.text':'Потім — карта відмінностей, межі цієї карти і глибше питання про те, що тримає людей разом.','home.get':'Шлях без поспіху','home.hyp.prefix':'Не “хто кому ідеально підходить”, а спокійний шлях від звичайних труднощів — у','home.profile':'Різні люди — не погані люди','home.profile.text':'Ми по-різному думаємо, відчуваємо, сперечаємося, обираємо і будуємо довіру. Це можна досліджувати без ярликів.','home.questions':'Розуміння допомагає, але не тримає все саме по собі','home.questions.text':'Навіть коли ми знаємо свої схеми, нам усе ще важко бути чесними, терплячими, вірними й люблячими.','home.lang':'Людина більша за будь-яку схему','home.lang.text':'Жодна карта не пояснить повністю совість, гідність, любов, образу, надію і здатність починати заново.','home.choose':'Сходи сенсу','home.choose.title':'Не меню, а послідовний шлях','home.choose.text':'Можна йти крок за кроком: від звичайних ситуацій нерозуміння — до карти відмінностей, меж цієї карти, питання про людину і лише потім до глибшої розмови про джерело любові, правди й гідності.','path.relations.title':'Де нам легко, а де важко?','path.relations.text':'Подивитися на повторювані відмінності в розмовах, рішеннях, очікуваннях і реакції на тиск.','path.relations.cta':'Почати з ситуацій','path.foundation.title':'Чому розуміння недостатньо','path.foundation.text':'Що тримає сімʼю, дружбу й команду, коли почуття змінюються і люди втомлюються?','path.foundation.cta':'Подивитися глибше','path.christ.title':'Людина більша за профіль','path.christ.text':'Далі починається питання про совість, гідність, любов, правду і внутрішню опору.','path.christ.cta':'Продовжити глибше','path.personal.title':'Тест як допоміжний засіб','path.personal.text':'Після основи тест можна використовувати як обмежену карту відмінностей, не як вирок.','path.personal.cta':'Перейти до тесту','path.research.text':'Методологія, обмеження і база знань для тих, хто хоче глибше.','home.layers':'Що можна зробити одразу','home.layers.title':'Почати не з теорії, а зі спостереження','home.time':'Згадати повторюваний сценарій','home.time.text':'Де ви знову і знову не чуєте одне одного: вдома, у дружбі, стосунках чи команді?','home.action':'Описати без звинувачень','home.action.text':'Не “ти завжди такий”, а “здається, ми по-різному очікуємо підтримки / рішення / темпу”.','home.info':'Перевірити карту відмінностей','home.info.text':'Тест і описи — це підказки для розмови, а не остаточний висновок про людину.','foundation.problem.text':'Навіть схожі люди можуть ранити одне одного. Страх, гордість, закритість, брехня і небажання прощати руйнують довіру глибше, ніж різні звички.'
 });
-applyPageLanguage(localStorage.getItem('before-we-build-lang')||'ru');
+applyPageLanguage(localStorage.getItem('before-we-build-lang')||'uk');
 
 Object.assign(PAGE_I18N.ru,{
   'home.eyebrow':'Вера · характер · совместимость',
@@ -296,4 +296,4 @@ Object.assign(PAGE_I18N.uk,{
   'christian.eyebrow':'Християнський погляд','christian.title':'Християнський погляд','christian.lead':'Before We Build може бути лише допоміжною мовою для розмови про відмінності. Він не замінює молитву, Писання, мудру пораду, церкву й особисту відповідальність.','christian.safe':'Безпечні межі','christian.safe.title':'Що важливо памʼятати','christian.prayer':'Не заміна молитві','christian.prayer.text':'Результат тесту не показує Божу волю і не має вирішувати долю стосунків чи служіння.','christian.counsel':'Мудра порада','christian.counsel.text':'Серйозні рішення краще обговорювати зі зрілими християнами, сімʼєю, наставниками і церквою.','christian.character':'Характер важливіший за тип','christian.character.text':'Вірність, відповідальність, смирення, здатність прощати й говорити правду важливіші за будь-яку типологію.',
   'teams.eyebrow':'Робота · стартапи · співпраця','teams.title':'Команди і проєкти','teams.lead':'Для роботи Before We Build — не інструмент найму і не оцінка цінності людини, а карта питань про спілкування, рішення, темп і координацію.','teams.use':'Де це допомагає','teams.use.title':'Де це може допомогти','teams.communication':'Спілкування','teams.communication.text':'Де ми по-різному читаємо факти, емоції, контекст і наміри.','teams.decisions':'Рішення','teams.decisions.text':'Як обговорюються пріоритети, відповідальність, тиск, строки й ресурси.','teams.caution':'Обережність','teams.caution.text':'Не використовувати як фільтр найму, діагноз або остаточний висновок про людину.'
 });
-applyPageLanguage(localStorage.getItem('before-we-build-lang')||'ru');
+applyPageLanguage(localStorage.getItem('before-we-build-lang')||'uk');

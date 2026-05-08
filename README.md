@@ -1,21 +1,21 @@
-# Before We Build LLM Wiki site
+# Before We Build — сайт GitHub Pages
 
-Static GitHub Pages site for the Before We Build LLM Wiki.
+Статичний сайт GitHub Pages для публічного входу Before We Build.
 
-URL after Pages deployment: <https://before-we-build.github.io/>
+Адреса сайту: <https://before-we-build.github.io/>
 
-Source wiki: <https://github.com/before-we-build/before-we-build-research>
+Джерельна база знань: <https://github.com/before-we-build/before-we-build-research>
 
-## Local preview
+## Локальний перегляд
 
 ```bash
 python3 -m http.server 8080
 ```
 
-Open <http://localhost:8080>.
+Відкрийте <http://localhost:8080>.
 
-## Notes
+## Примітки
 
-- Dependency-free static HTML/CSS/JS.
-- Visualizations are generated in `assets/site.js`.
-- Future improvement: generate graph data automatically from `before-we-build-research/wiki/**/*.md` wikilinks.
+- Статичний HTML/CSS/JS без зовнішніх залежностей.
+- Візуалізації формуються в `assets/site.js`.
+- Можливе майбутнє покращення: автоматично формувати дані графа з wikilinks у `before-we-build-research/wiki/**/*.md`.
