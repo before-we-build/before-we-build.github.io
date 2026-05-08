@@ -81,7 +81,7 @@ function journeyChoices(step,index,steps,lang){
   };
   return (choices[step.id]||[next&&mkStep(next.id)]).filter(Boolean);
 }
-function renderJourney(){
+function renderJourney({scrollToActive=false}={}){
   const root=document.querySelector('[data-journey-app]');
   if(!root)return;
   const lang=currentJourneyLang();
@@ -119,10 +119,10 @@ function renderJourney(){
     </div>`;
   const shell=root.querySelector('.journey-shell');
   if(document.activeElement?.closest?.('[data-journey-app]'))shell.focus({preventScroll:true});
-  if(location.hash)window.setTimeout(()=>root.scrollIntoView({block:'start'}),0);
+  if(scrollToActive&&location.hash)window.setTimeout(()=>root.scrollIntoView({block:'start'}),0);
 }
 
 applyJourneyHomeCopy(currentJourneyLang());
 renderJourney();
-window.addEventListener('hashchange',renderJourney);
+window.addEventListener('hashchange',()=>renderJourney({scrollToActive:true}));
 document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>window.setTimeout(()=>{applyJourneyHomeCopy(btn.dataset.lang);renderJourney()},0)));
