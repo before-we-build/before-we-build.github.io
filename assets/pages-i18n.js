@@ -56,6 +56,27 @@ function applyPageLanguage(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{const value=dict[el.dataset.i18n];if(value)el.textContent=value});
   document.querySelectorAll('[data-lang]').forEach(btn=>{const active=btn.dataset.lang===current;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});
   updateRotatingCompatibilityTerm(current,true);
+  updateRotatingBuildTerm(current,true);
+}
+
+let rotatingBuildIndex=0;
+const ROTATING_BUILD_TERMS={
+  ru:['вместе','отношения','семью','служение','общее дело'],
+  en:['together','a relationship','a family','a ministry','shared work'],
+  uk:['разом','стосунки','сімʼю','служіння','спільну справу']
+};
+function updateRotatingBuildTerm(lang,immediate=false){
+  const el=document.querySelector('[data-rotating-build]');
+  if(!el)return;
+  const terms=ROTATING_BUILD_TERMS[lang]||ROTATING_BUILD_TERMS.ru;
+  const index=rotatingBuildIndex%terms.length;
+  const set=()=>{el.textContent=terms[index]};
+  if(immediate){set();return}
+  el.classList.remove('is-switching');
+  void el.offsetWidth;
+  el.classList.add('is-switching');
+  window.setTimeout(set,170);
+  window.setTimeout(()=>el.classList.remove('is-switching'),420);
 }
 
 let rotatingCompatIndex=0;
@@ -82,6 +103,7 @@ function updateRotatingCompatibilityTerm(lang,immediate=false){
   window.setTimeout(()=>el.classList.remove('is-switching'),420);
 }
 window.setInterval(()=>{rotatingCompatIndex+=1;updateRotatingCompatibilityTerm(localStorage.getItem('before-we-build-lang')||'ru')},2200);
+window.setInterval(()=>{rotatingBuildIndex+=1;updateRotatingBuildTerm(localStorage.getItem('before-we-build-lang')||'ru')},2400);
 
 document.querySelectorAll('[data-lang]').forEach(btn=>btn.addEventListener('click',()=>applyPageLanguage(btn.dataset.lang)));
 Object.assign(PAGE_I18N.ru,{
