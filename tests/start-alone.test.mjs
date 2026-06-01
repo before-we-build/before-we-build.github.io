@@ -5,10 +5,17 @@ import vm from 'node:vm';
 
 const repo = path.resolve(import.meta.dirname, '..');
 const jsPath = path.join(repo, 'assets', 'start-alone.js');
+const siteLangPath = path.join(repo, 'assets', 'site-language.js');
 const htmlPath = path.join(repo, 'start-alone.html');
 
 assert.ok(fs.existsSync(htmlPath), 'start-alone.html should exist');
 assert.ok(fs.existsSync(jsPath), 'assets/start-alone.js should exist');
+assert.ok(fs.existsSync(siteLangPath), 'assets/site-language.js should exist');
+
+const siteLangCode = fs.readFileSync(siteLangPath, 'utf8');
+assert.match(siteLangCode, /function translateDocument/, 'global language switcher should translate static page content');
+assert.match(siteLangCode, /Прежде чем строить/, 'global language switcher should include Russian static copy');
+assert.match(siteLangCode, /Before We Build/, 'global language switcher should include English static copy');
 
 const htmlPages = ['index.html', 'foundation.html', 'start-alone.html', 'christ.html', 'limitations.html'];
 for (const page of htmlPages) {
