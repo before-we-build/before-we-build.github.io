@@ -230,6 +230,30 @@
     }
   };
 
+  const HERO_ROTATOR = {
+    uk: {
+      prefix: 'Перш ніж будувати',
+      suffix: '— перевірте оснування перед Богом.',
+      words: ['сімʼю', 'бізнес', 'дім', 'організацію', 'партію', 'країну']
+    },
+    ru: {
+      prefix: 'Прежде чем строить',
+      suffix: '— проверьте основание перед Богом.',
+      words: ['семью', 'бизнес', 'дом', 'организацию', 'партию', 'страну']
+    },
+    en: {
+      prefix: 'Before building',
+      suffix: '— test the foundation before God.',
+      words: ['a family', 'a business', 'a home', 'an organization', 'a party', 'a country']
+    }
+  };
+
+  const rotatorState = { index: 0, timer: null, locale: DEFAULT_LOCALE };
+
+  function prefersReducedMotion() {
+    return !!(root.matchMedia && root.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  }
+
   function pageKey() {
     const path = root.location.pathname;
     if (path === '/' || path.endsWith('/')) return '/index.html';
@@ -257,6 +281,7 @@
       acceptNode(node) {
         const parent = node.parentElement;
         if (!parent || ['SCRIPT', 'STYLE', 'NOSCRIPT'].includes(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        if (parent.closest('[data-no-auto-translate]')) return NodeFilter.FILTER_REJECT;
         if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
@@ -278,6 +303,54 @@
     }
   }
 
+  function updateHeroRotatorWord(wordEl, nextText, animate) {
+    if (!wordEl || wordEl.textContent === nextText) return;
+    if (!animate || prefersReducedMotion()) {
+      wordEl.textContent = nextText;
+      return;
+    }
+    wordEl.classList.remove('is-entering');
+    wordEl.classList.add('is-leaving');
+    root.setTimeout(() => {
+      wordEl.textContent = nextText;
+      wordEl.classList.remove('is-leaving');
+      wordEl.classList.add('is-entering');
+      root.setTimeout(() => wordEl.classList.remove('is-entering'), 460);
+    }, 260);
+  }
+
+  function applyHeroRotator(locale, animate = false) {
+    const heading = root.document.querySelector('[data-build-heading]');
+    if (!heading) return;
+    const copy = HERO_ROTATOR[locale] || HERO_ROTATOR[DEFAULT_LOCALE];
+    const prefix = heading.querySelector('[data-build-heading-prefix]');
+    const suffix = heading.querySelector('[data-build-heading-suffix]');
+    const wordEl = heading.querySelector('[data-build-word]');
+    if (prefix) prefix.textContent = copy.prefix;
+    if (suffix) suffix.textContent = copy.suffix;
+    rotatorState.locale = locale;
+    rotatorState.index = rotatorState.index % copy.words.length;
+    updateHeroRotatorWord(wordEl, copy.words[rotatorState.index], animate);
+  }
+
+  function tickHeroRotator() {
+    const heading = root.document.querySelector('[data-build-heading]');
+    const wordEl = heading && heading.querySelector('[data-build-word]');
+    const copy = HERO_ROTATOR[rotatorState.locale] || HERO_ROTATOR[DEFAULT_LOCALE];
+    if (!heading || !wordEl || !copy.words.length) return;
+    rotatorState.index = (rotatorState.index + 1) % copy.words.length;
+    updateHeroRotatorWord(wordEl, copy.words[rotatorState.index], true);
+  }
+
+  function initHeroRotator() {
+    if (!root.document.querySelector('[data-build-heading]')) return;
+    if (rotatorState.timer) root.clearInterval(rotatorState.timer);
+    applyHeroRotator(currentLocale(), false);
+    if (!prefersReducedMotion()) {
+      rotatorState.timer = root.setInterval(tickHeroRotator, 2300);
+    }
+  }
+
   function applyLocale(locale) {
     const next = SUPPORTED.has(locale) ? locale : DEFAULT_LOCALE;
     root.document.documentElement.lang = next;
@@ -288,15 +361,17 @@
       button.setAttribute('aria-pressed', String(active));
     });
     translateDocument(next);
+    applyHeroRotator(next, true);
   }
 
   function initSiteLanguage() {
     applyLocale(currentLocale());
+    initHeroRotator();
     root.document.querySelectorAll('[data-site-lang] [data-lang]').forEach(button => {
       button.addEventListener('click', () => applyLocale(button.dataset.lang));
     });
   }
 
-  root.BeforeWeBuildSiteLanguage = { applyLocale, currentLocale, initSiteLanguage };
+  root.BeforeWeBuildSiteLanguage = { applyLocale, currentLocale, initSiteLanguage, applyHeroRotator };
   if (root.document) root.document.addEventListener('DOMContentLoaded', initSiteLanguage);
 })(typeof window !== 'undefined' ? window : globalThis);
