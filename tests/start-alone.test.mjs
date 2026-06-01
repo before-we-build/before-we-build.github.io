@@ -12,6 +12,8 @@ assert.ok(fs.existsSync(jsPath), 'assets/start-alone.js should exist');
 
 const html = fs.readFileSync(htmlPath, 'utf8');
 assert.match(html, /data-start-alone-app/, 'page should mount the Start Alone app');
+assert.match(html, /data-start-alone-lang/, 'page should render the language switcher in the page container');
+assert.ok(html.indexOf('data-start-alone-lang') < html.indexOf('data-start-alone-app'), 'language switcher should live outside and before the component mount');
 assert.match(html, /assets\/start-alone\.js/, 'page should load the Start Alone script');
 assert.doesNotMatch(html, /compatibility score|matchmaking|digital twin/i, 'public page should avoid score/matchmaking/digital twin language');
 

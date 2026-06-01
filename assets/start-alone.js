@@ -359,8 +359,9 @@
     let session = savedSession || createSession({ locale, selectedPathId });
     let step = 0;
     let message = '';
+    let currentMode = 'start';
 
-    function setLang(lang) { locale = UI[lang] ? lang : DEFAULT_LOCALE; document.documentElement.lang = locale; root.localStorage?.setItem('before-we-build-lang', locale); session.locale = locale; saveSession(session); render(); }
+    function setLang(lang) { locale = UI[lang] ? lang : DEFAULT_LOCALE; document.documentElement.lang = locale; root.localStorage?.setItem('before-we-build-lang', locale); session.locale = locale; saveSession(session); render(currentMode); }
     function activeQuestions() { return questionsFor(session); }
     function responseFor(questionId) { return session.responses.find(r => r.question_id === questionId)?.raw_text || ''; }
     function persistCurrent() { const q = activeQuestions()[step]; const input = mount.querySelector('[data-answer]'); if (q && input) session = updateResponse(session, q.id, input.value); saveSession(session); }
@@ -419,7 +420,6 @@
       const d = UI[locale];
       const saved = loadSession();
       return `<section class="public-start"><div class="public-start-card scripture-start-card">
-        <div class="start-alone-lang lang-switch" role="group" aria-label="Language"><button type="button" data-lang="uk">UK</button><button type="button" data-lang="ru">RU</button><button type="button" data-lang="en">EN</button></div>
         <p class="eyebrow">${esc(d.eyebrow)}</p>
         <h1>${esc(d.title)}</h1>
         <p>${esc(d.intro)}</p>
@@ -432,7 +432,8 @@
     }
 
     function bind() {
-      mount.querySelectorAll('[data-lang]').forEach(b => { b.classList.toggle('active', b.dataset.lang === locale); b.setAttribute('aria-pressed', String(b.dataset.lang === locale)); b.addEventListener('click', () => setLang(b.dataset.lang)); });
+      const page = mount.closest('[data-start-alone-page]') || document;
+      page.querySelectorAll('[data-start-alone-lang] [data-lang]').forEach(b => { b.classList.toggle('active', b.dataset.lang === locale); b.setAttribute('aria-pressed', String(b.dataset.lang === locale)); b.onclick = () => setLang(b.dataset.lang); });
       mount.querySelectorAll('[data-select-path]').forEach(b => { b.addEventListener('click', () => { selectedPathId = b.dataset.selectPath; if (!session.responses.length) session.selected_path_id = selectedPathId; message = ''; render(); }); });
       mount.querySelector('[data-start]')?.addEventListener('click', () => { if (!session.responses.length || session.selected_path_id !== selectedPathId) session = createSession({ locale, selectedPathId }); saveSession(session); step = Math.min(session.responses.length, activeQuestions().length - 1); message = ''; render('question'); });
       mount.querySelector('[data-new]')?.addEventListener('click', startFresh);
@@ -444,7 +445,7 @@
       mount.querySelector('[data-export]')?.addEventListener('click', () => { const map = session.conversation_map || buildPreparationMap(session, locale); downloadJson(`before-we-build-scripture-first-${new Date().toISOString().slice(0,10)}.json`, buildExportPayload(map, locale)); });
     }
 
-    function render(mode = 'start') { mount.innerHTML = mode === 'question' ? renderQuestion() : mode === 'map' ? renderMap() : renderStart(); bind(); }
+    function render(mode = 'start') { currentMode = mode; mount.innerHTML = mode === 'question' ? renderQuestion() : mode === 'map' ? renderMap() : renderStart(); bind(); }
     render();
   }
 
