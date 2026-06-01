@@ -20,34 +20,42 @@ const sandbox = { module: { exports: {} }, exports: {}, console };
 vm.runInNewContext(code, sandbox, { filename: jsPath });
 const app = sandbox.module.exports;
 
-assert.equal(app.STORAGE_KEY, 'before-we-build-start-alone-v0');
-assert.equal(app.QUESTION_SET.id, 'qset_start_alone_v0');
-assert.equal(app.QUESTION_SET.questions.length, 8, 'v0 should implement the optional short first set');
-assert.equal(new Set(app.QUESTION_SET.questions.map(q => q.id)).size, app.QUESTION_SET.questions.length, 'question IDs should be unique');
-assert.ok(app.QUESTION_SET.questions.every(q => q.prompt.uk && q.prompt.ru && q.prompt.en), 'each question should have uk/ru/en prompts');
+assert.equal(app.STORAGE_KEY, 'before-we-build-start-alone-scripture-v1');
+assert.equal(app.QUESTION_SET.id, 'qset_scripture_first_v1');
+assert.equal(app.SCRIPTURE_PATHS.length, 5, 'v1 should implement five Scripture-first paths');
+assert.equal(new Set(app.SCRIPTURE_PATHS.map(p => p.id)).size, 5, 'path IDs should be unique');
+assert.ok(app.SCRIPTURE_PATHS.every(p => p.reference.uk && p.reference.ru && p.reference.en), 'each path should have uk/ru/en references');
+assert.ok(app.SCRIPTURE_PATHS.every(p => p.passage.uk && p.passage.ru && p.passage.en), 'each path should begin from Scripture text');
+assert.ok(app.SCRIPTURE_PATHS.every(p => p.questions.length >= 5), 'each path should load its own scenario questions');
+assert.ok(app.SCRIPTURE_PATHS.every(p => p.questions.every(q => q.prompt.uk && q.prompt.ru && q.prompt.en)), 'each question should have uk/ru/en prompts');
+assert.ok(app.QUESTION_SET.questions.length >= 25, 'aggregate question set should include all path questions');
 assert.ok(app.QUESTION_SET.questions.every(q => !/typology|score|match|diagnosis|profile/i.test(Object.values(q.prompt).join(' '))), 'questions should not require typology/score/diagnosis knowledge');
 
-const saved = app.createSession({ locale: 'uk' });
+const saved = app.createSession({ locale: 'uk', selectedPathId: 'path_count_cost' });
 assert.equal(saved.share_state, 'private');
-assert.equal(saved.selected_path_id, 'path_start_alone');
-assert.equal(saved.question_set_id, 'qset_start_alone_v0');
+assert.equal(saved.selected_path_id, 'path_count_cost');
+assert.equal(saved.question_set_id, 'qset_scripture_first_v1');
+assert.equal(app.questionsFor(saved).length, 5, 'selected Scripture path should determine the scenario');
 
-const updated = app.updateResponse(saved, 'q_start_alone_01', '  Молитися і поговорити з пастором  ');
+const firstQuestion = app.questionsFor(saved)[0];
+const updated = app.updateResponse(saved, firstQuestion.id, '  Молитися і поговорити з пастором  ');
 assert.equal(updated.responses.length, 1, 'raw response should be stored separately');
 assert.equal(updated.responses[0].raw_text, 'Молитися і поговорити з пастором');
-assert.equal(updated.responses[0].question_id, 'q_start_alone_01');
+assert.equal(updated.responses[0].question_id, firstQuestion.id);
 assert.equal(updated.stale_after_edit, true, 'editing answers should mark derived material stale');
 
 const map = app.buildPreparationMap({
   ...updated,
-  responses: app.QUESTION_SET.questions.map((q, i) => ({ question_id: q.id, raw_text: i === 7 ? 'Поговорити з наставником без поспіху' : `Відповідь ${i + 1}` }))
+  responses: app.questionsFor(updated).map((q, i) => ({ question_id: q.id, raw_text: i === 4 ? 'Поговорити з наставником без поспіху' : `Відповідь ${i + 1}` }))
 }, 'uk');
-assert.equal(map.type, 'ConversationMap');
-assert.equal(map.raw_answer_count, 8);
-assert.equal(map.normalized_answers.length, 8);
+assert.equal(map.type, 'ScriptureFirstPreparation');
+assert.equal(map.selected_path_id, 'path_count_cost');
+assert.match(map.selected_scripture.reference, /Луки 14/);
+assert.equal(map.raw_answer_count, 5);
+assert.equal(map.normalized_answers.length, 5);
 assert.ok(map.normalized_answers.every(n => n.uncertainty_label === 'user_self_description'));
 assert.ok(map.open_questions.length >= 1);
-assert.ok(map.caveats.some(c => /не є рішенням/i.test(c) || /не є вироком/i.test(c)), 'map should include non-verdict caveat');
+assert.ok(map.caveats.some(c => /не є вироком/i.test(c)), 'map should include non-verdict caveat');
 assert.doesNotMatch(JSON.stringify(map), /score|match|compatibility|God told|readiness/i, 'map should avoid scores, matches, or oracular claims');
 
 const exported = app.buildExportPayload(map, 'uk');
