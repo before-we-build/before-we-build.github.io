@@ -10,6 +10,13 @@ const htmlPath = path.join(repo, 'start-alone.html');
 assert.ok(fs.existsSync(htmlPath), 'start-alone.html should exist');
 assert.ok(fs.existsSync(jsPath), 'assets/start-alone.js should exist');
 
+const htmlPages = ['index.html', 'foundation.html', 'start-alone.html', 'christ.html', 'limitations.html'];
+for (const page of htmlPages) {
+  const pageHtml = fs.readFileSync(path.join(repo, page), 'utf8');
+  assert.match(pageHtml, /data-site-lang/, `${page} should render the site language switcher`);
+  assert.match(pageHtml, /assets\/site-language\.js/, `${page} should load global language behavior`);
+}
+
 const html = fs.readFileSync(htmlPath, 'utf8');
 assert.match(html, /data-start-alone-app/, 'page should mount the Start Alone app');
 assert.match(html, /data-start-alone-lang/, 'page should render the language switcher in the page container');
