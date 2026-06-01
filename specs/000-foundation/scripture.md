@@ -11,6 +11,7 @@ The public path begins with Scripture passages, not with a theory about people.
 - Proverbs 24:3–4 — wisdom, understanding, and knowledge build a house.
 - Proverbs 15:22; 20:18 — plans need counsel.
 - Psalm 127:1 / Psalm 126:1 in Ukrainian/Russian numbering — unless the Lord builds the house.
+- 1 Corinthians 12:13–22 — one body, many members; God arranged the members; the weaker-looking members are necessary.
 
 ## Rule for use
 
