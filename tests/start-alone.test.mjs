@@ -20,7 +20,7 @@ assert.match(siteLangCode, /країну/, 'rotator should include country as a 
 assert.match(siteLangCode, /Прежде чем строить/, 'global language switcher should include Russian static copy');
 assert.match(siteLangCode, /Before building/, 'global language switcher should include English rotator copy');
 
-const htmlPages = ['index.html', 'foundation.html', 'start-alone.html', 'christ.html', 'limitations.html'];
+const htmlPages = ['index.html', 'foundation.html', 'start-alone.html', 'audiences.html', 'christ.html', 'limitations.html'];
 for (const page of htmlPages) {
   const pageHtml = fs.readFileSync(path.join(repo, page), 'utf8');
   assert.match(pageHtml, /data-site-lang/, `${page} should render the site language switcher`);
