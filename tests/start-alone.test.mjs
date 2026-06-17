@@ -15,8 +15,8 @@ assert.ok(fs.existsSync(siteLangPath), 'assets/site-language.js should exist');
 const siteLangCode = fs.readFileSync(siteLangPath, 'utf8');
 assert.match(siteLangCode, /function translateDocument/, 'global language switcher should translate static page content');
 assert.match(siteLangCode, /HERO_ROTATOR/, 'home page should define dynamic build-word rotator copy');
-assert.match(siteLangCode, /сімʼю/, 'rotator should include family as a Ukrainian build context');
-assert.match(siteLangCode, /країну/, 'rotator should include country as a Ukrainian build context');
+assert.match(siteLangCode, /стосунки/, 'rotator should include relationships as the primary Ukrainian build context');
+assert.doesNotMatch(siteLangCode, /країну/, 'rotator should not widen the primary doorway to country-building');
 assert.match(siteLangCode, /Прежде чем строить/, 'global language switcher should include Russian static copy');
 assert.match(siteLangCode, /Before building/, 'global language switcher should include English rotator copy');
 
