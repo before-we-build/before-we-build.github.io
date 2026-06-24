@@ -65,7 +65,7 @@
       afterText: {
         uk: 'Текст називає не власну схему, а три біблійні слова: мудрість, розуміння, знання. Питання допомагають побачити, чого бракує.',
         ru: 'Текст называет не нашу схему, а три библейских слова: мудрость, разумение, знание. Вопросы помогают увидеть, чего не хватает.',
-        en: 'The text names not our framework, but three biblical words: wisdom, understanding, and knowledge. The questions help reveal what is lacking.'
+        en: 'The text names not our own scheme, but three biblical words: wisdom, understanding, and knowledge. The questions help reveal what is lacking.'
       },
       questions: [
         q('wisdom_01','wisdom_needed','У чому мені зараз потрібна мудрість, а не тільки сильне бажання?','В чём мне сейчас нужна мудрость, а не только сильное желание?','Where do I need wisdom now, not merely strong desire?'),
