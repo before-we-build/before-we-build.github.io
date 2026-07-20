@@ -44,8 +44,10 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 .relation-results { display: grid; gap: 16px; margin-top: 26px; }
 .relation-card { border-left: 5px solid var(--primary); }
 .relation-summary { background: var(--surface-soft); }
-.tiktok-page { max-width: 900px; }
-.tiktok-page .tiktok-embed { margin: 30px 0 20px !important; }
+.tiktok-page { max-width: 1180px; }
+.tiktok-video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.tiktok-video-grid .tiktok-embed { margin: 0 !important; max-width: 100% !important; min-width: 0 !important; }
+.tiktok-page > .muted { margin-top: 28px; }
 .test-shell { margin-top: 30px; }
 .public-start-card, .test-item, .story-test-card, .test-result { border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,.82); box-shadow: var(--shadow); padding: clamp(18px, 3vw, 30px); }
 .public-start-card h2 { margin: 0 0 12px; }
@@ -69,7 +71,7 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 @media (max-width: 640px) {
   .hero { padding-left: 16px; padding-right: 16px; }
   .section { padding-left: 16px; padding-right: 16px; }
-  .calculator-fieldset { grid-template-columns: 1fr; }
+  .calculator-fieldset, .tiktok-video-grid { grid-template-columns: 1fr; }
   .actions, .test-actions { flex-direction: column; }
   button { min-height: 56px; width: 100%; text-align: center; font-size: 1rem; }
   .lang-switch button { width: auto; min-height: 44px; padding: 10px 12px; }

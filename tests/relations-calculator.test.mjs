@@ -21,8 +21,8 @@ assert.match(index, /relations-calculator\.html/, 'home page should link to the 
 assert.match(index, /tiktok\.html/, 'home page should link to TikTok videos');
 
 const tiktok = fs.readFileSync(tiktokPath, 'utf8');
-assert.match(tiktok, /data-unique-id="olegraziel"/, 'TikTok page should embed @olegraziel');
-assert.match(tiktok, /data-embed-type="creator"/, 'TikTok page should embed the creator profile');
+assert.match(tiktok, /data-video-id="7663042140481555732"/, 'TikTok page should embed the newest selected video');
+assert.equal((tiktok.match(/data-video-id=/g) || []).length, 6, 'TikTok page should embed six recent videos');
 assert.match(tiktok, /https:\/\/www\.tiktok\.com\/embed\.js/, 'TikTok page should load the official embed script');
 
 const html = fs.readFileSync(htmlPath, 'utf8');
