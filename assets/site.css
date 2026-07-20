@@ -82,3 +82,8 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
   .scale-help { font-size: .8rem; }
   .public-prefs { flex-direction: column; gap: 12px; }
 }
+
+.privacy-tooltip { position: relative; display: inline-flex; align-items: center; }
+.privacy-help { width: 36px; min-width: 36px; min-height: 36px; height: 36px; padding: 0; border-radius: 50%; font-size: 1rem; line-height: 1; }
+.privacy-tooltip [role="tooltip"] { position: absolute; z-index: 2; bottom: calc(100% + 10px); left: 0; width: max-content; max-width: min(280px, 80vw); padding: 10px 12px; border-radius: 10px; background: var(--ink); color: #fff; font-size: .9rem; font-weight: 500; line-height: 1.35; box-shadow: var(--shadow); opacity: 0; pointer-events: none; transform: translateY(4px); transition: opacity .15s ease, transform .15s ease; visibility: hidden; }
+.privacy-tooltip:hover [role="tooltip"], .privacy-tooltip:focus-within [role="tooltip"] { opacity: 1; transform: translateY(0); visibility: visible; }
