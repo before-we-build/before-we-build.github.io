@@ -3,26 +3,32 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Калькулятор типових відношень — Перш ніж будувати</title>
-    <meta name="description" content="Дослідницький калькулятор типових відношень у соціоніці, психософії та темпористиці." />
+    <title>Тест Before We Build</title>
+    <meta name="description" content="Інтерактивний тест Before We Build для самоспостереження; відповіді обробляються локально у браузері." />
     <link rel="stylesheet" href="assets/site.css" />
   </head>
-  <body>
+  <body data-test-audience="people">
     <header class="hero tests-hero" id="top">
       <nav class="nav" aria-label="Основна навігація">
-        <a class="brand" href="index.html"><span class="ichthys-mark" aria-label="ΙΧΘΥΣ">ΙΧΘΥΣ</span><b>Перш ніж будувати</b></a>
+        <a class="brand" href="index.html"><span class="ichthys-mark" aria-label="ΙΧΘΥΣ">ΙΧΘΥΣ</span><b data-i18n="brand.main">Before We Build</b></a>
+        <div class="nav-links">
+          <a href="relations-calculator.html">Калькулятор відношень</a>
+          <span class="lang-switch" role="group" aria-label="Language switcher">
+            <button type="button" data-lang="uk">UK</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="ru">RU</button>
+          </span>
+        </div>
       </nav>
-    </header>
-    <main>
-      <section class="section relations-page" data-relations-calculator-app></section>
-      <section class="section tests-page">
-        <article class="card">
-          <h2>Межі використання</h2>
-          <p>Інструмент показує типові схеми відношень між обраними моделями. Він не дає числову оцінку і не робить висновок про шлюб.</p>
-        </article>
+      <section class="section tests-page" id="tests">
+        <p class="eyebrow" data-i18n="tests.eyebrow">Інтерактивний тест</p>
+        <h1 data-i18n="tests.title">Відповісти, обрати, краще побачити себе</h1>
+        <p class="lead" data-i18n="tests.intro">Короткі картки перетворюють запитання на мінісцени: що ви берете з собою, що знешкоджуєте першим і який міст будуєте у складній ситуації.</p>
+        <p class="note" data-i18n="tests.note">Результат — попередня гіпотеза для самоспостереження, а не діагноз.</p>
+        <noscript><p class="card">Для проходження тесту потрібен JavaScript. Відповіді обробляються локально у браузері.</p></noscript>
+        <div class="test-shell" id="testShell"><div class="test-panel" id="testPanel"></div></div>
       </section>
-    </main>
-    <footer class="footer">Перш ніж будувати · типові характери, не типи людини</footer>
-    <script src="assets/relations-calculator.js"></script>
+    </header>
+    <script src="assets/tests.js"></script>
   </body>
 </html>

@@ -4,11 +4,18 @@ import path from 'node:path';
 import vm from 'node:vm';
 
 const repo = path.resolve(import.meta.dirname, '..');
-const htmlPath = path.join(repo, 'index.html');
+const indexPath = path.join(repo, 'index.html');
+const htmlPath = path.join(repo, 'relations-calculator.html');
 const jsPath = path.join(repo, 'assets', 'relations-calculator.js');
 
-assert.ok(fs.existsSync(htmlPath), 'index.html should exist');
+assert.ok(fs.existsSync(indexPath), 'index.html should exist');
+assert.ok(fs.existsSync(htmlPath), 'relations-calculator.html should exist');
 assert.ok(fs.existsSync(jsPath), 'assets/relations-calculator.js should exist');
+
+const index = fs.readFileSync(indexPath, 'utf8');
+assert.match(index, /id="testPanel"/, 'home page should mount the interactive test');
+assert.match(index, /assets\/tests\.js/, 'home page should load the test script');
+assert.match(index, /relations-calculator\.html/, 'home page should link to the calculator');
 
 const html = fs.readFileSync(htmlPath, 'utf8');
 assert.match(html, /data-relations-calculator-app/, 'page should mount the relations calculator app');
