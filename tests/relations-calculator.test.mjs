@@ -4,16 +4,16 @@ import path from 'node:path';
 import vm from 'node:vm';
 
 const repo = path.resolve(import.meta.dirname, '..');
-const htmlPath = path.join(repo, 'relations-calculator.html');
+const htmlPath = path.join(repo, 'index.html');
 const jsPath = path.join(repo, 'assets', 'relations-calculator.js');
 
-assert.ok(fs.existsSync(htmlPath), 'relations-calculator.html should exist');
+assert.ok(fs.existsSync(htmlPath), 'index.html should exist');
 assert.ok(fs.existsSync(jsPath), 'assets/relations-calculator.js should exist');
 
 const html = fs.readFileSync(htmlPath, 'utf8');
 assert.match(html, /data-relations-calculator-app/, 'page should mount the relations calculator app');
 assert.match(html, /assets\/relations-calculator\.js/, 'page should load calculator script');
-assert.match(html, /data-site-lang/, 'page should include the site language switcher');
+assert.doesNotMatch(html, /scripture|писан|біблі|bible|start-alone/i, 'site should contain only the calculator, without Bible-path content');
 assert.doesNotMatch(html, /процент|відсот|score|matchmaking|гарант/i, 'page should not promise scores, matchmaking, or guarantees');
 
 const code = fs.readFileSync(jsPath, 'utf8');
@@ -49,12 +49,7 @@ assert.match(temp.relation.name.ru, /полная структурная инв�
 assert.match(temp.level.ru, /стратег/i);
 
 const composite = app.buildCompositeReport({
-  socionicsA: 'ILE',
-  socionicsB: 'SEI',
-  psychosophyA: 'LEVF',
-  psychosophyB: 'ELVF',
-  temporisticsA: 'EPNF',
-  temporisticsB: 'FNPE',
+  socionicsA: 'ILE', socionicsB: 'SEI', psychosophyA: 'LEVF', psychosophyB: 'ELVF', temporisticsA: 'EPNF', temporisticsB: 'FNPE'
 }, 'ru');
 assert.equal(composite.locale, 'ru');
 assert.equal(composite.layers.length, 3);

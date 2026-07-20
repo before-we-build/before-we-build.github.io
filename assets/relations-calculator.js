@@ -100,7 +100,7 @@
       title: 'Калькулятор типових відношень',
       intro: 'Виберіть типи у трьох системах. Результат показує три різні шари: тактичний інформаційний обмін, операційну організацію дії і стратегічний часовий каркас.',
       a: 'Людина А', b: 'Людина Б', calculate: 'Показати відношення', reset: 'Очистити',
-      caveat: 'Це не вирок, не відсоток сумісності і не заміна Писання, молитви, сумління та мудрої поради.',
+      caveat: 'Це не вирок і не відсоток сумісності.',
       socionics: 'Соціоніка', psychosophy: 'Психософія', temporistics: 'Темпористика', signature: 'Сигнатура', direction: 'Напрям',
       choose: 'Оберіть тип', summary: 'Підсумок'
     },
@@ -108,7 +108,7 @@
       title: 'Калькулятор типовых отношений',
       intro: 'Выберите типы в трёх системах. Результат показывает три разные слоя: тактический информационный обмен, операционную организацию действия и стратегический временной каркас.',
       a: 'Человек А', b: 'Человек Б', calculate: 'Показать отношения', reset: 'Очистить',
-      caveat: 'Это не является приговором, процентом совместимости или заменой Писания, молитвы, совести и мудрого совета.',
+      caveat: 'Это не является приговором или процентом совместимости.',
       socionics: 'Соционика', psychosophy: 'Психософия', temporistics: 'Темпористика', signature: 'Сигнатура', direction: 'Направление',
       choose: 'Выберите тип', summary: 'Итог'
     },
@@ -116,7 +116,7 @@
       title: 'Typical relations calculator',
       intro: 'Choose types in three systems. The result separates tactical information exchange, operational action organization, and strategic temporal framing.',
       a: 'Person A', b: 'Person B', calculate: 'Show relations', reset: 'Clear',
-      caveat: 'This is not a verdict, a compatibility percentage, or a replacement for Scripture, prayer, conscience, and wise counsel.',
+      caveat: 'This is not a verdict or a compatibility percentage.',
       socionics: 'Socionics', psychosophy: 'Psychosophy', temporistics: 'Temporistics', signature: 'Signature', direction: 'Direction',
       choose: 'Choose type', summary: 'Summary'
     }
@@ -212,7 +212,7 @@
       ru: 'Сравниваются три слоя: информационный, операционный и стратегический. Сильный или трудный вывод в одном слое не отменяет другие слои и не является решением о человеке.',
       en: 'The report compares three layers: informational, operational, and strategic. A strong or difficult result in one layer does not cancel the other layers and is not a verdict about a person.',
     }[lang];
-    const caveats = [{ uk: 'Це не є вироком і не визначає Божу волю.', ru: 'Это не является приговором и не определяет Божью волю.', en: 'This is not a verdict and does not determine God’s will.' }[lang]];
+    const caveats = [{ uk: 'Це не є вироком.', ru: 'Это не является приговором.', en: 'This is not a verdict.' }[lang]];
     return { locale: lang, layers, summary, caveats };
   }
 
