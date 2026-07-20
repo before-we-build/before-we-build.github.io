@@ -44,6 +44,8 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 .relation-results { display: grid; gap: 16px; margin-top: 26px; }
 .relation-card { border-left: 5px solid var(--primary); }
 .relation-summary { background: var(--surface-soft); }
+.tiktok-page { max-width: 900px; }
+.tiktok-page .tiktok-embed { margin: 30px 0 20px !important; }
 .test-shell { margin-top: 30px; }
 .public-start-card, .test-item, .story-test-card, .test-result { border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,.82); box-shadow: var(--shadow); padding: clamp(18px, 3vw, 30px); }
 .public-start-card h2 { margin: 0 0 12px; }
