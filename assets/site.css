@@ -53,9 +53,11 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 .privacy-choice { margin-top: 20px; }
 .test-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
 .test-item, .story-test-card { margin: 16px 0; }
-.scale { display: flex; gap: 9px; margin-top: 14px; }
-.scale label { border: 1px solid var(--line); border-radius: 12px; padding: 8px 11px; cursor: pointer; }
-.scale-help { display: flex; justify-content: space-between; color: var(--muted); font-size: .86rem; margin-top: 6px; }
+.scale { display: grid; grid-template-columns: repeat(5, minmax(52px, 1fr)); gap: 10px; margin-top: 16px; }
+.scale label { min-height: 56px; border: 1px solid var(--line); border-radius: 16px; padding: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; font-weight: 800; background: #fff; touch-action: manipulation; }
+.scale label:has(input:checked) { border-color: var(--primary); background: var(--surface-soft); box-shadow: 0 0 0 3px rgba(122, 79, 42, .14); }
+.scale input { inline-size: 18px; block-size: 18px; accent-color: var(--primary); }
+.scale-help { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .86rem; margin-top: 8px; }
 .lang-switch { display: flex; gap: 8px; }
 .footer { padding: 24px; text-align: center; color: var(--muted); font-size: .92rem; }
 
@@ -63,6 +65,13 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
   .hero { padding-left: 16px; padding-right: 16px; }
   .section { padding-left: 16px; padding-right: 16px; }
   .calculator-fieldset { grid-template-columns: 1fr; }
-  .actions { flex-direction: column; }
-  button { width: 100%; text-align: center; }
+  .actions, .test-actions { flex-direction: column; }
+  button { min-height: 56px; width: 100%; text-align: center; font-size: 1rem; }
+  .lang-switch button { width: auto; min-height: 44px; padding: 10px 12px; }
+  .test-item, .story-test-card { padding: 20px 16px; }
+  .scale { gap: 8px; grid-template-columns: repeat(5, minmax(48px, 1fr)); }
+  .scale label { min-height: 60px; padding: 8px 4px; flex-direction: column; gap: 3px; }
+  .scale input { inline-size: 20px; block-size: 20px; }
+  .scale-help { font-size: .8rem; }
+  .public-prefs { flex-direction: column; gap: 12px; }
 }
