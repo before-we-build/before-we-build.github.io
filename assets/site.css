@@ -57,7 +57,7 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 .public-prefs { display: flex; flex-wrap: wrap; gap: 12px 20px; border: 1px solid var(--line); border-radius: 16px; padding: 14px 16px; margin: 20px 0; }
 .public-prefs legend { font-weight: 800; padding: 0 5px; }
 .public-prefs label { display: flex; align-items: center; gap: 6px; }
-.privacy-choice { margin-top: 20px; }
+.privacy-note { margin: 22px 0 0; color: var(--muted); font-size: .95rem; }
 .test-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
 .test-item, .story-test-card { margin: 16px 0; }
 .scale { display: grid; grid-template-columns: repeat(5, minmax(52px, 1fr)); gap: 10px; margin-top: 16px; }
