@@ -44,7 +44,10 @@ const mockDoc = {
     if (sel === '#testTabs') return new MockElement('div', 'testTabs');
     if (sel === '#testPanel') return new MockElement('div', 'testPanel');
     if (sel === '#consent') return { checked: true };
-    if (sel && sel.includes('input[')) return { value: '4', checked: true };
+    if (sel && sel.includes('input[')) {
+      if (sel.includes('_ac_1')) return null; // Attention check radio inputs are NOT in DOM in public route
+      return { value: '4', checked: true, setAttribute: () => {}, toggleAttribute: () => {} };
+    }
     return new MockElement('div');
   },
   querySelectorAll: (sel) => {
