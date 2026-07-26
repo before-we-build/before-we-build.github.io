@@ -32,81 +32,739 @@ Object.assign(I18N.uk,{publicStartEyebrow:'Перед стартом',publicStar
 Object.assign(I18N.ru,{publicPrev:'Назад',publicNext:'Дальше',publicPause:'Пауза',publicResume:'Продолжить',publicPausedTitle:'Маршрут на паузе',publicPausedText:'Ответы остаются только в этой вкладке. Если закрыть страницу, несохранённое прохождение пропадёт.'});Object.assign(I18N.en,{publicPrev:'Back',publicNext:'Next',publicPause:'Pause',publicResume:'Resume',publicPausedTitle:'Route paused',publicPausedText:'Answers stay only in this tab. If you close the page, unsaved progress will be lost.'});Object.assign(I18N.uk,{publicPrev:'Назад',publicNext:'Далі',publicPause:'Пауза',publicResume:'Продовжити',publicPausedTitle:'Маршрут на паузі',publicPausedText:'Відповіді залишаються тільки в цій вкладці. Якщо закрити сторінку, незбережене проходження зникне.'});
 Object.assign(I18N.ru,{publicAgeLabel:'Возраст',publicAgePlaceholder:'Выберите возраст',publicAgeRequired:'Сначала выберите возраст.',publicAgeUnder18:'до 18',publicAgeAutoMode:'Формат теста подберётся автоматически по возрасту.'});Object.assign(I18N.en,{publicAgeLabel:'Age',publicAgePlaceholder:'Choose your age',publicAgeRequired:'Choose your age first.',publicAgeUnder18:'under 18',publicAgeAutoMode:'The test format will be selected automatically by age.'});Object.assign(I18N.uk,{publicAgeLabel:'Вік',publicAgePlaceholder:'Оберіть вік',publicAgeRequired:'Спочатку оберіть вік.',publicAgeUnder18:'до 18',publicAgeAutoMode:'Формат тесту буде підібрано автоматично за віком.'});
 Object.assign(I18N.ru,{publicStartButton:'Начать тест',publicStartPrivacyLabel:'О приватности',publicStartPrivacyNote:'Ответы остаются только в вашем браузере.'});Object.assign(I18N.en,{publicStartButton:'Start test',publicStartPrivacyLabel:'About privacy',publicStartPrivacyNote:'Responses stay only in your browser.'});Object.assign(I18N.uk,{publicStartButton:'Почати тест',publicStartPrivacyLabel:'Про приватність',publicStartPrivacyNote:'Відповіді залишаються лише у вашому браузері.'});
-Object.assign(I18N.ru,{'tests.note':'Это не медицинский тест и не ярлык. Результат просто помогает увидеть, что вам больше похоже.',publicStartTitle:'Сначала выберите возраст',publicStartText:'Ответьте на короткие карточки и получите понятный результат о том, как вы выбираете, действуете и общаетесь.',publicModeClassicText:'Прямые вопросы без игровых карточек.',publicPrivacyText:'Можно пройти без сохранения. Если выбрать сохранение, результат останется только в этом браузере.',publicSummary:'Before We Build: ваш примерный результат.',publicResultTitle:'Ваш результат',publicTechMap:'Показать детали',publicQualityNote:'Некоторые ответы были слишком похожими или слишком быстрыми. Результат может быть менее точным.',publicWhyQuestion:'Простыми словами',publicHypothesis:'Больше всего похоже на',publicAlternatives:'Ещё близко',publicConfidence:'Выраженность паттерна',publicConfidenceHigh:'высокая выраженность',publicConfidenceModerate:'средне',publicConfidenceLow:'не очень уверенно',publicWhatNext:'Что это значит',publicNextChecks:'Посмотрите на результат как на подсказку. Подумайте, похоже ли это на ваши реальные решения, планы и общение.',publicCaveat:'Результат может ошибаться. Не принимайте по нему важные решения.',publicQualityTitle:'Почему результат может быть неточным',publicQualityNeutral:'Вы часто выбирали середину.',publicQualityChanged:'Вы меняли некоторые ответы.',publicQualityFastItems:'На часть карточек вы ответили очень быстро.'});
-Object.assign(I18N.en,{'tests.note':'This is not a medical test or a label. The result simply shows what your answers resemble most.',publicStartTitle:'Choose your age first',publicStartText:'Answer short cards and get a clear result about how you choose, act, and communicate.',publicModeClassicText:'Direct questions without game cards.',publicPrivacyText:'You can take it without saving. If you choose saving, the result stays only in this browser.',publicSummary:'Before We Build: your rough result.',publicResultTitle:'Your result',publicTechMap:'Show details',publicQualityNote:'Some answers were very similar or very fast. The result may be less accurate.',publicWhyQuestion:'In simple words',publicHypothesis:'Most like',publicAlternatives:'Also close',publicConfidence:'Pattern contrast',publicConfidenceHigh:'high pattern contrast',publicConfidenceModerate:'medium',publicConfidenceLow:'not very sure',publicWhatNext:'What it means',publicNextChecks:'Treat the result as a hint. Check whether it matches your real choices, plans, and communication.',publicCaveat:'The result can be wrong. Do not use it for important decisions.',publicQualityTitle:'Why the result may be less accurate',publicQualityNeutral:'You often chose the middle.',publicQualityChanged:'You changed some answers.',publicQualityFastItems:'You answered some cards very quickly.'});
-Object.assign(I18N.uk,{'tests.note':'Це не медичний тест і не ярлик. Результат просто допомагає побачити, що вам більше схоже.',publicStartTitle:'Спочатку оберіть вік',publicStartText:'Дайте відповіді на короткі картки й отримайте зрозумілий результат: як ви обираєте, дієте та спілкуєтесь.',publicModeClassicText:'Прямі питання без ігрових карток.',publicPrivacyText:'Можна пройти без збереження. Якщо обрати збереження, результат залишиться тільки в цьому браузері.',publicSummary:'Before We Build: ваш приблизний результат.',publicResultTitle:'Ваш результат',publicTechMap:'Показати деталі',publicQualityNote:'Деякі відповіді були надто схожими або надто швидкими. Результат може бути менш точним.',publicWhyQuestion:'Простими словами',publicHypothesis:'Найбільше схоже на',publicAlternatives:'Також близько',publicConfidence:'Вираженість патерну',publicConfidenceHigh:'висока вираженість',publicConfidenceModerate:'середньо',publicConfidenceLow:'не дуже впевнено',publicWhatNext:'Що це означає',publicNextChecks:'Сприймайте результат як підказку. Подумайте, чи схоже це на ваші реальні рішення, плани й спілкування.',publicCaveat:'Результат може помилятися. Не приймайте за ним важливі рішення.',publicQualityTitle:'Чому результат може бути менш точним',publicQualityNeutral:'Ви часто обирали середину.',publicQualityChanged:'Ви змінювали деякі відповіді.',publicQualityFastItems:'На частину карток ви відповіли дуже швидко.'});
+Object.assign(I18N.ru,{'tests.note':'Это не медицинский тест и не ярлык. Результат просто помогает увидеть, что вам больше похоже.',publicStartTitle:'Сначала выберите возраст',publicStartText:'Ответьте на короткие карточки и получите понятный результат о том, как вы выбираете, действуете и общаетесь.',publicModeClassicText:'Прямые вопросы без игровых карточек.',publicPrivacyText:'Можно пройти без сохранения. Если выбрать сохранение, результат останется только в этом браузере.',publicSummary:'Before We Build: ваш примерный результат.',publicResultTitle:'Ваш результат',publicTechMap:'Показать детали',publicQualityNote:'Некоторые ответы были слишком похожими или слишком быстрыми. Результат может быть менее точным.',publicWhyQuestion:'Простыми словами',publicHypothesis:'Больше всего похоже на',publicAlternatives:'Ещё близко',publicConfidence:'Выраженность паттерна',publicConfidenceHigh:'высокая выраженность',publicConfidenceModerate:'средне',publicConfidenceLow:'слабая выраженность',publicWhatNext:'Что это значит',publicNextChecks:'Посмотрите на результат как на подсказку. Подумайте, похоже ли это на ваши реальные решения, планы и общение.',publicCaveat:'Результат может ошибаться. Не принимайте по нему важные решения.',publicQualityTitle:'Почему результат может быть неточным',publicQualityNeutral:'Вы часто выбирали середину.',publicQualityChanged:'Вы меняли некоторые ответы.',publicQualityFastItems:'На часть карточек вы ответили очень быстро.'});
+Object.assign(I18N.en,{'tests.note':'This is not a medical test or a label. The result simply shows what your answers resemble most.',publicStartTitle:'Choose your age first',publicStartText:'Answer short cards and get a clear result about how you choose, act, and communicate.',publicModeClassicText:'Direct questions without game cards.',publicPrivacyText:'You can take it without saving. If you choose saving, the result stays only in this browser.',publicSummary:'Before We Build: your rough result.',publicResultTitle:'Your result',publicTechMap:'Show details',publicQualityNote:'Some answers were very similar or very fast. The result may be less accurate.',publicWhyQuestion:'In simple words',publicHypothesis:'Most like',publicAlternatives:'Also close',publicConfidence:'Pattern contrast',publicConfidenceHigh:'high pattern contrast',publicConfidenceModerate:'medium',publicConfidenceLow:'low pattern contrast',publicWhatNext:'What it means',publicNextChecks:'Treat the result as a hint. Check whether it matches your real choices, plans, and communication.',publicCaveat:'The result can be wrong. Do not use it for important decisions.',publicQualityTitle:'Why the result may be less accurate',publicQualityNeutral:'You often chose the middle.',publicQualityChanged:'You changed some answers.',publicQualityFastItems:'You answered some cards very quickly.'});
+Object.assign(I18N.uk,{'tests.note':'Це не медичний тест і не ярлик. Результат просто допомагає побачити, що вам більше схоже.',publicStartTitle:'Спочатку оберіть вік',publicStartText:'Дайте відповіді на короткі картки й отримайте зрозумілий результат: як ви обираєте, дієте та спілкуєтесь.',publicModeClassicText:'Прямі питання без ігрових карток.',publicPrivacyText:'Можна пройти без збереження. Якщо обрати збереження, результат залишиться тільки в цьому браузері.',publicSummary:'Before We Build: ваш приблизний результат.',publicResultTitle:'Ваш результат',publicTechMap:'Показати деталі',publicQualityNote:'Деякі відповіді були надто схожими або надто швидкими. Результат може бути менш точним.',publicWhyQuestion:'Простими словами',publicHypothesis:'Найбільше схоже на',publicAlternatives:'Також близько',publicConfidence:'Вираженість патерну',publicConfidenceHigh:'висока вираженість',publicConfidenceModerate:'середньо',publicConfidenceLow:'слабка вираженість',publicWhatNext:'Що це означає',publicNextChecks:'Сприймайте результат як підказку. Подумайте, чи схоже це на ваші реальні рішення, плани й спілкування.',publicCaveat:'Результат може помилятися. Не приймайте за ним важливі рішення.',publicQualityTitle:'Чому результат може бути менш точним',publicQualityNeutral:'Ви часто обирали середину.',publicQualityChanged:'Ви змінювали деякі відповіді.',publicQualityFastItems:'На частину карток ви відповіли дуже швидко.'});
 const item=(id,scale,ru,en,uk,rev=false)=>({id,scale,version:'1.0',reverse:rev,status:'pilot',text:{ru,en,uk}});
 const SOC_LABELS={ru:{Ti:'БЛ',Te:'ЧЛ',Fi:'БЭ',Fe:'ЧЭ',Si:'БС',Se:'ЧС',Ni:'БИ',Ne:'ЧИ'},en:{Ti:'Ti',Te:'Te',Fi:'Fi',Fe:'Fe',Si:'Si',Se:'Se',Ni:'Ni',Ne:'Ne'},uk:{Ti:'БЛ',Te:'ЧЛ',Fi:'БЕ',Fe:'ЧЕ',Si:'БС',Se:'ЧС',Ni:'БІ',Ne:'ЧІ'}};
 const PSY={aspects:['Воля','Логика','Эмоция','Физика'],code:{'Воля':'В','Логика':'Л','Эмоция':'Э','Физика':'Ф'}};
 const TMP={aspects:['Past','Present','Future','Eternity'],code:{en:{Past:'P',Present:'N',Future:'F',Eternity:'E'},ru:{Past:'П',Present:'Н',Future:'Б',Eternity:'В'},uk:{Past:'Ми',Present:'Тп',Future:'Мб',Eternity:'Вч'}}};
 const TIMS=[['ILE','ENTP',{ru:'Дон Кихот',en:'Don Quixote',uk:'Дон Кіхот'},['Ne','Ti','Si','Fe']],['SEI','ISFP',{ru:'Дюма',en:'Dumas',uk:'Дюма'},['Si','Fe','Ne','Ti']],['ESE','ESFJ',{ru:'Гюго',en:'Hugo',uk:'Гюго'},['Fe','Si','Ti','Ne']],['LII','INTJ',{ru:'Робеспьер',en:'Robespierre',uk:'Робеспʼєр'},['Ti','Ne','Fe','Si']],['EIE','ENFJ',{ru:'Гамлет',en:'Hamlet',uk:'Гамлет'},['Fe','Ni','Ti','Se']],['LSI','ISTJ',{ru:'Максим Горький',en:'Maxim Gorky',uk:'Максим Горький'},['Ti','Se','Fe','Ni']],['SLE','ESTP',{ru:'Жуков',en:'Zhukov',uk:'Жуков'},['Se','Ti','Ni','Fe']],['IEI','INFP',{ru:'Есенин',en:'Yesenin',uk:'Єсенін'},['Ni','Fe','Se','Ti']],['SEE','ESFP',{ru:'Наполеон',en:'Napoleon',uk:'Наполеон'},['Se','Fi','Ni','Te']],['ILI','INTP',{ru:'Бальзак',en:'Balzac',uk:'Бальзак'},['Ni','Te','Se','Fi']],['LIE','ENTJ',{ru:'Джек Лондон',en:'Jack London',uk:'Джек Лондон'},['Te','Ni','Fi','Se']],['ESI','ISFJ',{ru:'Драйзер',en:'Dreiser',uk:'Драйзер'},['Fi','Se','Te','Ni']],['LSE','ESTJ',{ru:'Штирлиц',en:'Stierlitz',uk:'Штірліц'},['Te','Si','Fi','Ne']],['EII','INFJ',{ru:'Достоевский',en:'Dostoevsky',uk:'Достоєвський'},['Fi','Ne','Te','Si']],['IEE','ENFP',{ru:'Гексли',en:'Huxley',uk:'Гекслі'},['Ne','Fi','Si','Te']],['SLI','ISTP',{ru:'Габен',en:'Gabin',uk:'Габен'},['Si','Te','Ne','Fi']]];
-const socItems=[
-['Ti','Мне легче понять тему, когда я вижу порядок и связи между частями.','I understand a topic more easily when I see the order and links between its parts.','Мені легше зрозуміти тему, коли я бачу порядок і зв’язки між частинами.',false],
-['Ti','Мне тяжело выстраивать строгие логические схемы и формальные определения.','I find it hard to construct strict logical schemas and formal definitions.','Мені важко вибудовувати суворі логічні схеми та формальні визначення.',true],
-['Te','Я быстро спрашиваю, что реально сработало на практике.','I quickly ask what actually worked in practice.','Я швидко питаю, що реально спрацювало на практиці.',false],
-['Te','Практическая полезность и эффективные действия интересуют меня в последнюю очередь.','Practical utility and efficient actions matter to me least of all.','Практична користь та ефективні дії цікавлять мене в останню чергу.',true],
-['Fi','Я замечаю, когда между людьми меняется доверие или близость.','I notice when trust or closeness between people changes.','Я помічаю, коли між людьми змінюється довіра або близость.',false],
-['Fi','Мне сложно улавливать тонкие оттенки личных отношений и симпатий.','I find it difficult to catch subtle shades of personal relationships and affinities.','Мені складно вловлювати тонкі відтінки особистих стосунків і симпатій.',true],
-['Fe','Я быстро замечаю общее настроение в разговоре.','I quickly notice the shared mood in a conversation.','Я швидко помічаю загальний настрій у розмові.',false],
-['Fe','Мне трудно управлять эмоциональной атмосферой в компании.','I find it hard to manage the emotional atmosphere in a group.','Мені важко керувати емоційною атмосферою в компанії.',true],
-['Si','Когда что-то не так, я первым делом замечаю комфорт, усталость и телесные ощущения.','When something is off, I first notice comfort, tiredness, and body sensations.','Коли щось не так, я насамперед помічаю комфорт, втому й тілесні відчуття.',false],
-['Si','Я часто игнорирую физический комфорт и сигналы своего тела.','I often ignore physical comfort and bodily signals.','Я часто ігнорую фізичний комфорт і сигнали своего тіла.',true],
-['Se','В напряжённой ситуации я быстро замечаю, где есть сила и ресурсы.','In a tense situation, I quickly notice where there is force and resources.','У напруженій ситуації я швидко помічаю, де є сила й ресурси.',false],
-['Se','Мне тяжело проявлять прямое волевое давление и отстаивать позиции.','I find it hard to exert direct forceful pressure and defend positions.','Мені важко проявляти прямий вольовий тиск і відстоювати позиції.',true],
-['Ni','Я часто чувствую, к чему постепенно идёт ситуация.','I often sense where a situation is gradually heading.','Я часто відчуваю, до чого поступово йде ситуація.',false],
-['Ni','Мне сложно улавливать скрытые тенденции и развитие событий во времени.','I struggle to catch hidden trends and the development of events over time.','Мені складно вловлювати приховані тенденції та розвиток подій у часі.',true],
-['Ne','Меня оживляет, когда появляются неожиданные идеи и варианты.','I feel energized when unexpected ideas and options appear.','Мене оживляє, коли з’являються несподівані ідеї та варианты.',false],
-['Ne','Множество неясных вариантов скорее сбивает меня с толку, чем вдохновляет.','A multitude of unclear options confuses me rather than inspires me.','Безліч неясних варіантів швидше збиває мене з пантелику, ніж надихає.',true]
-].map((x,i)=>item(`soc_${i+1}`,x[0],x[1],x[2],x[3],x[4]));
-function posItem(prefix,aspect,pos,ru,en,uk,rev=false){return item(`${prefix}_${aspect}_${pos}`,`${aspect}|${pos}`,ru,en,uk,rev)}
-const psychItems=[
-posItem('psy','Воля',1,'Когда надо выбрать, я обычно сам(а) решаю, как поступить.','When a choice is needed, I usually decide for myself what to do.','Коли треба обрати, я зазвичай сам(а) вирішую, як вчинити.',false),
-posItem('psy','Воля',2,'Мне тяжело и утомляюще вступать в диалог и вместе с другими обсуждать цели.','I find it hard and exhausting to engage in dialogue and discuss goals with others.','Мені важко й виснажливо вступати в діалог і разом з іншими обговорювати цілі.',true),
-posItem('psy','Воля',3,'Мне трудно, когда на меня давят или требуют быстрого решения.','It is hard for me when people pressure me or demand a quick decision.','Мені важко, коли на мене тиснуть або вимагають швидкого решения.',false),
-posItem('psy','Воля',4,'Мне трудно заставить себя действовать по чужому плану без своего решения.','I find it hard to force myself to act on someone else\'s plan without my own decision.','Мені важко змусити себе діяти за чужим планом без власного рішення.',true),
-posItem('psy','Логика',1,'Обычно я быстро нахожу своё объяснение и считаю, что понял(а).','I usually find my own explanation quickly and feel that I understand.','Зазвичай я швидко знаходжу своє пояснення і вважаю, що зрозумів(ла).',false),
-posItem('psy','Логика',2,'Я избегаю совместного разбора мыслей и длинных интеллектуальных дискуссий.','I avoid joint reasoning and lengthy intellectual discussions.','Я уникаю спільного розбору думок і довгих інтелектуальних дискусій.',true),
-posItem('psy','Логика',3,'Я часто переживаю, не ошибся(лась) ли в рассуждении.','I often worry that I may have made a mistake in my reasoning.','Я часто хвилююся, чи не помилився(лась) у міркуванні.',false),
-posItem('psy','Логика',4,'Мне неинтересно искать логическое объяснение вещам, которые прямо сейчас работают.','I am not interested in seeking a logical explanation for things that work right now.','Мені нецікаво шукати логічне пояснення речам, які просто зараз працюють.',true),
-posItem('psy','Эмоция',1,'Я легко показываю своё настроение и чувства.','I easily show my mood and feelings.','Я легко показую свій настрій і почуття.',false),
-posItem('psy','Эмоция',2,'Мне трудно вести открытый диалог о чувствах и делиться эмоциями.','I find it hard to maintain an open dialogue about feelings and share emotions.','Мені важко вести відкритий діалог про почуття й ділитися емоціями.',true),
-posItem('psy','Эмоция',3,'Я переживаю, если мои чувства звучат не так, как я хотел(а).','I worry when my feelings come across differently than I wanted.','Я хвилююся, якщо мої почуття звучать не так, как я хотів(ла).',false),
-posItem('psy','Эмоция',4,'Я игнорирую эмоциональную сторону жизни и стараюсь её отключать.','I ignore the emotional side of life and try to switch it off.','Я ігнорую емоційную сторону життя й намагаюся її вимикати.',true),
-posItem('psy','Физика',1,'Я хорошо знаю, какой быт, тело и комфорт мне нужны.','I know well what everyday setup, body care, and comfort I need.','Я добре знаю, який побут, тіло й комфорт мені потрібні.',false),
-posItem('psy','Физика',2,'Мне неинтересно обустраивать быт и физический комфорт для окружающих.','I am not interested in arranging everyday comfort and material setup for others.','Мені нецікаво облаштовувати побут і фізичний комфорт для оточуючих.',true),
-posItem('psy','Физика',3,'Телесный или бытовой дискомфорт может долго меня тревожить.','Body or everyday discomfort can trouble me for a long time.','Тілесний або побутовий дискомфорт може долго мене тривожити.',false),
-posItem('psy','Физика',4,'Я игнорирую бытовые удобства и мало обращаю внимания на материальный порядок.','I ignore physical comfort and pay little attention to material order.','Я ігнорую побутові зручності й мало звертаю уваги на матеріальний порядок.',true)];
-const tempItems=[
-posItem('tmp','Past',1,'Я часто понимаю себя через то, что уже было в моей жизни.','I often understand myself through what has already happened in my life.','Я часто розумію себе через те, що вже було в моєму житті.',false),
-posItem('tmp','Past',2,'Мне тяжело вместе с другими анализировать прошлый опыт.','I find it hard to analyze past experience together with others.','Мені важко разом з іншими аналізувати минулый досвід.',true),
-posItem('tmp','Past',3,'Ошибки прошлого могут надолго менять моё чувство “кто я”.','Past mistakes can change my feeling of “who I am” for a long time.','Помилки минулого можуть надовго змінювати моє відчуття “хто я”.',false),
-posItem('tmp','Past',4,'Я избегаю размышлений о прошлом и стараюсь о нём не вспоминать.','I avoid thinking about the past and try not to recall it.','Я уникаю роздумів про минуле й намагаюся про нього не згадувати.',true),
-posItem('tmp','Present',1,'Мне важно ясно чувствовать: я здесь и я на своём месте.','It is important for me to clearly feel: I am here and in my place.','Мені важливо ясно відчувати: я тут і я на своєму місці.',false),
-posItem('tmp','Present',2,'Мне трудно в диалоге искать совместный ритм и своё место в текущем моменте.','I find it hard in dialogue to search for a joint rhythm and my place in the current moment.','Мені важко в діалозі шукати спільний ритм і своє місце в поточному моменті.',true),
-posItem('tmp','Present',3,'Мне тревожно, когда я не понимаю, где моё место сейчас.','I feel anxious when I do not understand where my place is right now.','Мені тривожно, коли я не розумію, де моє место зараз.',false),
-posItem('tmp','Present',4,'Я игнорирую текущий момент и не стараюсь ощутить своё присутствие здесь.','I ignore the present moment and do not try to feel my presence here.','Я ігнорую поточний момент і не намагаюся відчути свою присутність тут.',true),
-posItem('tmp','Future',1,'Мне важно заранее видеть, что может быть дальше.','It is important for me to see in advance what may come next.','Мені важливо заздалегідь бачити, що може бути далі.',false),
-posItem('tmp','Future',2,'Мне неинтересно вместе с людьми обсуждать и моделировать сценарии будущего.','I am not interested in discussing and modeling future scenarios together with people.','Мені нецікаво разом із людьми обговорювати й моделювати сценарії майбутнього.',true),
-posItem('tmp','Future',3,'Когда будущее непонятно, мне становится тревожно.','When the future is unclear, I become anxious.','Коли майбутнє незрозуміле, мені стає тривожно.',false),
-posItem('tmp','Future',4,'Я избегаю строгих планов на будущее и стараюсь о нём не задумываться.','I avoid strict plans for the future and try not to ponder it.','Я уникаю суворих планів на майбутнє й намагаюся про нього не замислюватися.',true),
-posItem('tmp','Eternity',1,'Мне важно видеть большой смысл того, что происходит.','It is important for me to see the larger meaning of what is happening.','Мені важливо бачити великий сенс того, что происходит.',false),
-posItem('tmp','Eternity',2,'Мне трудно вести диалоги о фундаментальных смыслах и ценностях жизни.','I find it hard to engage in dialogues about fundamental meanings and life values.','Мені важко вести діалоги про фундаментальні сенси й цінності життя.',true),
-posItem('tmp','Eternity',3,'Если я не вижу большого “зачем”, мне становится тяжело.','If I do not see the larger “why”, things feel heavy to me.','Якщо я не бачу великого “навіщо”, мені стає важко.',false),
-posItem('tmp','Eternity',4,'Мне неинтересно искать высший смысл и абстрактную ценность в вещах.','I am not interested in searching for a higher purpose and abstract value in things.','Мені нецікаво шукати вищий сенс і абстрактну цінність у речах.',true)];
 let TESTS={
-socionics:{version:'socionics-pilot-v0.3',mode:'socionics',labels:{ru:['Информация и общение','Как вы воспринимаете, сортируете и передаете информацию'],en:['Information and communication','How you perceive, sort, and exchange information'],uk:['Інформація і спілкування','Як ви сприймаєте, сортуєте й передаєте інформацію']},dims:['Ti','Te','Fi','Fe','Si','Se','Ni','Ne'],items:[...socItems,{id:'soc_ac_1',scale:'attention',attention:2,version:'1.0',text:{ru:'Проверка внимательности: выберите вариант 2.',en:'Attention check: choose option 2.',uk:'Перевірка уважності: оберіть варіант 2.'}}]},
-psychosophy:{version:'psychosophy-pilot-v0.3',mode:'position',labels:{ru:['Энергия и действие','Как вы расставляете приоритеты, решаете и организуете усилия'],en:['Energy and action','How you set priorities, decide, and organize effort'],uk:['Енергія і дія','Як ви розставляєте пріоритети, вирішуєте й організовуєте зусилля']},aspects:PSY.aspects,code:PSY.code,items:[...psychItems,{id:'psy_ac_1',scale:'attention',attention:2,version:'1.0',text:{ru:'Проверка внимательности: выберите вариант 2.',en:'Attention check: choose option 2.',uk:'Перевірка уважності: оберіть варіант 2.'}}]},
-temporistics:{version:'temporistics-pilot-v0.3',mode:'position',labels:{ru:['Время и направление','Как вы переживаете прошлое, настоящее, будущее и большой смысл'],en:['Time and direction','How you experience past, present, future, and larger meaning'],uk:['Час і напрям','Як ви переживаєте минуле, теперішнє, майбутнє і великий сенс']},aspects:TMP.aspects,code:TMP.code,items:[...tempItems,{id:'tmp_ac_1',scale:'attention',attention:2,version:'1.0',text:{ru:'Проверка внимательности: выберите вариант 2.',en:'Attention check: choose option 2.',uk:'Перевірка уважності: оберіть варіант 2.'}}]}
+  "socionics": {
+    "version": "socionics-pilot-v0.4",
+    "mode": "socionics",
+    "labels": {
+      "ru": [
+        "Информация и общение",
+        "Как вы воспринимаете, сортируете и передаете информацию"
+      ],
+      "en": [
+        "Information and communication",
+        "How you perceive, sort, and exchange information"
+      ],
+      "uk": [
+        "Інформація і спілкування",
+        "Як ви сприймаєте, сортуєте й передаєте інформацію"
+      ]
+    },
+    "dims": [
+      "Ti",
+      "Te",
+      "Fi",
+      "Fe",
+      "Si",
+      "Se",
+      "Ni",
+      "Ne"
+    ],
+    "items": [
+      {
+        "id": "soc_1",
+        "scale": "Ti",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легче понять тему, когда я вижу порядок и связи между частями.",
+          "en": "I understand a topic more easily when I see the order and links between its parts.",
+          "uk": "Мені легше зрозуміти тему, коли я бачу порядок і зв’язки між частинами."
+        }
+      },
+      {
+        "id": "soc_2",
+        "scale": "Ti",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне тяжело выстраивать строгие логические схемы и формальные определения.",
+          "en": "I find it hard to construct strict logical schemas and formal definitions.",
+          "uk": "Мені важко вибудовувати суворі логічні схеми та формальні визначення."
+        }
+      },
+      {
+        "id": "soc_3",
+        "scale": "Te",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я быстро спрашиваю, что реально сработало на практике.",
+          "en": "I quickly ask what actually worked in practice.",
+          "uk": "Я швидко питаю, що реально спрацювало на практиці."
+        }
+      },
+      {
+        "id": "soc_4",
+        "scale": "Te",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Практическая полезность и эффективные действия интересуют меня в последнюю очередь.",
+          "en": "Practical utility and efficient actions matter to me least of all.",
+          "uk": "Практична користь та ефективні дії цікавлять мене в останню чергу."
+        }
+      },
+      {
+        "id": "soc_5",
+        "scale": "Fi",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я замечаю, когда между людьми меняется доверие или близость.",
+          "en": "I notice when trust or closeness between people changes.",
+          "uk": "Я помічаю, коли між людьми змінюється довіра або близькість."
+        }
+      },
+      {
+        "id": "soc_6",
+        "scale": "Fi",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне сложно улавливать тонкие оттенки личных отношений и симпатий.",
+          "en": "I find it difficult to catch subtle shades of personal relationships and affinities.",
+          "uk": "Мені складно вловлювати тонкі відтінки особистих стосунків і симпатій."
+        }
+      },
+      {
+        "id": "soc_7",
+        "scale": "Fe",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я быстро замечаю общее настроение в разговоре.",
+          "en": "I quickly notice the shared mood in a conversation.",
+          "uk": "Я швидко помічаю загальний настрій у розмові."
+        }
+      },
+      {
+        "id": "soc_8",
+        "scale": "Fe",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне трудно управлять эмоциональной атмосферой в компании.",
+          "en": "I find it hard to manage the emotional atmosphere in a group.",
+          "uk": "Мені важко керувати емоційною атмосферою в компанії."
+        }
+      },
+      {
+        "id": "soc_9",
+        "scale": "Si",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Когда что-то не так, я первым делом замечаю комфорт, усталость и телесные ощущения.",
+          "en": "When something is off, I first notice comfort, tiredness, and body sensations.",
+          "uk": "Коли щось не так, я насамперед помічаю комфорт, втому й тілесні відчуття."
+        }
+      },
+      {
+        "id": "soc_10",
+        "scale": "Si",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Я часто игнорирую физический комфорт и сигналы своего тела.",
+          "en": "I often ignore physical comfort and bodily signals.",
+          "uk": "Я часто ігнорую фізичний комфорт і сигнали свого тіла."
+        }
+      },
+      {
+        "id": "soc_11",
+        "scale": "Se",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "В напряжённой ситуации я быстро замечаю, где есть сила и ресурсы.",
+          "en": "In a tense situation, I quickly notice where there is force and resources.",
+          "uk": "У напруженій ситуації я швидко помічаю, де є сила й ресурси."
+        }
+      },
+      {
+        "id": "soc_12",
+        "scale": "Se",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне тяжело проявлять прямое волевое давление и отстаивать позиции.",
+          "en": "I find it hard to exert direct forceful pressure and defend positions.",
+          "uk": "Мені важко проявляти прямий вольовий тиск і відстоювати позиції."
+        }
+      },
+      {
+        "id": "soc_13",
+        "scale": "Ni",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я часто чувствую, к чему постепенно идёт ситуация.",
+          "en": "I often sense where a situation is gradually heading.",
+          "uk": "Я часто відчуваю, до чого поступово йде ситуація."
+        }
+      },
+      {
+        "id": "soc_14",
+        "scale": "Ni",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне сложно улавливать скрытые тенденции и развитие событий во времени.",
+          "en": "I struggle to catch hidden trends and the development of events over time.",
+          "uk": "Мені складно вловлювати приховані тенденції та розвиток подій у часі."
+        }
+      },
+      {
+        "id": "soc_15",
+        "scale": "Ne",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Меня оживляет, когда появляются неожиданные идеи и варианты.",
+          "en": "I feel energized when unexpected ideas and options appear.",
+          "uk": "Мене оживляє, коли з’являються несподівані ідеї та варіанти."
+        }
+      },
+      {
+        "id": "soc_16",
+        "scale": "Ne",
+        "version": "1.2",
+        "reverse": true,
+        "status": "pilot",
+        "text": {
+          "ru": "Множество неясных вариантов скорее сбивает меня с толку, чем вдохновляет.",
+          "en": "A multitude of unclear options confuses me rather than inspires me.",
+          "uk": "Безліч неясних варіантів швидше збиває мене з пантелику, ніж надихає."
+        }
+      },
+      {
+        "id": "soc_ac_1",
+        "scale": "attention",
+        "attention": 2,
+        "version": "1.0",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Проверка внимательности: выберите вариант 2.",
+          "en": "Attention check: choose option 2.",
+          "uk": "Перевірка уважності: оберіть варіант 2."
+        }
+      }
+    ]
+  },
+  "psychosophy": {
+    "version": "psychosophy-pilot-v0.4",
+    "mode": "position",
+    "labels": {
+      "ru": [
+        "Энергия и действие",
+        "Как вы расставляете приоритеты, решаете и организуете усилия"
+      ],
+      "en": [
+        "Energy and action",
+        "How you set priorities, decide, and organize effort"
+      ],
+      "uk": [
+        "Енергія і дія",
+        "Як ви розставляєте пріоритети, вирішуєте й организуєте зусилля"
+      ]
+    },
+    "aspects": [
+      "Воля",
+      "Логика",
+      "Эмоция",
+      "Физика"
+    ],
+    "code": {
+      "Воля": "В",
+      "Логика": "Л",
+      "Эмоция": "Э",
+      "Физика": "Ф"
+    },
+    "items": [
+      {
+        "id": "psy_Воля_1",
+        "scale": "Воля|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Когда надо выбрать, я обычно сам(а) решаю, как поступить.",
+          "en": "When a choice is needed, I usually decide for myself what to do.",
+          "uk": "Коли треба обрати, я зазвичай сам(а) вирішую, як вчинити."
+        }
+      },
+      {
+        "id": "psy_Воля_2",
+        "scale": "Воля|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легко помочь человеку выбрать, не давя на него.",
+          "en": "It is easy for me to help a person choose without pressuring them.",
+          "uk": "Мені легко допомогти людині обрати, не тиснучи на неї."
+        }
+      },
+      {
+        "id": "psy_Воля_3",
+        "scale": "Воля|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне трудно, когда на меня давят или требуют быстрого решения.",
+          "en": "It is hard for me when people pressure me or demand a quick decision.",
+          "uk": "Мені важко, коли на мене тиснуть або вимагають швидкого рішення."
+        }
+      },
+      {
+        "id": "psy_Воля_4",
+        "scale": "Воля|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне проще действовать, когда кто-то уже решил, что делать.",
+          "en": "It is easier for me to act when someone has already decided what to do.",
+          "uk": "Мені простіше діяти, коли хтось уже вирішив, що робити."
+        }
+      },
+      {
+        "id": "psy_Логика_1",
+        "scale": "Логика|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Обычно я быстро нахожу своё объяснение и считаю, что понял(а).",
+          "en": "I usually find my own explanation quickly and feel that I understand.",
+          "uk": "Зазвичай я швидко знаходжу своє пояснення і вважаю, що зрозумів(ла)."
+        }
+      },
+      {
+        "id": "psy_Логика_2",
+        "scale": "Логика|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне нравится вместе разбирать мысли и делать объяснение точнее.",
+          "en": "I like working through ideas together and making an explanation more precise.",
+          "uk": "Мені подобається разом розбирати думки й робити пояснення точнішим."
+        }
+      },
+      {
+        "id": "psy_Логика_3",
+        "scale": "Логика|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я часто переживаю, не ошибся(лась) ли в рассуждении.",
+          "en": "I often worry that I may have made a mistake in my reasoning.",
+          "uk": "Я часто хвилююся, чи не помилився(лась) у міркуванні."
+        }
+      },
+      {
+        "id": "psy_Логика_4",
+        "scale": "Логика|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Если тема не главная для меня, мне хватает готового объяснения.",
+          "en": "If a topic is not central for me, a ready explanation is enough.",
+          "uk": "Якщо тема не головна для мене, мені вистачає готового пояснення."
+        }
+      },
+      {
+        "id": "psy_Эмоция_1",
+        "scale": "Эмоция|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я легко показываю своё настроение и чувства.",
+          "en": "I easily show my mood and feelings.",
+          "uk": "Я легко показую свій настрій і почуття."
+        }
+      },
+      {
+        "id": "psy_Эмоция_2",
+        "scale": "Эмоция|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легко поддерживать живой обмен чувствами с людьми.",
+          "en": "It is easy for me to support a live exchange of feelings with people.",
+          "uk": "Мені легко підтримувати живий обмін почуттями з людьми."
+        }
+      },
+      {
+        "id": "psy_Эмоция_3",
+        "scale": "Эмоция|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я переживаю, если мои чувства звучат не так, как я хотел(а).",
+          "en": "I worry when my feelings come across differently than I wanted.",
+          "uk": "Я хвилююся, якщо мої почуття звучать не так, как я хотів(ла)."
+        }
+      },
+      {
+        "id": "psy_Эмоция_4",
+        "scale": "Эмоция|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я легко подстраиваюсь под эмоциональный фон вокруг и не создаю свой.",
+          "en": "I easily adjust to the emotional background around me and do not create my own.",
+          "uk": "Я легко підлаштовуюся під емоційний фон навколо й не створюю свій."
+        }
+      },
+      {
+        "id": "psy_Физика_1",
+        "scale": "Физика|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я хорошо знаю, какой быт, тело и комфорт мне нужны.",
+          "en": "I know well what everyday setup, body care, and comfort I need.",
+          "uk": "Я добре знаю, який побут, тіло й комфорт мені потрібні."
+        }
+      },
+      {
+        "id": "psy_Физика_2",
+        "scale": "Физика|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легко устроить практические вещи так, чтобы людям было удобно.",
+          "en": "It is easy for me to arrange practical things so people are comfortable.",
+          "uk": "Мені легко влаштувати практичні речі так, щоб людям було зручно."
+        }
+      },
+      {
+        "id": "psy_Физика_3",
+        "scale": "Физика|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Телесный или бытовой дискомфорт может долго меня тревожить.",
+          "en": "Body or everyday discomfort can trouble me for a long time.",
+          "uk": "Тілесний або побутовий дискомфорт може долго мене тривожити."
+        }
+      },
+      {
+        "id": "psy_Физика_4",
+        "scale": "Физика|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я могу долго не менять быт, если всё в целом работает.",
+          "en": "I can leave my everyday setup unchanged for a long time if it mostly works.",
+          "uk": "Я можу довго не змінювати побут, якщо все загалом працює."
+        }
+      },
+      {
+        "id": "psy_ac_1",
+        "scale": "attention",
+        "attention": 2,
+        "version": "1.0",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Проверка внимательности: выберите вариант 2.",
+          "en": "Attention check: choose option 2.",
+          "uk": "Перевірка уважності: оберіть варіант 2."
+        }
+      }
+    ]
+  },
+  "temporistics": {
+    "version": "temporistics-pilot-v0.4",
+    "mode": "position",
+    "labels": {
+      "ru": [
+        "Время и направление",
+        "Как вы переживаете прошлое, настоящее, будущее и большой смысл"
+      ],
+      "en": [
+        "Time and direction",
+        "How you experience past, present, future, and larger meaning"
+      ],
+      "uk": [
+        "Час і напрям",
+        "Як ви переживаєте минуле, теперішнє, майбутнє і великий сенс"
+      ]
+    },
+    "aspects": [
+      "Past",
+      "Present",
+      "Future",
+      "Eternity"
+    ],
+    "code": {
+      "en": {
+        "Past": "P",
+        "Present": "N",
+        "Future": "F",
+        "Eternity": "E"
+      },
+      "ru": {
+        "Past": "П",
+        "Present": "Н",
+        "Future": "Б",
+        "Eternity": "В"
+      },
+      "uk": {
+        "Past": "Ми",
+        "Present": "Тп",
+        "Future": "Мб",
+        "Eternity": "Вч"
+      }
+    },
+    "items": [
+      {
+        "id": "tmp_Past_1",
+        "scale": "Past|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я часто понимаю себя через то, что уже было в моей жизни.",
+          "en": "I often understand myself through what has already happened in my life.",
+          "uk": "Я часто розумію себе через те, що вже було в моєму житті."
+        }
+      },
+      {
+        "id": "tmp_Past_2",
+        "scale": "Past|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легче переосмыслить прошлый опыт в диалоге с другими.",
+          "en": "It is easier for me to re-evaluate past experience in dialogue with others.",
+          "uk": "Мені легше переосмислити минулий досвід у діалозі з іншими."
+        }
+      },
+      {
+        "id": "tmp_Past_3",
+        "scale": "Past|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Ошибки прошлого могут надолго менять моё чувство “кто я”.",
+          "en": "Past mistakes can change my feeling of “who I am” for a long time.",
+          "uk": "Помилки минулого можуть надовго змінювати моє відчуття “хто я”."
+        }
+      },
+      {
+        "id": "tmp_Past_4",
+        "scale": "Past|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я спокойнее отношусь к прошлому и не зацикливаюсь на нём.",
+          "en": "I view the past calmly and do not fixate on it.",
+          "uk": "Я спокійніше ставлюся до минулого й не зациклююся на ньому."
+        }
+      },
+      {
+        "id": "tmp_Present_1",
+        "scale": "Present|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне важно ясно чувствовать: я здесь и я на своём месте.",
+          "en": "It is important for me to clearly feel: I am here and in my place.",
+          "uk": "Мені важливо ясно відчувати: я тут і я на своєму місці."
+        }
+      },
+      {
+        "id": "tmp_Present_2",
+        "scale": "Present|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легче понять своё место, когда я делаю что-то вместе с людьми.",
+          "en": "It is easier for me to understand my place when I do something together with people.",
+          "uk": "Мені легше зрозуміти своє місце, коли я роблю щось разом із людьми."
+        }
+      },
+      {
+        "id": "tmp_Present_3",
+        "scale": "Present|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне тревожно, когда я не понимаю, где моё место сейчас.",
+          "en": "I feel anxious when I do not understand where my place is right now.",
+          "uk": "Мені тривожно, коли я не розумію, де моє місце зараз."
+        }
+      },
+      {
+        "id": "tmp_Present_4",
+        "scale": "Present|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я могу спокойно жить моментом, даже если моё место пока неясно.",
+          "en": "I can calmly live in the moment even if my place is not clear yet.",
+          "uk": "Я можу спокійно жити моментом, навіть якщо моє місце поки неясне."
+        }
+      },
+      {
+        "id": "tmp_Future_1",
+        "scale": "Future|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне важно заранее видеть, что может быть дальше.",
+          "en": "It is important for me to see in advance what may come next.",
+          "uk": "Мені важливо заздалегідь бачити, що може бути далі."
+        }
+      },
+      {
+        "id": "tmp_Future_2",
+        "scale": "Future|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легко помогать людям увидеть разные варианты впереди.",
+          "en": "It is easy for me to help people see different options ahead.",
+          "uk": "Мені легко допомагати людям побачити різні варіанти попереду."
+        }
+      },
+      {
+        "id": "tmp_Future_3",
+        "scale": "Future|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Когда будущее непонятно, мне становится тревожно.",
+          "en": "When the future is unclear, I become anxious.",
+          "uk": "Коли майбутнє незрозуміле, мені стає тривожно."
+        }
+      },
+      {
+        "id": "tmp_Future_4",
+        "scale": "Future|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Я могу жить спокойно, даже если не знаю точный план дальше.",
+          "en": "I can live calmly even if I do not know the exact plan ahead.",
+          "uk": "Я можу жити спокійно, навіть якщо не знаю точний план далі."
+        }
+      },
+      {
+        "id": "tmp_Eternity_1",
+        "scale": "Eternity|1",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне важно видеть большой смысл того, что происходит.",
+          "en": "It is important for me to see the larger meaning of what is happening.",
+          "uk": "Мені важливо бачити великий сенс того, що відбувається."
+        }
+      },
+      {
+        "id": "tmp_Eternity_2",
+        "scale": "Eternity|2",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне легко обсуждать с людьми, зачем всё это и какой в этом смысл.",
+          "en": "It is easy for me to discuss with people why all this matters and what it means.",
+          "uk": "Мені легко обговорювати з людьми, навіщо все це і який у цьому сенс."
+        }
+      },
+      {
+        "id": "tmp_Eternity_3",
+        "scale": "Eternity|3",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Если я не вижу большого “зачем”, мне становится тяжело.",
+          "en": "If I do not see the larger “why”, things feel heavy to me.",
+          "uk": "Якщо я не бачу великого “навіщо”, мені стає важко."
+        }
+      },
+      {
+        "id": "tmp_Eternity_4",
+        "scale": "Eternity|4",
+        "version": "1.2",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Мне не всегда нужен большой смысл, чтобы заниматься текущими делами.",
+          "en": "I do not always need a larger meaning to deal with current tasks.",
+          "uk": "Мені не завжди потрібен великий сенс, щоб займатися поточними справами."
+        }
+      },
+      {
+        "id": "tmp_ac_1",
+        "scale": "attention",
+        "attention": 2,
+        "version": "1.0",
+        "reverse": false,
+        "status": "pilot",
+        "text": {
+          "ru": "Проверка внимательности: выберите вариант 2.",
+          "en": "Attention check: choose option 2.",
+          "uk": "Перевірка уважності: оберіть вариант 2."
+        }
+      }
+    ]
+  }
 };
-const testAudience=document.body.dataset.testAudience||'people';
-let currentLang=localStorage.getItem('before-we-build-lang')||'uk',activeTest='temporistics',sessionId=crypto.randomUUID(),deviceId=testAudience==='research'?(localStorage.getItem('before-we-build-device-id')||crypto.randomUUID()):sessionId,startedAt=Date.now(),shownAt={},changed={},publicStarted=false,publicSaveLocal=false,publicMode='visual',publicAgeBand='',publicStep=0,lastPublicPayload=null,publicPrefs={largeText:false,highContrast:false,reduceMotion:false,noAutoscroll:false};if(testAudience==='research')localStorage.setItem('before-we-build-device-id',deviceId);
-const shuffle=(arr,seed)=>arr.map((v,i)=>[v,Math.sin(seed.length+i)*10000%1]).sort((a,b)=>a[1]-b[1]).map(x=>x[0]);
-const val=id=>document.querySelector(id)?.value||'';
-async function hash(s){if(!s)return'';const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s.trim().toLowerCase()));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}
-function applyLanguage(lang){currentLang=I18N[lang]?lang:'uk';document.documentElement.lang=currentLang;localStorage.setItem('before-we-build-lang',currentLang);document.querySelectorAll('[data-i18n]').forEach(el=>{const v=I18N[currentLang][el.dataset.i18n];if(v)el.textContent=v});document.querySelectorAll('[data-lang]').forEach(b=>{const active=b.dataset.lang===currentLang;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});renderTests()}
-function renderTests(){const d=I18N[currentLang],tabs=document.querySelector('#testTabs'),panel=document.querySelector('#testPanel'),test=TESTS[activeTest],items=shuffle(test.items,deviceId+activeTest);shownAt={};changed={};tabs.innerHTML=Object.keys(TESTS).map(k=>`<button class="${k===activeTest?'active':''}" data-test-key="${k}">${TESTS[k].labels[currentLang][0]}</button>`).join('');panel.innerHTML=`<div class="research-card"><b>${d.pilot}</b><p>${d.instruction}</p><label class="consent"><input id="consent" type="checkbox"> ${d.consent}</label></div><div class="metadata-grid"><label>${d.age}<select id="ageBand"><option value="">${d.none}</option><option>under-18</option><option>18-24</option><option>25-34</option><option>35-44</option><option>45-54</option><option>55+</option></select></label><label>${d.exposure}<select id="exposure"><option value="">${d.none}</option><option>none</option><option>beginner</option><option>intermediate</option><option>advanced</option></select></label><label>${d.selftype}<input id="selfType" placeholder="SLI / ЭЛВФ / ..."></label><label>${d.token}<input id="retestToken" type="password" autocomplete="off"></label></div><div class="test-meta"><h3>${test.labels[currentLang][0]}</h3><p>${test.labels[currentLang][1]}</p><p>${test.mode==='socionics'?d.caveatSoc:d.caveatPosition}</p></div><div class="test-items">${items.map((it,i)=>{shownAt[it.id]=Date.now();return`<article class="test-item" data-test-item="${it.id}" data-display-index="${i+1}"><p><b>${i+1}.</b> ${it.text[currentLang]||it.text.ru}</p><div class="scale">${[1,2,3,4,5].map(v=>`<label><input type="radio" name="${it.id}" value="${v}">${v}</label>`).join('')}</div><div class="scale-help"><span>${d.scaleL}</span><span>${d.scaleR}</span></div></article>`}).join('')}</div><div class="test-actions"><button class="primary" data-submit>${d.submit}</button><button data-reset>${d.reset}</button><button data-clear>${d.clear}</button></div><div id="testResult" aria-live="polite"></div>`;tabs.querySelectorAll('[data-test-key]').forEach(b=>b.onclick=()=>{activeTest=b.dataset.testKey;renderTests()});panel.querySelectorAll('input[type=radio]').forEach(r=>r.onchange=()=>changed[r.name]=true);panel.querySelector('[data-submit]').onclick=scoreActiveTest;panel.querySelector('[data-reset]').onclick=renderTests;panel.querySelector('[data-clear]').onclick=()=>{localStorage.removeItem('before-we-build-results');document.querySelector('#testResult').innerHTML=''}}
-function collect(){const test=TESTS[activeTest],byId=Object.fromEntries(test.items.map(it=>[it.id,it])),scores={},counts={},responses=[];let missing=false,failedAttention=false;document.querySelectorAll('[data-test-item]').forEach(el=>{el.classList.remove('missing-answer');const it=byId[el.dataset.testItem],checked=document.querySelector(`input[name="${it.id}"]:checked`);if(!checked){missing=true;el.classList.add('missing-answer');return}const raw=Number(checked.value),value=it.reverse?6-raw:raw;if(it.attention&&raw!==it.attention)failedAttention=true;if(!it.attention){scores[it.scale]=(scores[it.scale]||0)+value;counts[it.scale]=(counts[it.scale]||0)+1}responses.push({itemId:it.id,itemVersion:it.version,scale:it.scale,attentionExpected:it.attention||null,responseValue:raw,scoredValue:value,displayIndex:Number(el.dataset.displayIndex||0),shownAt:new Date(shownAt[it.id]||startedAt).toISOString(),answeredAt:new Date().toISOString(),responseTimeMs:Date.now()-(shownAt[it.id]||startedAt),changedAnswer:!!changed[it.id]})});return{scores,counts,responses,missing,failedAttention}}
-function rowsFor(test,calc){const dims=test.dims||[...new Set(test.items.filter(i=>!i.attention).map(i=>i.scale))];return dims.map(k=>[k,calc.counts[k]?calc.scores[k]/calc.counts[k]:0]).sort((a,b)=>b[1]-a[1])}
 function clarity(vals,responses){const gap=(vals[0]?.raw??vals[0]?.[1]??0)-(vals[1]?.raw??vals[1]?.[1]??0),neutral=responses.filter(r=>r.responseValue===3).length/responses.length,straight=new Set(responses.filter(r=>!r.attentionExpected).map(r=>r.responseValue)).size===1;if(straight||neutral>.45||gap<.35)return'low';if(gap<.8||neutral>.25)return'moderate';return'high'}
 function socionics(calc){const vals=Object.fromEntries(TESTS.socionics.dims.map(d=>[d,calc.counts[d]?calc.scores[d]/calc.counts[d]:0])),w=[1,.8,.45,.45];return TIMS.map(([code,mbti,names,aspects])=>{const p=Object.fromEntries(TESTS.socionics.dims.map(d=>[d,.12]));aspects.forEach((a,i)=>p[a]=w[i]);return{code,mbti,name:names[currentLang],raw:TESTS.socionics.dims.reduce((s,a)=>s+vals[a]*p[a],0)}}).sort((a,b)=>b.raw-a.raw).slice(0,3)}
 function permutations(a){if(a.length===1)return[a];return a.flatMap((x,i)=>permutations(a.filter((_,j)=>j!==i)).map(p=>[x,...p]))}
@@ -146,12 +804,7 @@ function gameCopy(kind,lang){const ru={backpack:{title:'Брось это в р�
 function scenePrompt(it){
   const raw=it.text[currentLang]||it.text.ru||it.text.en;
   if(it.attention)return{scene:raw,hint:gameCopy('attention',currentLang).hint};
-  if(currentLang!=='ru')return{scene:raw,hint:'Choose the move that feels closest in real life.'};
-  const s=String(it.scale||''),aspect=s.split('|')[0];
-  const soc={Ti:'Спор зашёл в тупик. Ты кладёшь на стол “сначала определения и схема”?',Te:'Всё красиво звучит, но надо решить. Ты тянешься к тому, что реально сработает?',Fi:'В комнате изменилась дистанция. Ты замечаешь, кто кому теперь ближе или дальше?',Fe:'Общий тон поплыл. Ты замечаешь, как люди эмоционально откликаются?',Si:'Что-то пошло не так. Ты первым ловишь темп, комфорт и нагрузку?',Se:'Ситуация напряглась. Ты сразу видишь, где сила, ресурс и реальное влияние?',Ni:'События движутся куда-то. Ты пытаешься поймать линию, к чему всё идёт?',Ne:'Один вариант скучный. Ты сразу видишь неожиданные ходы и альтернативы?'};
-  const psy={Воля:'Нужно выбрать направление. Ты берёшь управление, помогаешь выбрать или ждёшь опоры?',Логика:'Нужно разобраться. Ты строишь объяснение, проверяешь ошибки или берёшь готовую схему?',Эмоция:'В разговоре меняется тон. Ты задаёшь атмосферу, настраиваешь её или осторожничаешь?',Физика:'Быт, тело, ресурс, комфорт. Ты сразу чувствуешь, как это должно быть устроено?'};
-  const tmp={Past:'Прошлое всплыло в новой ситуации. Ты связываешь события в историю или идёшь дальше?',Present:'Нужно понять своё место здесь и сейчас. Насколько это для тебя важно?',Future:'Впереди развилка. Ты ищешь маршрут, варианты или можешь жить без общей картинки?',Eternity:'Дела идут, но вопрос “зачем?” висит в воздухе. Насколько тебе нужен большой смысл?'};
-  return{scene:soc[s]||psy[aspect]||tmp[aspect]||raw,hint:`Смысл карточки: ${raw}`};
+  return{scene:raw,hint:`${I18N[currentLang].publicWhyQuestion} ${raw}`};
 }
 function gameIcon(kind,v){const icons={backpack:['×','?','🎒','✅','⭐'],mine:['○','·','⚠','💥','🧯'],bridge:['—','▱','▰','▰▰','🌉'],compass:['↙','↘','●','↗','↑'],phrase:['⌫','↙','□','＿','📌'],attention:['1','2','3','4','5']};return(icons[kind]||icons.backpack)[v-1]}
 function gameControlClass(kind){return{backpack:'pocket-board',mine:'mine-field',bridge:'bridge-builder',compass:'compass-wheel',phrase:'phrase-board',attention:'attention-board'}[kind]||'pocket-board'}
@@ -166,26 +819,7 @@ function shouldReduceMotion(){return true}
 function shouldAutoscroll(){return false}
 function applyPublicPrefs(){document.body.classList.toggle('public-large-text',!!publicPrefs.largeText);document.body.classList.toggle('public-high-contrast',!!publicPrefs.highContrast);document.body.classList.toggle('public-reduce-motion',!!publicPrefs.reduceMotion)}
 function announceSelection(card,label){const fb=card?.querySelector('.story-feedback');if(fb)fb.textContent=label?`${I18N[currentLang].selected}: ${label}`:''}
-function collectByTest(testKey){const test=TESTS[testKey],byId=Object.fromEntries(test.items.map(it=>[it.id,it])),scores={},counts={},responses=[];let missing=false;document.querySelectorAll(`[data-test-key="${testKey}"]`).forEach(el=>{el.classList.remove('missing-answer');const it=byId[el.dataset.testItem],checked=document.querySelector(`input[name="${it.id}"]:checked`);if(!checked){missing=true;el.classList.add('missing-answer');return}const raw=Number(checked.value),value=it.reverse?6-raw:raw;scores[it.scale]=(scores[it.scale]||0)+value;counts[it.scale]=(counts[it.scale]||0)+1;responses.push({itemId:it.id,itemVersion:it.version,scale:it.scale,responseValue:raw,scoredValue:value,displayIndex:Number(el.dataset.displayIndex||0),shownAt:new Date(shownAt[it.id]||startedAt).toISOString(),answeredAt:new Date().toISOString(),responseTimeMs:Date.now()-(shownAt[it.id]||startedAt),changedAnswer:!!changed[it.id]})});return{scores,counts,responses,missing,failedAttention:false}}
-async function scorePublicRoute(){const d=I18N[currentLang],out=document.querySelector('#testResult'),keys=Object.keys(TESTS),calcs=Object.fromEntries(keys.map(k=>[k,collectByTest(k)]));if(Object.values(calcs).some(c=>c.missing)){out.innerHTML=`<div class="test-result"><p class="test-caveat">${d.missing}</p></div>`;return}const old=activeTest,tech=keys.map(k=>{activeTest=k;const test=TESTS[k],calc=calcs[k],top=test.mode==='socionics'?socionics(calc):positionTypes(test,calc),rows=rowsFor(test,calc);return{key:k,label:test.labels[currentLang][0],top,rows}});activeTest=old;const payload={...STUDY,instrumentVersion:'public-mixed-route-v0.1',responseId:crypto.randomUUID(),sessionId,deviceRespondentId:deviceId,timing:{startedAt:new Date(startedAt).toISOString(),completedAt:new Date().toISOString(),totalDurationMs:Date.now()-startedAt},metadata:{language:currentLang,viewport:{w:innerWidth,h:innerHeight},timezone:Intl.DateTimeFormat().resolvedOptions().timeZone},responses:keys.flatMap(k=>calcs[k].responses),scaleScores:Object.fromEntries(tech.flatMap(t=>t.rows.map(([k,v])=>[`${t.key}:${k}`,v]))),resultSummary:'Public mixed route completed',qualityFlags:{straightlining:new Set(keys.flatMap(k=>calcs[k].responses.map(r=>r.responseValue))).size===1,tooFast:(Date.now()-startedAt)<45000}};localStorage.setItem('before-we-build-results',JSON.stringify(payload));out.innerHTML=`<div class="test-result public-result"><h3>Маршрут собран</h3><p>Вы прошли карточки вперемешку: про общение, действия, выбор и направление. Разделы не показывались в процессе, но ответы сохранены по своим внутренним картам.</p><details><summary>Показать техническую карту</summary><div class="tim-list">${tech.map(t=>`<div class="tim-card"><b>${t.label}</b><small>${t.top.map(x=>x.code||x.display).join(' · ')}</small></div>`).join('')}</div></details><div class="test-actions"><button data-copy>${d.copy}</button></div></div>`;out.querySelector('[data-copy]')?.addEventListener('click',()=>navigator.clipboard?.writeText('Маршрут Before We Build пройден'))}
-function publicConfidence(tech,qualityFlags){const gaps=tech.map(t=>(t.top[0]?.raw||0)-(t.top[1]?.raw||0)),avgGap=gaps.reduce((s,v)=>s+v,0)/(gaps.length||1);if(qualityFlags.straightlining||qualityFlags.tooFast||avgGap<.35)return'low';if(avgGap<.8)return'moderate';return'high'}
-function publicMainHypothesis(tech){return tech.map(t=>`${t.label}: ${t.top[0]?.code||t.top[0]?.display||'?'}`).join(' · ')}
-function publicAlternatives(tech){return tech.map(t=>`<div class="tim-card"><b>${t.label}</b><small>${t.top.slice(1).map(x=>x.code||x.display).join(' · ')}</small></div>`).join('')}
-function publicSoftQuality(responses){const total=responses.length||1,neutralRate=responses.filter(r=>r.responseValue===3).length/total,changedRate=responses.filter(r=>r.changedAnswer).length/total,fastRate=responses.filter(r=>r.responseTimeMs<1500).length/total;return{neutralOveruse:neutralRate>.35,changedOften:changedRate>.18,fastItems:fastRate>.25,neutralRate:Number(neutralRate.toFixed(2)),changedRate:Number(changedRate.toFixed(2)),fastRate:Number(fastRate.toFixed(2))}}
-function publicQualityList(flags,d){return[['neutralOveruse',d.publicQualityNeutral],['changedOften',d.publicQualityChanged],['fastItems',d.publicQualityFastItems]].filter(([k])=>flags[k]).map(([,text])=>`<li>${text}</li>`).join('')}
-async function scorePublicRouteV2(){
-  const d=I18N[currentLang],out=document.querySelector('#testResult'),keys=Object.keys(TESTS),calcs=Object.fromEntries(keys.map(k=>[k,collectByTest(k)]));
-  if(Object.values(calcs).some(c=>c.missing)){out.innerHTML=`<div class="test-result"><p class="test-caveat">${d.missing}</p></div>`;return}
-  const old=activeTest,tech=keys.map(k=>{activeTest=k;const test=TESTS[k],calc=calcs[k],top=test.mode==='socionics'?socionics(calc):positionTypes(test,calc),rows=rowsFor(test,calc);return{key:k,label:test.labels[currentLang][0],top,rows}});activeTest=old;
-  const allResponses=keys.flatMap(k=>calcs[k].responses),straightlining=new Set(allResponses.map(r=>r.responseValue)).size===1,tooFast=(Date.now()-startedAt)<45000,softQuality=publicSoftQuality(allResponses),qualityFlags={straightlining,tooFast,...softQuality},confidence=publicConfidence(tech,qualityFlags),hypothesis=publicMainHypothesis(tech);
-  const payload={...STUDY,instrumentVersion:'public-mixed-route-v0.2',responseId:crypto.randomUUID(),sessionId,deviceRespondentId:publicSaveLocal?deviceId:null,timing:{startedAt:new Date(startedAt).toISOString(),completedAt:new Date().toISOString(),totalDurationMs:Date.now()-startedAt},metadata:{language:currentLang,ageBand:publicAgeBand,mode:publicMode,saveLocal:publicSaveLocal,a11yProfile:Object.entries(publicPrefs).filter(([,v])=>v).map(([k])=>k),viewport:{w:innerWidth,h:innerHeight},timezone:Intl.DateTimeFormat().resolvedOptions().timeZone},responses:allResponses,scaleScores:Object.fromEntries(tech.flatMap(t=>t.rows.map(([k,v])=>[`${t.key}:${k}`,v]))),resultSummary:`${d.publicSummary} ${hypothesis}. ${d.publicConfidence}: ${d[`publicConfidence${confidence[0].toUpperCase()+confidence.slice(1)}`]}.`,qualityFlags:{...qualityFlags,confidence}};
-  lastPublicPayload=payload;if(publicSaveLocal)localStorage.setItem('before-we-build-results',JSON.stringify(payload));
-  const qualityItems=publicQualityList(qualityFlags,d),qualityNote=(straightlining||tooFast)?`<p class="test-caveat">${d.publicQualityNote}</p>`:'',qualityBlock=qualityItems?`<div class="result-reading public-quality"><h4>${d.publicQualityTitle}</h4><ul>${qualityItems}</ul></div>`:'';
-  const confidenceLabel=d[`publicConfidence${confidence[0].toUpperCase()+confidence.slice(1)}`],music=await musicRecommendation(tech.find(t=>t.key==='psychosophy')?.top,'psychosophy');
-  out.innerHTML=`<div class="test-result public-result"><h3>${d.publicResultTitle}</h3><div class="result-reading public-hypothesis"><h4>${d.publicHypothesis}</h4><p><b>${hypothesis}</b></p><p><b>${d.publicConfidence}:</b> ${confidenceLabel}</p><p class="test-caveat">${d.publicCaveat}</p></div><h4>${d.publicAlternatives}</h4><div class="tim-list">${publicAlternatives(tech)}</div>${music}${qualityBlock}<div class="result-reading"><h4>${d.publicWhatNext}</h4><p>${d.publicNextChecks}</p></div><p>${publicSaveLocal?d.publicResultSaved:d.publicResultNotSaved}</p>${qualityNote}<details><summary>${d.publicTechMap}</summary><div class="tim-list">${tech.map(t=>`<div class="tim-card"><b>${t.label}</b><small>${t.top.map(x=>x.code||x.display).join(' · ')}</small></div>`).join('')}</div></details><div class="test-actions"><button data-copy>${d.copy}</button><button data-clear>${d.clear}</button></div></div>`;
-  out.querySelector('[data-copy]')?.addEventListener('click',()=>navigator.clipboard?.writeText(payload.resultSummary));
-  out.querySelector('[data-clear]')?.addEventListener('click',()=>{localStorage.removeItem('before-we-build-results');lastPublicPayload=null;out.innerHTML=`<div class="test-result"><p>${d.publicCleared}</p></div>`});
-}
+function collectByTest(testKey){const test=TESTS[testKey],byId=Object.fromEntries(test.items.map(it=>[it.id,it])),scores={},counts={},responses=[];let missing=false,failedAttention=false;document.querySelectorAll(`[data-test-key="${testKey}"]`).forEach(el=>{el.classList.remove('missing-answer');const it=byId[el.dataset.testItem],checked=document.querySelector(`input[name="${it.id}"]:checked`);if(!checked){missing=true;el.classList.add('missing-answer');return}const raw=Number(checked.value);if(it.attention){if(raw!==it.attention)failedAttention=true;return}const value=it.reverse?6-raw:raw;scores[it.scale]=(scores[it.scale]||0)+value;counts[it.scale]=(counts[it.scale]||0)+1;responses.push({itemId:it.id,itemVersion:it.version,scale:it.scale,responseValue:raw,scoredValue:value,displayIndex:Number(el.dataset.displayIndex||0),shownAt:new Date(shownAt[it.id]||startedAt).toISOString(),answeredAt:new Date().toISOString(),responseTimeMs:Date.now()-(shownAt[it.id]||startedAt),changedAnswer:!!changed[it.id]})});return{scores,counts,responses,missing,failedAttention}}
 function bindPublicAnswers(panel){
   panel.querySelectorAll('input[type="radio"]').forEach(i=>i.addEventListener('change',()=>{changed[i.name]=true;const card=i.closest('.story-test-card');card?.classList.add('answered');const label=i.closest('label')?.querySelector('em')?.textContent||i.value;announceSelection(card,label);updateStoryProgress();if(shouldAutoscroll())setTimeout(()=>setPublicStep(publicStep+1),160)}));
 }
@@ -237,4 +871,4 @@ function renderTests(){
   panel.querySelector('[data-reset]')?.addEventListener('click',renderTests);
   panel.querySelector('[data-clear]')?.addEventListener('click',()=>{localStorage.removeItem('before-we-build-results');renderTests()});
 }
-function enhanceControlsA11y(){document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===currentLang)));document.querySelectorAll('[data-test-key]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.testKey===activeTest)));document.querySelectorAll('button:not([type])').forEach(b=>b.setAttribute('type','button'))}const a11yObserver=new MutationObserver(enhanceControlsA11y);a11yObserver.observe(document.body,{childList:true,subtree:true});document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>applyLanguage(b.dataset.lang));loadQuestionBank().finally(()=>{applyLanguage(currentLang);enhanceControlsA11y()});
+function enhanceControlsA11y(){document.querySelectorAll('[data-lang]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===currentLang)));document.querySelectorAll('[data-test-key]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.testKey===activeTest)));document.querySelectorAll('button:not([type])').forEach(b=>b.setAttribute('type','button'))}const a11yObserver=typeof MutationObserver!=='undefined'?new MutationObserver(enhanceControlsA11y):null;if(a11yObserver)a11yObserver.observe(document.body,{childList:true,subtree:true});document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{if(typeof applyLanguage==='function')applyLanguage(b.dataset.lang)});loadQuestionBank().finally(()=>{if(typeof applyLanguage==='function')applyLanguage(currentLang);enhanceControlsA11y()});

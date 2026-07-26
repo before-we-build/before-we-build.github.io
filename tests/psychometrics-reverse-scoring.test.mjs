@@ -41,23 +41,25 @@ vm.runInContext(code + '\n;globalThis.TESTS_REF = TESTS;', context, { filename: 
 const TESTS = sandbox.TESTS_REF;
 assert.ok(TESTS, 'TESTS object should be exposed');
 
-// Verify Socionics reverse items
+// Verify Socionics reverse items (50% balanced aspect indicators)
 const socItems = TESTS.socionics.items.filter(i => !i.attention);
 assert.equal(socItems.length, 16, 'Socionics should have 16 non-attention items');
 const socReverseCount = socItems.filter(i => i.reverse).length;
 assert.equal(socReverseCount, 8, 'Socionics should have 8 reverse-coded items (50% balanced)');
 
-// Verify Psychosophy reverse items
+// Verify Psychosophy position items (16 items, direct position descriptors)
 const psyItems = TESTS.psychosophy.items.filter(i => !i.attention);
 assert.equal(psyItems.length, 16, 'Psychosophy should have 16 non-attention items');
-const psyReverseCount = psyItems.filter(i => i.reverse).length;
-assert.equal(psyReverseCount, 8, 'Psychosophy should have 8 reverse-coded items (50% balanced)');
+for (const item of psyItems) {
+  assert.equal(item.reverse, false, `Psychosophy position item ${item.id} should be direct (reverse: false)`);
+}
 
-// Verify Temporistics reverse items
+// Verify Temporistics position items (16 items, direct position descriptors)
 const tempItems = TESTS.temporistics.items.filter(i => !i.attention);
 assert.equal(tempItems.length, 16, 'Temporistics should have 16 non-attention items');
-const tempReverseCount = tempItems.filter(i => i.reverse).length;
-assert.equal(tempReverseCount, 8, 'Temporistics should have 8 reverse-coded items (50% balanced)');
+for (const item of tempItems) {
+  assert.equal(item.reverse, false, `Temporistics position item ${item.id} should be direct (reverse: false)`);
+}
 
 // Verify semantic reversal (reverse-coded items must feature negative/reversal phrasing)
 const reversalPattern = /тяжело|сложно|трудно|игнорирую|избегаю|неинтересно|панику|сбивает|утомляюще|зациклен|мучительно|независимо|настаиваю|доминировать|hard|difficult|avoid|struggle|confuses|least|ignore|exhausting/i;
