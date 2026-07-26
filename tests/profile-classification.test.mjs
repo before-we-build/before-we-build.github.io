@@ -15,7 +15,7 @@ const sandbox = {
   crypto: { randomUUID: () => 'test-uuid' },
   Intl,
   localStorage: { getItem: () => null, setItem: () => {} },
-  document: { querySelectorAll: () => [], querySelector: () => null, body: {} },
+  document: { querySelectorAll: () => [], querySelector: () => null, body: { dataset: {} } },
   MutationObserver: MockObserver,
   fetch: async () => ({ ok: false })
 };
