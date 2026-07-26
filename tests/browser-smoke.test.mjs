@@ -84,7 +84,7 @@ const sandbox = {
 
 vm.createContext(sandbox);
 vm.runInContext(
-  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2;',
+  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2; globalThis.publicAlternatives = typeof publicAlternatives !== "undefined" ? publicAlternatives : null;',
   sandbox
 );
 
@@ -119,5 +119,13 @@ mockDoc.querySelector = (sel) => {
 await sandbox.scorePublicRouteV2Fn();
 const neutralPayload = sandbox.lastPublicPayload;
 assert.ok(neutralPayload.resultSummary.includes('визначено') || neutralPayload.resultSummary.includes('определён'), 'All-neutral profile should state profile undefined / tie');
+
+// Check publicAlternatives output for tie
+const { publicAlternatives } = sandbox;
+if (typeof publicAlternatives === 'function') {
+  const dummyTech = [{ label: 'Test', top: [{ raw: 3 }, { raw: 3 }] }];
+  const html = publicAlternatives(dummyTech);
+  assert.ok(html.includes('визначено') || html.includes('определён') || html.includes('undefined'), 'Alternatives for tie must state profile undefined');
+}
 
 console.log('Browser smoke test passed successfully! Interface, tie handling & scoring functions are fully restored.');
