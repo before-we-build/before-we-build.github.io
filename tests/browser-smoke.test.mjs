@@ -107,8 +107,15 @@ assert.ok(lastPayload, 'scorePublicRouteV2 should generate a payload');
 assert.equal(lastPayload.qualityFlags.changedOften, false, 'First selections should NOT trigger changedOften flag');
 
 // Test all-neutral (all 3s) tie handling
+let renderedResultHtml = '';
+const testResultEl = new MockElement('div', 'testResult');
+Object.defineProperty(testResultEl, 'innerHTML', {
+  set(v) { renderedResultHtml = v; },
+  get() { return renderedResultHtml; }
+});
+
 mockDoc.querySelector = (sel) => {
-  if (sel === '#testResult') return new MockElement('div', 'testResult');
+  if (sel === '#testResult') return testResultEl;
   if (sel === '#testTabs') return new MockElement('div', 'testTabs');
   if (sel === '#testPanel') return new MockElement('div', 'testPanel');
   if (sel === '#consent') return { checked: true };
@@ -120,12 +127,9 @@ await sandbox.scorePublicRouteV2Fn();
 const neutralPayload = sandbox.lastPublicPayload;
 assert.ok(neutralPayload.resultSummary.includes('визначено') || neutralPayload.resultSummary.includes('определён'), 'All-neutral profile should state profile undefined / tie');
 
-// Check publicAlternatives output for tie
-const { publicAlternatives } = sandbox;
-if (typeof publicAlternatives === 'function') {
-  const dummyTech = [{ label: 'Test', top: [{ raw: 3 }, { raw: 3 }] }];
-  const html = publicAlternatives(dummyTech);
-  assert.ok(html.includes('визначено') || html.includes('определён') || html.includes('undefined'), 'Alternatives for tie must state profile undefined');
-}
+// Verify tech map in rendered HTML displays undefined profile and not arbitrary ILE · SEI · ESE
+assert.ok(renderedResultHtml.includes('details'), 'Rendered result HTML should contain tech map details section');
+assert.ok(renderedResultHtml.includes('визначено') || renderedResultHtml.includes('определён') || renderedResultHtml.includes('undefined'), 'Rendered result tech map must display undefined profile on tie');
+assert.ok(!renderedResultHtml.includes('ILE · SEI · ESE'), 'Rendered result tech map must NOT output arbitrary type lists on tie');
 
 console.log('Browser smoke test passed successfully! Interface, tie handling & scoring functions are fully restored.');
