@@ -59,6 +59,18 @@ assert.equal(tempItems.length, 16, 'Temporistics should have 16 non-attention it
 const tempReverseCount = tempItems.filter(i => i.reverse).length;
 assert.equal(tempReverseCount, 8, 'Temporistics should have 8 reverse-coded items (50% balanced)');
 
+// Verify semantic reversal (reverse-coded items must feature negative/reversal phrasing)
+const reversalPattern = /тяжело|сложно|трудно|игнорирую|избегаю|неинтересно|панику|сбивает|утомляюще|зациклен|мучительно|независимо|настаиваю|доминировать|hard|difficult|avoid|struggle|confuses|least|ignore|exhausting/i;
+for (const item of [...socItems, ...psyItems, ...tempItems]) {
+  if (item.reverse) {
+    const textAll = `${item.text.ru} ${item.text.en} ${item.text.uk}`;
+    assert.ok(
+      reversalPattern.test(textAll),
+      `Item ${item.id} is reverse-coded but its wording does not contain a semantic reversal pattern!`
+    );
+  }
+}
+
 // Test reverse scoring calculation
 const revItem = socItems.find(i => i.reverse);
 assert.ok(revItem, 'Reverse item should exist');
