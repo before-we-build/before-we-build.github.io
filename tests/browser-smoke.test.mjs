@@ -84,7 +84,7 @@ const sandbox = {
 
 vm.createContext(sandbox);
 vm.runInContext(
-  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2; globalThis.publicAlternatives = typeof publicAlternatives !== "undefined" ? publicAlternatives : null; globalThis.recordAnswerFn = recordAnswer; globalThis.resetAnswerStateFn = resetAnswerState; globalThis.renderClassicPublicItemFn = renderClassicPublicItem; globalThis.publicModeForAgeFn = publicModeForAge; globalThis.setPublicTestKeysFn = keys => { publicTestKeys = keys; };',
+  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2; globalThis.publicAlternatives = typeof publicAlternatives !== "undefined" ? publicAlternatives : null; globalThis.FEATURE_FLAGS_REF = FEATURE_FLAGS; globalThis.recordAnswerFn = recordAnswer; globalThis.resetAnswerStateFn = resetAnswerState; globalThis.renderClassicPublicItemFn = renderClassicPublicItem; globalThis.publicModeForAgeFn = publicModeForAge; globalThis.setPublicTestKeysFn = keys => { publicTestKeys = keys; };',
   sandbox
 );
 
@@ -96,7 +96,16 @@ assert.equal(sandbox.currentLang, 'uk', 'currentLang default should be uk');
 assert.ok(sandbox.activeTest, 'activeTest should be initialized');
 assert.ok(sandbox.TESTS_REF, 'TESTS object should be initialized');
 
-// 2. Verify scorePublicRouteV2 function exists and runs cleanly
+// 2. Verify the under-18 visual route is disabled by default and can be enabled explicitly
+assert.equal(sandbox.FEATURE_FLAGS_REF.under18VisualMode, false, 'Under-18 visual mode feature flag should default to off');
+assert.equal(sandbox.publicModeForAgeFn('under-18'), 'classic', 'Under-18 respondents should use classic mode while the flag is off');
+assert.equal(sandbox.publicModeForAgeFn('25-34'), 'classic', 'Adult respondents should continue to use classic mode');
+sandbox.FEATURE_FLAGS_REF.under18VisualMode = true;
+assert.equal(sandbox.publicModeForAgeFn('under-18'), 'visual', 'Under-18 visual mode should be available when explicitly enabled');
+assert.equal(sandbox.publicModeForAgeFn('25-34'), 'classic', 'Enabling the flag should not change adult mode');
+sandbox.FEATURE_FLAGS_REF.under18VisualMode = false;
+
+// 3. Verify scorePublicRouteV2 function exists and runs cleanly
 assert.equal(typeof sandbox.scorePublicRouteV2Fn, 'function', 'scorePublicRouteV2 must be a function');
 assert.equal(sandbox.publicModeForAgeFn('under-18'), 'classic', 'Age must not silently select a different questionnaire format');
 assert.equal(sandbox.publicModeForAgeFn('55+'), 'classic', 'All age groups should receive the same measurement format');
