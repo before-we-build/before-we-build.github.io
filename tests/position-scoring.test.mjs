@@ -71,15 +71,24 @@ function syntheticPositionTest(base, itemsPerCell = 3) {
         indicator: index + 1,
         facet: `facet-${index + 1}`,
         context: `context-${aspectIndex + 1}-${index + 1}`,
+        contextDomain: 'synthetic',
+        responseMode: 'matched-vignette',
+        tetradId: `${prefix}-${aspectIndex + 1}-${index + 1}`,
         aspect,
         position,
+        positionRole: {
+          1: 'target',
+          2: 'creative',
+          3: 'criterion',
+          4: 'resource'
+        }[position],
         text: { ru: 'test', en: 'test', uk: 'test' }
       }))
     )
   );
   return {
     ...base,
-    measurementModel: 'multi-indicator-position-v1',
+    measurementModel: 'multi-indicator-position-contrast-v2',
     minCellItems: 3,
     items
   };
@@ -125,13 +134,13 @@ const strongTmpTotals = {
   Eternity: [3, 3, 6, 15]
 };
 
-// Strong, uniquely assigned evidence produces a defined normalized profile.
+// Strong, uniquely assigned evidence produces a defined centered-contrast profile.
 sandbox.currentLang = 'ru';
 let top = positionTypes(psyTest, calcFromTotals(psyTest, strongPsyTotals));
 assert.equal(top[0].display, 'ЛВЭФ');
 assert.equal(top[0].defined, true);
 assert.equal(profileDefined(top), true);
-assertApproximately(top[0].raw, 1, 'Strong profile should reach the normalized maximum');
+assertApproximately(top[0].raw, 0.6875, 'Strong profile centered contrast');
 assert.equal(Object.keys(top[0].evidence).length, 4);
 for (const aspect of psyTest.aspects) {
   const evidence = top[0].evidence[aspect];
@@ -144,11 +153,11 @@ sandbox.currentLang = 'uk';
 top = positionTypes(tmpTest, calcFromTotals(tmpTest, strongTmpTotals));
 assert.equal(top[0].display, 'Ми-Тп-Мб-Вч');
 assert.equal(top[0].defined, true);
-assertApproximately(top[0].raw, 1, 'Strong Temporistics profile should be normalized');
+assertApproximately(top[0].raw, 0.6875, 'Strong Temporistics centered contrast');
 
 // Neutral and uniformly high response styles remain undefined even at high absolute score.
 top = positionTypes(psyTest, calcFromTotals(psyTest, uniformTotals(psyTest, 9)));
-assertApproximately(top[0].raw, 0.5, 'All-neutral profile score');
+assertApproximately(top[0].raw, 0, 'All-neutral centered profile score');
 assertApproximately(top[0].typeGap, 0, 'All-neutral type gap');
 assert.equal(top[0].defined, false);
 for (const evidence of Object.values(top[0].evidence)) {
@@ -157,7 +166,7 @@ for (const evidence of Object.values(top[0].evidence)) {
 }
 
 top = positionTypes(psyTest, calcFromTotals(psyTest, uniformTotals(psyTest, 15)));
-assertApproximately(top[0].raw, 1, 'All-high profile score');
+assertApproximately(top[0].raw, 0, 'All-high response style should have zero centered contrast');
 assert.equal(top[0].defined, false, 'Acquiescent all-high response pattern must not define a type');
 assert.ok(Object.values(top[0].evidence).every(evidence => evidence.status === 'flat'));
 
@@ -215,7 +224,7 @@ top = positionTypes(psyTest, incompleteCalc);
 const incompleteCell = top[0].evidence['Физика'].cells.find(cell => cell.position === 4);
 assert.equal(Number.isFinite(top[0].raw), true);
 assert.equal(incompleteCell.mean, 3);
-assertApproximately(incompleteCell.normalized, 0.5, 'Missing-cell neutral imputation');
+assertApproximately(incompleteCell.contrastToAspectMean, 0.3125, 'Missing-cell contrast after neutral imputation');
 assert.equal(top[0].evidence['Физика'].status, 'incomplete');
 assert.equal(top[0].defined, false);
 
@@ -363,10 +372,10 @@ for (const aspect of TESTS.psychosophy.aspects) {
   }
 }
 for (const aspect of TESTS.temporistics.aspects) {
-  for (const indicator of ['behavior', 'preference', 'scenario']) {
+  for (const indicator of [1, 2, 3]) {
     const quartet = TESTS.temporistics.items.filter(item => !item.attention && item.aspect === aspect && item.indicator === indicator);
-    assert.equal(quartet.length, 4, `${aspect} ${indicator} should form a four-position quartet`);
-    assert.equal(new Set(quartet.map(item => item.context)).size, 1, `${aspect} ${indicator} should use one matched context`);
+    assert.equal(quartet.length, 4, `${aspect} indicator ${indicator} should form a four-position quartet`);
+    assert.equal(new Set(quartet.map(item => item.context)).size, 1, `${aspect} indicator ${indicator} should use one matched context`);
   }
 }
 

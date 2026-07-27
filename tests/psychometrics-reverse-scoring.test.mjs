@@ -50,7 +50,7 @@ assert.equal(socReverseCount, 8, 'Socionics should have 8 reverse-coded items (5
 function verifyPositionBank(test, label) {
   const items = test.items.filter(i => !i.attention);
   assert.equal(items.length, 48, `${label} should have 48 non-attention items`);
-  assert.equal(test.measurementModel, 'multi-indicator-position-v1', `${label} should declare the multi-indicator model`);
+  assert.equal(test.measurementModel, 'multi-indicator-position-contrast-v2', `${label} should declare the centered multi-indicator model`);
   assert.equal(new Set(items.map(i => i.id)).size, 48, `${label} item IDs should be unique`);
 
   for (const aspect of test.aspects) {
@@ -63,7 +63,7 @@ function verifyPositionBank(test, label) {
 
   for (const positionItem of items) {
     assert.equal(positionItem.reverse, false, `${label} item ${positionItem.id} should be direct`);
-    assert.equal(positionItem.version, '2.0', `${label} item ${positionItem.id} should use version 2.0`);
+    assert.equal(positionItem.version, '3.0', `${label} item ${positionItem.id} should use version 3.0`);
     assert.ok(positionItem.positionRole, `${label} item ${positionItem.id} should declare the construct role of its position`);
     assert.ok(positionItem.context, `${label} item ${positionItem.id} should declare its matched context`);
   }
