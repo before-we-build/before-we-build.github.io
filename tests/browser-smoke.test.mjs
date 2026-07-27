@@ -84,7 +84,7 @@ const sandbox = {
 
 vm.createContext(sandbox);
 vm.runInContext(
-  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2; globalThis.publicAlternatives = typeof publicAlternatives !== "undefined" ? publicAlternatives : null;',
+  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2; globalThis.publicAlternatives = typeof publicAlternatives !== "undefined" ? publicAlternatives : null; globalThis.recordAnswerFn = recordAnswer; globalThis.resetAnswerStateFn = resetAnswerState; globalThis.renderClassicPublicItemFn = renderClassicPublicItem; globalThis.publicModeForAgeFn = publicModeForAge;',
   sandbox
 );
 
@@ -98,6 +98,24 @@ assert.ok(sandbox.TESTS_REF, 'TESTS object should be initialized');
 
 // 2. Verify scorePublicRouteV2 function exists and runs cleanly
 assert.equal(typeof sandbox.scorePublicRouteV2Fn, 'function', 'scorePublicRouteV2 must be a function');
+assert.equal(sandbox.publicModeForAgeFn('under-18'), 'classic', 'Age must not silently select a different questionnaire format');
+assert.equal(sandbox.publicModeForAgeFn('55+'), 'classic', 'All age groups should receive the same measurement format');
+
+// A language-triggered re-render should be able to restore previously selected answers.
+sandbox.recordAnswerFn({ name: 'persisted_item', value: '4' });
+const restoredItemHtml = sandbox.renderClassicPublicItemFn(
+  { id: 'persisted_item', testKey: 'temporistics', text: { uk: 'Перевірка', ru: 'Проверка', en: 'Check' } },
+  0,
+  1
+);
+assert.match(restoredItemHtml, /value="4" checked/, 'Rendered item should restore the selected response');
+sandbox.resetAnswerStateFn();
+const resetItemHtml = sandbox.renderClassicPublicItemFn(
+  { id: 'persisted_item', testKey: 'temporistics', text: { uk: 'Перевірка', ru: 'Проверка', en: 'Check' } },
+  0,
+  1
+);
+assert.doesNotMatch(resetItemHtml, /value="4" checked/, 'Explicit reset should clear the restored response');
 
 // Run scorePublicRouteV2 in sandbox
 await sandbox.scorePublicRouteV2Fn();
@@ -105,6 +123,12 @@ await sandbox.scorePublicRouteV2Fn();
 const lastPayload = sandbox.lastPublicPayload;
 assert.ok(lastPayload, 'scorePublicRouteV2 should generate a payload');
 assert.equal(lastPayload.qualityFlags.changedOften, false, 'First selections should NOT trigger changedOften flag');
+assert.equal(lastPayload.qualityFlags.attentionCheckPresented, false, 'Public route should report that its omitted attention checks were not presented');
+assert.equal(lastPayload.qualityFlags.failedAttentionCheck, false, 'An omitted attention check must not be treated as failed');
+assert.equal(lastPayload.instrumentVersion, 'public-mixed-route-v0.3', 'Public payload should expose the revised route version');
+assert.ok(lastPayload.questionBankVersion, 'Public payload should expose the question-bank version');
+assert.ok(lastPayload.modelResults?.psychosophy?.evidence, 'Public payload should export position evidence');
+assert.equal(lastPayload.randomization.itemOrder.length, lastPayload.responses.length, 'Public payload should export the displayed item order');
 
 // Test all-neutral (all 3s) tie handling
 let renderedResultHtml = '';
@@ -119,17 +143,26 @@ mockDoc.querySelector = (sel) => {
   if (sel === '#testTabs') return new MockElement('div', 'testTabs');
   if (sel === '#testPanel') return new MockElement('div', 'testPanel');
   if (sel === '#consent') return { checked: true };
-  if (sel.includes('input[')) return { value: '3', checked: true };
+  if (sel.includes('input[')) {
+    if (sel.includes('_ac_1')) return null;
+    return { value: '3', checked: true };
+  }
   return new MockElement('div');
 };
 
 await sandbox.scorePublicRouteV2Fn();
 const neutralPayload = sandbox.lastPublicPayload;
 assert.ok(neutralPayload.resultSummary.includes('визначено') || neutralPayload.resultSummary.includes('определён'), 'All-neutral profile should state profile undefined / tie');
+assert.equal(neutralPayload.modelResults.psychosophy.defined, false, 'All-neutral Psychosophy profile must abstain');
+assert.equal(neutralPayload.modelResults.temporistics.defined, false, 'All-neutral Temporistics profile must abstain');
+assert.equal(neutralPayload.qualityFlags.attentionCheckPresented, false, 'Neutral public route should still report no attention check');
+assert.equal(neutralPayload.qualityFlags.failedAttentionCheck, false, 'Neutral public route should not invent an attention-check failure');
 
 // Verify tech map in rendered HTML displays undefined profile and not arbitrary ILE · SEI · ESE
 assert.ok(renderedResultHtml.includes('details'), 'Rendered result HTML should contain tech map details section');
 assert.ok(renderedResultHtml.includes('визначено') || renderedResultHtml.includes('определён') || renderedResultHtml.includes('undefined'), 'Rendered result tech map must display undefined profile on tie');
 assert.ok(!renderedResultHtml.includes('ILE · SEI · ESE'), 'Rendered result tech map must NOT output arbitrary type lists on tie');
+assert.ok(!renderedResultHtml.includes('ЛВЭФ'), 'Rendered result must NOT output an arbitrary Psychosophy type on tie');
+assert.ok(!renderedResultHtml.includes('Ми-Тп-Мб-Вч'), 'Rendered result must NOT output an arbitrary Temporistics type on tie');
 
 console.log('Browser smoke test passed successfully! Interface, tie handling & scoring functions are fully restored.');
