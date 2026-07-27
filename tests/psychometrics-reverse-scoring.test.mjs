@@ -47,19 +47,43 @@ assert.equal(socItems.length, 16, 'Socionics should have 16 non-attention items'
 const socReverseCount = socItems.filter(i => i.reverse).length;
 assert.equal(socReverseCount, 8, 'Socionics should have 8 reverse-coded items (50% balanced)');
 
-// Verify Psychosophy position items (16 items, direct position descriptors)
-const psyItems = TESTS.psychosophy.items.filter(i => !i.attention);
-assert.equal(psyItems.length, 16, 'Psychosophy should have 16 non-attention items');
-for (const item of psyItems) {
-  assert.equal(item.reverse, false, `Psychosophy position item ${item.id} should be direct (reverse: false)`);
+function verifyPositionBank(test, label) {
+  const items = test.items.filter(i => !i.attention);
+  assert.equal(items.length, 48, `${label} should have 48 non-attention items`);
+  assert.equal(test.measurementModel, 'multi-indicator-position-contrast-v2', `${label} should declare the centered multi-indicator model`);
+  assert.equal(new Set(items.map(i => i.id)).size, 48, `${label} item IDs should be unique`);
+
+  for (const aspect of test.aspects) {
+    for (const position of [1, 2, 3, 4]) {
+      const cell = items.filter(i => i.scale === `${aspect}|${position}`);
+      assert.equal(cell.length, 3, `${label} ${aspect}|${position} should contain three indicators`);
+      assert.equal(new Set(cell.map(i => i.indicator)).size, 3, `${label} ${aspect}|${position} indicators should be distinct`);
+    }
+  }
+
+  for (const positionItem of items) {
+    assert.equal(positionItem.reverse, false, `${label} item ${positionItem.id} should be direct`);
+    assert.equal(positionItem.version, '3.0', `${label} item ${positionItem.id} should use version 3.0`);
+    assert.ok(positionItem.positionRole, `${label} item ${positionItem.id} should declare the construct role of its position`);
+    assert.ok(positionItem.context, `${label} item ${positionItem.id} should declare its matched context`);
+  }
+
+  const confoundPattern = /легко|трудно|тяжело|тревож|спокой|помога|easy|hard|difficult|anxious|calm|help(?:ing|ed)?/i;
+  for (const positionItem of items) {
+    const textAll = `${positionItem.text.ru} ${positionItem.text.en} ${positionItem.text.uk}`;
+    assert.doesNotMatch(textAll, confoundPattern, `${label} item ${positionItem.id} should not use the old confidence/prosociality/anxiety/calmness markers`);
+  }
+
+  return items;
 }
 
-// Verify Temporistics position items (16 items, direct position descriptors)
+// Verify Psychosophy position items (three matched indicators per aspect × position cell)
+const psyItems = TESTS.psychosophy.items.filter(i => !i.attention);
+verifyPositionBank(TESTS.psychosophy, 'Psychosophy');
+
+// Verify Temporistics position items (three matched indicators per aspect × position cell)
 const tempItems = TESTS.temporistics.items.filter(i => !i.attention);
-assert.equal(tempItems.length, 16, 'Temporistics should have 16 non-attention items');
-for (const item of tempItems) {
-  assert.equal(item.reverse, false, `Temporistics position item ${item.id} should be direct (reverse: false)`);
-}
+verifyPositionBank(TESTS.temporistics, 'Temporistics');
 
 // Verify semantic reversal (reverse-coded items must feature negative/reversal phrasing)
 const reversalPattern = /тяжело|сложно|трудно|игнорирую|избегаю|неинтересно|панику|сбивает|утомляюще|зациклен|мучительно|независимо|настаиваю|доминировать|hard|difficult|avoid|struggle|confuses|least|ignore|exhausting/i;

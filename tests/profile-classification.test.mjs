@@ -47,41 +47,45 @@ assert.equal(lsiTop[0].code, 'LSI', `Expected top TIM for LSI profile to be LSI,
 // 3. Test Psychosophy LVEF profile (1L 2V 3E 4F)
 const lvefCalc = {
   scores: {
-    'Логика|1': 5, 'Логика|2': 2, 'Логика|3': 1, 'Логика|4': 1,
-    'Воля|1': 2, 'Воля|2': 5, 'Воля|3': 1, 'Воля|4': 1,
-    'Эмоция|1': 1, 'Эмоция|2': 2, 'Эмоция|3': 5, 'Эмоция|4': 1,
-    'Физика|1': 1, 'Физика|2': 1, 'Физика|3': 2, 'Физика|4': 5
+    'Логика|1': 15, 'Логика|2': 6, 'Логика|3': 3, 'Логика|4': 3,
+    'Воля|1': 6, 'Воля|2': 15, 'Воля|3': 3, 'Воля|4': 3,
+    'Эмоция|1': 3, 'Эмоция|2': 6, 'Эмоция|3': 15, 'Эмоция|4': 3,
+    'Физика|1': 3, 'Физика|2': 3, 'Физика|3': 6, 'Физика|4': 15
   },
   counts: {
-    'Логика|1': 1, 'Логика|2': 1, 'Логика|3': 1, 'Логика|4': 1,
-    'Воля|1': 1, 'Воля|2': 1, 'Воля|3': 1, 'Воля|4': 1,
-    'Эмоция|1': 1, 'Эмоция|2': 1, 'Эмоция|3': 1, 'Эмоция|4': 1,
-    'Физика|1': 1, 'Физика|2': 1, 'Физика|3': 1, 'Физика|4': 1
+    'Логика|1': 3, 'Логика|2': 3, 'Логика|3': 3, 'Логика|4': 3,
+    'Воля|1': 3, 'Воля|2': 3, 'Воля|3': 3, 'Воля|4': 3,
+    'Эмоция|1': 3, 'Эмоция|2': 3, 'Эмоция|3': 3, 'Эмоция|4': 3,
+    'Физика|1': 3, 'Физика|2': 3, 'Физика|3': 3, 'Физика|4': 3
   }
 };
 sandbox.activeTest = 'psychosophy';
 sandbox.currentLang = 'ru';
 const lvefTop = positionTypes(TESTS.psychosophy, lvefCalc);
 assert.equal(lvefTop[0].display, 'ЛВЭФ', `Expected top Psychosophy type to be ЛВЭФ, got ${lvefTop[0].display}`);
+assert.equal(lvefTop[0].defined, true, 'Strong three-indicator LVEF profile should be defined');
+assert.ok(lvefTop[0].raw >= 0 && lvefTop[0].raw <= 1, 'Psychosophy profile score should be normalized to [0, 1]');
 
 // 4. Test Temporistics PNF-E profile (1Past 2Present 3Future 4Eternity)
 const pnfeCalc = {
   scores: {
-    'Past|1': 5, 'Past|2': 2, 'Past|3': 1, 'Past|4': 1,
-    'Present|1': 2, 'Present|2': 5, 'Present|3': 1, 'Present|4': 1,
-    'Future|1': 1, 'Future|2': 2, 'Future|3': 5, 'Future|4': 1,
-    'Eternity|1': 1, 'Eternity|2': 1, 'Eternity|3': 2, 'Eternity|4': 5
+    'Past|1': 15, 'Past|2': 6, 'Past|3': 3, 'Past|4': 3,
+    'Present|1': 6, 'Present|2': 15, 'Present|3': 3, 'Present|4': 3,
+    'Future|1': 3, 'Future|2': 6, 'Future|3': 15, 'Future|4': 3,
+    'Eternity|1': 3, 'Eternity|2': 3, 'Eternity|3': 6, 'Eternity|4': 15
   },
   counts: {
-    'Past|1': 1, 'Past|2': 1, 'Past|3': 1, 'Past|4': 1,
-    'Present|1': 1, 'Present|2': 1, 'Present|3': 1, 'Present|4': 1,
-    'Future|1': 1, 'Future|2': 1, 'Future|3': 1, 'Future|4': 1,
-    'Eternity|1': 1, 'Eternity|2': 1, 'Eternity|3': 1, 'Eternity|4': 1
+    'Past|1': 3, 'Past|2': 3, 'Past|3': 3, 'Past|4': 3,
+    'Present|1': 3, 'Present|2': 3, 'Present|3': 3, 'Present|4': 3,
+    'Future|1': 3, 'Future|2': 3, 'Future|3': 3, 'Future|4': 3,
+    'Eternity|1': 3, 'Eternity|2': 3, 'Eternity|3': 3, 'Eternity|4': 3
   }
 };
 sandbox.activeTest = 'temporistics';
 sandbox.currentLang = 'uk';
 const pnfeTop = positionTypes(TESTS.temporistics, pnfeCalc);
 assert.equal(pnfeTop[0].display, 'Ми-Тп-Мб-Вч', `Expected top Temporistics type to be Ми-Тп-Мб-Вч, got ${pnfeTop[0].display}`);
+assert.equal(pnfeTop[0].defined, true, 'Strong three-indicator PNF-E profile should be defined');
+assert.ok(pnfeTop[0].raw >= 0 && pnfeTop[0].raw <= 1, 'Temporistics profile score should be normalized to [0, 1]');
 
 console.log('All synthetic profile classification tests passed clean!');
