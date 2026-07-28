@@ -1,0 +1,136 @@
+{
+  "artifactVersion": "1.0.0",
+  "statusVocabulary": ["not_started", "in_progress", "blocked", "passed", "failed"],
+  "currentProgramStatus": "not_started",
+  "claimsAnyGatePassed": false,
+  "publicationPolicy": {
+    "publicCategoricalTypeCodesAllowedWhen": ["G0", "G1", "G2", "G3", "G4", "G5", "G6"],
+    "allCategoricalTypeCodeGatesMustPass": true,
+    "publicShortFormAllowedWhen": ["G7"],
+    "researchExperimentalRankingBeforeG6": {
+      "allowed": true,
+      "requiredCalibrationStatus": "precalibration",
+      "definedMustBe": false,
+      "publicExposureAllowed": false
+    }
+  },
+  "gates": [
+    {
+      "id": "G0",
+      "name": "Content",
+      "status": "not_started",
+      "dependencies": [],
+      "requiredEvidence": [
+        "complete_construct_blueprints",
+        "two_cognitive_interview_waves_per_language",
+        "blind_qsort_report",
+        "trapd_decision_log"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    },
+    {
+      "id": "G1",
+      "name": "Feasibility",
+      "status": "not_started",
+      "dependencies": ["G0"],
+      "requiredEvidence": [
+        "preregistered_feasibility_protocol",
+        "completion_and_dropout_report",
+        "timing_and_order_effect_report",
+        "technical_failure_and_export_report"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    },
+    {
+      "id": "G2",
+      "name": "Structure",
+      "status": "not_started",
+      "dependencies": ["G0", "G1"],
+      "requiredEvidence": [
+        "frozen_model_comparison_plan",
+        "ordinal_esem_or_mtmm_results",
+        "rival_and_method_model_comparison",
+        "development_sample_report"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    },
+    {
+      "id": "G3",
+      "name": "Reliability",
+      "status": "not_started",
+      "dependencies": ["G2"],
+      "requiredEvidence": [
+        "ordinal_reliability_and_score_determinacy",
+        "two_to_four_week_retest_report",
+        "bootstrap_score_and_classification_stability"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    },
+    {
+      "id": "G4",
+      "name": "Fairness",
+      "status": "not_started",
+      "dependencies": ["G2"],
+      "requiredEvidence": [
+        "ru_en_uk_invariance_report",
+        "adult_age_device_and_exposure_dif_report",
+        "documented_remediation_or_calibration_for_material_dif"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    },
+    {
+      "id": "G5",
+      "name": "External",
+      "status": "not_started",
+      "dependencies": ["G2"],
+      "requiredEvidence": [
+        "discriminant_validity_report",
+        "incremental_validity_report",
+        "confound_sensitivity_analysis"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    },
+    {
+      "id": "G6",
+      "name": "Holdout",
+      "status": "not_started",
+      "dependencies": ["G3", "G4", "G5"],
+      "requiredEvidence": [
+        "frozen_bank_scoring_and_abstention_manifest",
+        "unopened_holdout_audit_trail",
+        "holdout_results_without_retuning",
+        "independent_release_decision"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    },
+    {
+      "id": "G7",
+      "name": "Public form",
+      "status": "not_started",
+      "dependencies": ["G6"],
+      "requiredEvidence": [
+        "short_form_specification",
+        "independent_short_form_validation",
+        "full_vs_short_uncertainty_and_coverage_report"
+      ],
+      "decision": null,
+      "decisionDate": null,
+      "reviewerIds": []
+    }
+  ],
+  "decisionRule": "A gate changes to passed only when every dependency is passed, every required evidence reference is immutable, and at least one reviewer independent of item authoring records a dated decision."
+}

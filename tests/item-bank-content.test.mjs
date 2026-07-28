@@ -2,32 +2,16 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import test from 'node:test';
-import vm from 'node:vm';
+import { validateQuestionBank } from '../assets/test/bank.js';
 
-const source = fs.readFileSync(path.resolve('assets/tests.js'), 'utf8');
-const sandbox = {
-  console: { log() {}, warn() {}, error: console.error },
-  window: {},
-  crypto: { randomUUID: () => 'content-audit' },
-  Intl,
-  localStorage: { getItem: () => null, setItem() {} },
-  document: {
-    documentElement: { lang: 'ru' },
-    body: { dataset: {} },
-    querySelector: () => null,
-    querySelectorAll: () => []
-  },
-  MutationObserver: class { observe() {} disconnect() {} },
-  fetch: async () => ({ ok: false, status: 404 })
-};
-
-vm.createContext(sandbox);
-vm.runInContext(
-  `${source};globalThis.TESTS_REF=TESTS;globalThis.IS_QUESTION_BANK_REF=isQuestionBank`,
-  sandbox
+const instrumentDirectory = path.resolve('assets/instruments');
+const manifest = JSON.parse(
+  fs.readFileSync(path.join(instrumentDirectory, 'instrument-manifest.json'), 'utf8')
 );
-const TESTS = sandbox.TESTS_REF;
-const isQuestionBank = sandbox.IS_QUESTION_BANK_REF;
+const pinnedBank = JSON.parse(
+  fs.readFileSync(path.join(instrumentDirectory, manifest.file), 'utf8')
+);
+const TESTS = validateQuestionBank(pinnedBank, manifest).tests;
 
 const firstSentence = text => text.split(/(?<=\.)\s+/u)[0];
 const words = text => text.trim().split(/\s+/u).filter(Boolean).length;
@@ -178,11 +162,11 @@ test('role clauses avoid the original trait-shortcut vocabulary', () => {
   }
 });
 
-test('remote banks cannot bypass the matched-vignette contract', () => {
-  const validBank = { schemaVersion: '1.0.0', tests: TESTS };
-  assert.equal(isQuestionBank(validBank), true);
-
-  const invalidBank = structuredClone(validBank);
+test('pinned banks cannot bypass the matched-vignette contract', () => {
+  const invalidBank = structuredClone(pinnedBank);
   delete invalidBank.tests.psychosophy.items.find(item => !item.attention).tetradId;
-  assert.equal(isQuestionBank(invalidBank), false);
+  assert.throws(
+    () => validateQuestionBank(invalidBank, manifest),
+    /tetradId is required/
+  );
 });

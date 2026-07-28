@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "source": "before-we-build-research/instruments/pilot-question-bank.md",
+  "distribution": "same-origin-release-snapshot",
+  "releases": [
+    {
+      "bankVersion": "2026-07-28.1",
+      "sha256": "c5233f9ec39d9cca190a14e52adb5d5c01d3773bc926027a280aba1ab5da1db7",
+      "file": "before-we-build-bank-2026-07-28.1.json"
+    }
+  ]
+}

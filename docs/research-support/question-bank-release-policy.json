@@ -1,0 +1,59 @@
+{
+  "artifactVersion": "1.0.0",
+  "status": "required_for_stable_release",
+  "authoringSource": {
+    "repository": "before-we-build-research",
+    "path": "instruments/pilot-question-bank.md",
+    "role": "single_source_of_truth"
+  },
+  "publishedArtifacts": {
+    "snapshotPath": "assets/instruments/before-we-build-bank-2026-07-28.1.json",
+    "manifestPath": "assets/instruments/instrument-manifest.json",
+    "releaseHistoryPath": "assets/instruments/release-history.json",
+    "sameOriginRequired": true,
+    "runtimeNetworkFetchAllowed": false,
+    "mutableBranchUrlAllowed": false
+  },
+  "manifestRequiredFields": [
+    "schemaVersion",
+    "bankVersion",
+    "sha256",
+    "source",
+    "distribution",
+    "file",
+    "modules"
+  ],
+  "testManifestRequiredFields": [
+    "instrumentVersion",
+    "measurementModel",
+    "calibrationStatus",
+    "contentItemCount",
+    "presentedItemCount"
+  ],
+  "hashContract": {
+    "algorithm": "SHA-256",
+    "input": "exact UTF-8 bytes of assets/instruments/before-we-build-bank-2026-07-28.1.json",
+    "encoding": "lowercase hexadecimal"
+  },
+  "releaseChecks": [
+    "canonical payload parses successfully",
+    "canonical question-bank bytes and bankVersion header exactly match the latest snapshot",
+    "manifest sha256 matches exact snapshot bytes",
+    "release history is ordered, append-only, and contains unique versions, files, and hashes",
+    "every recorded snapshot exists and no unrecorded snapshot is present",
+    "all required manifest fields are present",
+    "all item ids are unique",
+    "all item and instrument versions are present",
+    "all RU, EN and UK texts are non-empty",
+    "bankVersion is greater than the previous released bankVersion",
+    "changed item content increments itemVersion",
+    "unchanged bank content does not receive a new bankVersion",
+    "content item counts match the manifest",
+    "a status that enables public categorical output requires passed G0-G6 gate artifacts"
+  ],
+  "failurePolicy": {
+    "ciMustFail": true,
+    "fallbackToRemoteBank": false,
+    "reuseOrDowngradeVersionAllowed": false
+  }
+}

@@ -1,0 +1,78 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check out canonical research bank
+        uses: actions/checkout@v4
+        with:
+          repository: before-we-build/before-we-build-research
+          path: before-we-build-research
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked development dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Verify canonical bank and immutable snapshot
+        run: >-
+          node scripts/verify-instrument-release.mjs
+          --canonical before-we-build-research/instruments/pilot-question-bank.md
+
+      - name: Verify append-only history against base commit
+        env:
+          BASE_COMMIT: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/verify-release-history-against-git.mjs "$BASE_COMMIT"
+
+      - name: Run test suite
+        run: npm run test:unit
+
+  browser-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked development dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run browser and accessibility tests
+        run: npm run test:e2e
+
+      - name: Preserve browser report after failure
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

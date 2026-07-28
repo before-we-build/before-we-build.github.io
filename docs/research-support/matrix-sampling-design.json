@@ -1,0 +1,92 @@
+{
+  "artifactVersion": "1.0.0",
+  "status": "design_pending_g0",
+  "claimsFieldworkCompleted": false,
+  "runtimeImplementation": {
+    "configSource": "assets/test/scoring.js#RESEARCH_BOOKLET_CONFIG",
+    "designVersion": "research-matrix-v1",
+    "designStatus": "design_pending_g0",
+    "variantCount": 12,
+    "targetContentItems": 48,
+    "assignmentMethod": "seeded_stable_variant",
+    "exposureMethod": "construct_balanced_rotating_windows",
+    "positionBalancingMethod": "cross_variant_segment_history_with_constraint_preserving_swaps",
+    "positionBalanceAcceptance": "Every eligible item appears in early, middle and late segments; rotating items differ by at most one exposure and fixed anchors stay within one administration of the ideal per-segment count across 12 variants",
+    "activationCondition": "Freeze non-empty anchors and expanded eligible pools after G0 before field collection"
+  },
+  "population": {
+    "minimumAge": 18,
+    "consentRequired": true,
+    "languages": ["ru", "en", "uk"]
+  },
+  "responseFormat": "likert-5-na",
+  "route": {
+    "minimumContentItems": 40,
+    "maximumContentItems": 60,
+    "attentionChecksPerSelectedModule": 1,
+    "fullFormSubsample": {
+      "enabled": true,
+      "allocationMustBePreregistered": true,
+      "purpose": ["linking", "fatigue_estimation"]
+    }
+  },
+  "anchorBlock": {
+    "required": true,
+    "itemIds": [],
+    "selectionStatus": "pending_g0",
+    "rules": [
+      "Use only items retained by G0",
+      "Cover every modeled construct needed for booklet linking",
+      "Keep anchor wording and scoring invariant across booklets and languages"
+    ]
+  },
+  "bookletConstraints": {
+    "balancedModuleCoverage": true,
+    "balancedEarlyMiddleLateExposure": true,
+    "connectedItemCooccurrenceGraph": true,
+    "minimumMatchedQuartetSeparation": 10,
+    "adjacentMatchedItemsAllowed": false,
+    "randomizeBlockOrder": true,
+    "randomizeWithinBlock": true,
+    "preserveSeedAndRealizedOrder": true,
+    "plannedMissingEncodedSeparatelyFromNotApplicable": true
+  },
+  "observationTargets": {
+    "minimumPerCandidateItem": 250,
+    "targetPerCandidateItem": 300,
+    "languageSpecificTargets": "set_by_simulation_before_collection"
+  },
+  "generationInputsRequired": [
+    "frozenBankVersion",
+    "frozenBankSha256",
+    "eligibleItemIds",
+    "anchorItemIds",
+    "matchedSetIds",
+    "constructAssignments",
+    "language",
+    "bookletCount",
+    "seed"
+  ],
+  "assignmentRecordRequiredFields": [
+    "participantId",
+    "bookletId",
+    "seed",
+    "bankVersion",
+    "bankSha256",
+    "blockOrder",
+    "itemOrder",
+    "plannedMissingItemIds",
+    "language"
+  ],
+  "preflightChecks": [
+    "Every eligible item appears in at least one booklet",
+    "Every booklet has between 40 and 60 content items",
+    "All booklets contain the frozen anchor block",
+    "No matched quartet violates minimum separation",
+    "The item co-occurrence graph is connected",
+    "Expected exposure reaches the registered per-item target",
+    "Early, middle and late exposure imbalance is reported",
+    "Seed replay reproduces booklet, block and item order exactly"
+  ],
+  "releaseRule": "No booklet may collect responses until G0 passes and simulation-based power and coverage checks are frozen."
+}

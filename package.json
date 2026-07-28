@@ -1,0 +1,16 @@
+{
+  "name": "before-we-build.github.io",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "npm run test:unit && npm run test:e2e",
+    "test:unit": "node scripts/verify-instrument-release.mjs && node --test tests/*.test.mjs",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.0"
+  }
+}
+

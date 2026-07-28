@@ -4,33 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Before We Build · Research questionnaires</title>
-    <meta name="description" content="Дослідницька версія пілотних опитувальників Before We Build з локальним експортом відповідей." />
-    <link rel="stylesheet" href="assets/site.css?v=20260727d" />
+    <meta name="description" content="Дослідницька версія опитувальників Before We Build для повнолітніх учасників із локальним експортом відповідей." />
+    <link rel="stylesheet" href="assets/site.css?v=20260728c" />
   </head>
   <body data-test-audience="research">
+    <a class="skip-link" href="#tests" data-i18n="a11y.skipResearch">Перейти до опитувальника</a>
     <header class="hero tests-hero" id="top">
-      <nav class="nav" aria-label="Основна навігація">
+      <nav class="nav" aria-label="Основна навігація" data-i18n-aria-label="a11y.mainNavigation">
         <a class="brand" href="index.html"><span class="ichthys-mark" aria-label="ΙΧΘΥΣ">ΙΧΘΥΣ</span><b data-i18n="brand.research">Before We Build · Research</b></a>
         <div class="nav-links">
-          <a href="index.html">Public test</a>
-          <span class="lang-switch" role="group" aria-label="Language switcher">
+          <a href="index.html" data-i18n="nav.public">Public test</a>
+          <span class="lang-switch" role="group" aria-label="Перемикач мови" data-i18n-aria-label="a11y.languageSwitcher">
             <button type="button" data-lang="uk">UK</button>
             <button type="button" data-lang="en">EN</button>
             <button type="button" data-lang="ru">RU</button>
           </span>
         </div>
       </nav>
+    </header>
+    <main>
       <section class="section tests-page" id="tests">
         <p class="eyebrow" data-i18n="researchTests.eyebrow">Дослідницька версія</p>
         <h1 data-i18n="researchTests.title">Пілотні опитувальники Before We Build</h1>
-        <p class="lead" data-i18n="researchTests.intro">Тут видно статус пілота, обмеження, метадані та локальний JSON-експорт.</p>
+        <p class="lead" data-i18n="researchTests.intro">Маршрут призначений лише для учасників віком від 18 років. Тут видно статус попередньої калібрації, обмеження, метадані та локальний JSON-експорт.</p>
         <noscript><p class="card">Для проходження потрібен JavaScript.</p></noscript>
         <div class="test-shell" id="testShell">
-          <div class="test-tabs" id="testTabs" role="tablist" aria-label="Questionnaire"></div>
           <div class="test-panel" id="testPanel"></div>
         </div>
       </section>
-    </header>
-    <script src="assets/tests.js?v=20260727d"></script>
+    </main>
+    <script type="module" src="assets/tests.js?v=20260728c"></script>
   </body>
 </html>

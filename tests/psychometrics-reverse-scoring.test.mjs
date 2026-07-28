@@ -1,105 +1,158 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import path from 'node:path';
-import vm from 'node:vm';
+import test from 'node:test';
 
-const repo = path.resolve(import.meta.dirname, '..');
-const testsJsPath = path.join(repo, 'assets', 'tests.js');
+import { scoreModule } from '../assets/test/scoring.js';
 
-assert.ok(fs.existsSync(testsJsPath), 'assets/tests.js should exist');
+const bankPath = new URL('../assets/instruments/before-we-build-bank-2026-07-28.1.json', import.meta.url);
+const bank = JSON.parse(fs.readFileSync(bankPath, 'utf8'));
+const { socionics, psychosophy, temporistics } = bank.tests;
 
-const code = fs.readFileSync(testsJsPath, 'utf8');
-
-// Set up a browser-like sandbox to evaluate tests.js
-const domStorage = {};
-class MockMutationObserver {
-  observe() {}
-  disconnect() {}
+function contentItems(testDefinition) {
+  return testDefinition.items.filter(item => item.attention === undefined);
 }
-const sandbox = {
-  console,
-  crypto: { randomUUID: () => '12345678-1234-1234-1234-123456789012' },
-  localStorage: {
-    getItem: (k) => domStorage[k] || null,
-    setItem: (k, v) => { domStorage[k] = String(v); },
-    removeItem: (k) => { delete domStorage[k]; }
-  },
-  document: {
-    documentElement: { lang: 'uk' },
-    body: { dataset: {} },
-    querySelectorAll: () => [],
-    querySelector: () => null
-  },
-  window: {},
-  MutationObserver: MockMutationObserver,
-  fetch: async () => ({ ok: false, status: 404 })
-};
 
-const context = vm.createContext(sandbox);
-vm.runInContext(code + '\n;globalThis.TESTS_REF = TESTS;', context, { filename: testsJsPath });
+test('Socionics uses a balanced direct/reverse item pair for every dimension', () => {
+  const items = contentItems(socionics);
+  assert.equal(items.length, 16);
+  assert.equal(items.filter(item => item.reverse).length, 8);
 
-const TESTS = sandbox.TESTS_REF;
-assert.ok(TESTS, 'TESTS object should be exposed');
+  for (const dimension of socionics.dims) {
+    const pair = items.filter(item => item.scale === dimension);
+    assert.equal(pair.length, 2, `${dimension} must contain two indicators`);
+    assert.equal(pair.filter(item => item.reverse).length, 1, `${dimension} must contain one reverse indicator`);
+    assert.equal(pair.filter(item => !item.reverse).length, 1, `${dimension} must contain one direct indicator`);
+  }
+});
 
-// Verify Socionics reverse items (50% balanced aspect indicators)
-const socItems = TESTS.socionics.items.filter(i => !i.attention);
-assert.equal(socItems.length, 16, 'Socionics should have 16 non-attention items');
-const socReverseCount = socItems.filter(i => i.reverse).length;
-assert.equal(socReverseCount, 8, 'Socionics should have 8 reverse-coded items (50% balanced)');
+test('every reverse-coded item contains a semantic reversal in all deployed text', () => {
+  const reversalPatterns = {
+    ru: /тяжело|сложно|трудно|игнорирую|неинтересно|в последнюю очередь|сбивает/u,
+    en: /hard|difficult|ignore|least of all|struggle|confuses/u,
+    uk: /важко|складно|ігнорую|в останню чергу|збиває/u
+  };
 
-function verifyPositionBank(test, label) {
-  const items = test.items.filter(i => !i.attention);
-  assert.equal(items.length, 48, `${label} should have 48 non-attention items`);
-  assert.equal(test.measurementModel, 'multi-indicator-position-contrast-v2', `${label} should declare the centered multi-indicator model`);
-  assert.equal(new Set(items.map(i => i.id)).size, 48, `${label} item IDs should be unique`);
-
-  for (const aspect of test.aspects) {
-    for (const position of [1, 2, 3, 4]) {
-      const cell = items.filter(i => i.scale === `${aspect}|${position}`);
-      assert.equal(cell.length, 3, `${label} ${aspect}|${position} should contain three indicators`);
-      assert.equal(new Set(cell.map(i => i.indicator)).size, 3, `${label} ${aspect}|${position} indicators should be distinct`);
+  for (const item of contentItems(socionics).filter(candidate => candidate.reverse)) {
+    for (const language of ['ru', 'en', 'uk']) {
+      assert.match(
+        item.text[language].toLowerCase(),
+        reversalPatterns[language],
+        `${item.id} is marked reverse but ${language} does not express reversal`
+      );
     }
   }
+});
 
-  for (const positionItem of items) {
-    assert.equal(positionItem.reverse, false, `${label} item ${positionItem.id} should be direct`);
-    assert.equal(positionItem.version, '3.0', `${label} item ${positionItem.id} should use version 3.0`);
-    assert.ok(positionItem.positionRole, `${label} item ${positionItem.id} should declare the construct role of its position`);
-    assert.ok(positionItem.context, `${label} item ${positionItem.id} should declare its matched context`);
+test('scoreModule applies 6 - raw only to reverse-coded items', () => {
+  const tiItems = contentItems(socionics).filter(item => item.scale === 'Ti');
+  const direct = tiItems.find(item => !item.reverse);
+  const reverse = tiItems.find(item => item.reverse);
+  assert.ok(direct);
+  assert.ok(reverse);
+
+  const bothRawFive = scoreModule(socionics, [
+    { itemId: direct.id, responseValue: 5, notApplicable: false },
+    { itemId: reverse.id, responseValue: 5, notApplicable: false }
+  ]);
+  assert.equal(bothRawFive.scores.Ti, 6, 'Direct 5 plus reversed 5 must score 5 + 1');
+  assert.equal(bothRawFive.counts.Ti, 2);
+  assert.equal(bothRawFive.descriptiveScores.dimensions.Ti.mean, 3);
+
+  const reverseRawOne = scoreModule(socionics, [
+    { itemId: direct.id, responseValue: 5, notApplicable: false },
+    { itemId: reverse.id, responseValue: 1, notApplicable: false }
+  ]);
+  assert.equal(reverseRawOne.scores.Ti, 10, 'Direct 5 plus reversed 1 must score 5 + 5');
+  assert.equal(reverseRawOne.descriptiveScores.dimensions.Ti.mean, 5);
+});
+
+test('N/A and missing values never enter scale totals', () => {
+  const [direct, reverse] = contentItems(socionics).filter(item => item.scale === 'Te');
+  const result = scoreModule(socionics, [
+    {
+      itemId: direct.id,
+      responseValue: null,
+      notApplicable: true
+    },
+    {
+      itemId: reverse.id,
+      responseValue: null,
+      notApplicable: false
+    }
+  ]);
+
+  assert.equal(result.scores.Te, undefined);
+  assert.equal(result.counts.Te, undefined);
+  assert.equal(result.descriptiveScores.dimensions.Te.mean, null);
+  assert.equal(result.descriptiveScores.dimensions.Te.answered, 0);
+  assert.equal(result.missing, true);
+});
+
+test('content N/A is a completed response rather than a missing response', () => {
+  const direct = contentItems(socionics).find(item => item.scale === 'Te');
+  const result = scoreModule(socionics, [{
+    itemId: direct.id,
+    responseValue: null,
+    notApplicable: true
+  }]);
+
+  assert.equal(result.missing, false);
+  assert.equal(result.scores.Te, undefined);
+  assert.equal(result.descriptiveScores.dimensions.Te.answered, 0);
+});
+
+test('position instruments use direct matched-vignette indicators only', () => {
+  for (const [label, testDefinition] of [
+    ['Psychosophy', psychosophy],
+    ['Temporistics', temporistics]
+  ]) {
+    const items = contentItems(testDefinition);
+    assert.equal(items.length, 48, `${label} must contain 48 content items`);
+    assert.equal(new Set(items.map(item => item.id)).size, 48);
+    assert.ok(items.every(item => item.reverse === false));
+    assert.ok(items.every(item => item.version === '3.0'));
+    assert.ok(items.every(item => item.responseMode === 'matched-vignette'));
+
+    for (const aspect of testDefinition.aspects) {
+      for (const position of [1, 2, 3, 4]) {
+        const cell = items.filter(item => item.scale === `${aspect}|${position}`);
+        assert.equal(cell.length, 3, `${label} ${aspect}|${position} must contain three indicators`);
+        assert.equal(new Set(cell.map(item => item.indicator)).size, 3);
+      }
+    }
   }
+});
 
-  const confoundPattern = /легко|трудно|тяжело|тревож|спокой|помога|easy|hard|difficult|anxious|calm|help(?:ing|ed)?/i;
-  for (const positionItem of items) {
-    const textAll = `${positionItem.text.ru} ${positionItem.text.en} ${positionItem.text.uk}`;
-    assert.doesNotMatch(textAll, confoundPattern, `${label} item ${positionItem.id} should not use the old confidence/prosociality/anxiety/calmness markers`);
-  }
+test('direct position responses retain their raw Likert value', () => {
+  const scale = `${psychosophy.aspects[0]}|1`;
+  const cell = contentItems(psychosophy).filter(item => item.scale === scale);
+  const responses = cell.map(item => ({
+    itemId: item.id,
+    responseValue: 5,
+    notApplicable: false
+  }));
+  const result = scoreModule(psychosophy, responses);
 
-  return items;
-}
+  assert.equal(result.scores[scale], 15);
+  assert.equal(result.counts[scale], 3);
+  assert.equal(result.descriptiveScores.aspects[psychosophy.aspects[0]].roles.target.mean, 5);
+});
 
-// Verify Psychosophy position items (three matched indicators per aspect × position cell)
-const psyItems = TESTS.psychosophy.items.filter(i => !i.attention);
-verifyPositionBank(TESTS.psychosophy, 'Psychosophy');
+test('attention responses are evaluated but never added to psychometric scores', () => {
+  const attention = socionics.items.find(item => item.attention !== undefined);
+  const passed = scoreModule(socionics, [
+    { itemId: attention.id, responseValue: attention.attention, notApplicable: false }
+  ]);
 
-// Verify Temporistics position items (three matched indicators per aspect × position cell)
-const tempItems = TESTS.temporistics.items.filter(i => !i.attention);
-verifyPositionBank(TESTS.temporistics, 'Temporistics');
+  assert.equal(passed.attentionCheckPresented, true);
+  assert.equal(passed.failedAttentionCheck, false);
+  assert.deepEqual(passed.scores, {});
+  assert.deepEqual(passed.counts, {});
 
-// Verify semantic reversal (reverse-coded items must feature negative/reversal phrasing)
-const reversalPattern = /тяжело|сложно|трудно|игнорирую|избегаю|неинтересно|панику|сбивает|утомляюще|зациклен|мучительно|независимо|настаиваю|доминировать|hard|difficult|avoid|struggle|confuses|least|ignore|exhausting/i;
-for (const item of [...socItems, ...psyItems, ...tempItems]) {
-  if (item.reverse) {
-    const textAll = `${item.text.ru} ${item.text.en} ${item.text.uk}`;
-    assert.ok(
-      reversalPattern.test(textAll),
-      `Item ${item.id} is reverse-coded but its wording does not contain a semantic reversal pattern!`
-    );
-  }
-}
-
-// Test reverse scoring calculation
-const revItem = socItems.find(i => i.reverse);
-assert.ok(revItem, 'Reverse item should exist');
-const rawResponse = 5;
-const scoredValue = revItem.reverse ? (6 - rawResponse) : rawResponse;
-assert.equal(scoredValue, 1, 'Raw response 5 on a reverse item should score as 1');
+  const failed = scoreModule(socionics, [
+    { itemId: attention.id, responseValue: 5, notApplicable: false }
+  ]);
+  assert.equal(failed.attentionCheckPresented, true);
+  assert.equal(failed.failedAttentionCheck, true);
+  assert.deepEqual(failed.scores, {});
+});

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "bankVersion": "2026-07-28.1",
+  "sha256": "c5233f9ec39d9cca190a14e52adb5d5c01d3773bc926027a280aba1ab5da1db7",
+  "source": "before-we-build-research/instruments/pilot-question-bank.md",
+  "distribution": "same-origin-release-snapshot",
+  "file": "before-we-build-bank-2026-07-28.1.json",
+  "modules": {
+    "socionics": {
+      "instrumentVersion": "socionics-exploratory-v0.5",
+      "measurementModel": "socionics-element-profile-v1",
+      "calibrationStatus": "exploratory",
+      "contentItemCount": 16,
+      "presentedItemCount": 17
+    },
+    "psychosophy": {
+      "instrumentVersion": "psychosophy-pilot-v0.6",
+      "measurementModel": "multi-indicator-position-contrast-v2",
+      "calibrationStatus": "precalibration",
+      "contentItemCount": 48,
+      "presentedItemCount": 49
+    },
+    "temporistics": {
+      "instrumentVersion": "temporistics-pilot-v0.6",
+      "measurementModel": "multi-indicator-position-contrast-v2",
+      "calibrationStatus": "precalibration",
+      "contentItemCount": 48,
+      "presentedItemCount": 49
+    }
+  }
+}

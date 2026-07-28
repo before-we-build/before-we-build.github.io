@@ -1,0 +1,74 @@
+{
+  "artifactVersion": "1.0.0",
+  "gate": "G1",
+  "status": "not_started",
+  "claimsParticipantsEnrolled": false,
+  "population": {
+    "minimumAge": 18,
+    "consentRequired": true,
+    "languages": ["ru", "en", "uk"]
+  },
+  "sample": {
+    "minimum": 150,
+    "target": 200,
+    "maximum": 250
+  },
+  "allowedPurposes": [
+    "instruction_comprehension",
+    "completion_and_dropout",
+    "not_applicable_use",
+    "item_and_route_timing",
+    "position_and_order_effects",
+    "matched_item_adjacency",
+    "device_behavior",
+    "pause_resume",
+    "export_integrity"
+  ],
+  "prohibitedPurposes": [
+    "claiming_typology_validity",
+    "publishing_type_prevalence",
+    "tuning_type_thresholds_to_observed_labels",
+    "opening_or_tuning_a_holdout_sample"
+  ],
+  "requiredStrata": [
+    "language",
+    "adultAgeBand",
+    "deviceClass",
+    "priorTypologyExposure",
+    "bookletId"
+  ],
+  "metrics": [
+    {"id": "eligible_consent_rate", "threshold": null},
+    {"id": "completion_rate", "threshold": null},
+    {"id": "dropout_rate_by_step", "threshold": null},
+    {"id": "not_applicable_rate_by_item", "threshold": null},
+    {"id": "active_time_distribution_by_item", "threshold": null},
+    {"id": "wall_clock_minus_active_time", "threshold": null},
+    {"id": "order_effect_by_construct", "threshold": null},
+    {"id": "device_specific_failure_rate", "threshold": null},
+    {"id": "resume_success_rate", "threshold": null},
+    {"id": "export_contract_failure_rate", "threshold": 0}
+  ],
+  "freezeBeforeEnrollment": [
+    "consentVersion",
+    "bankVersion",
+    "bankSha256",
+    "bookletGenerationVersion",
+    "exclusionRules",
+    "metricThresholds",
+    "primaryAnalyses",
+    "stopRules",
+    "dataRetentionPolicy"
+  ],
+  "requiredDeliverables": [
+    "flow_and_exclusion_report",
+    "metric_table_with_uncertainty",
+    "dropout_by_step_plot",
+    "timing_by_language_and_device",
+    "not_applicable_item_report",
+    "order_effect_report",
+    "technical_failure_log",
+    "signed_G1_decision"
+  ],
+  "gateRule": "G1 remains not_started until all null thresholds are preregistered; it passes only after every deliverable is reviewed without using the sample for categorical calibration."
+}

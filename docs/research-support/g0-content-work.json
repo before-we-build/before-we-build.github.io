@@ -1,0 +1,159 @@
+{
+  "artifactVersion": "1.0.0",
+  "gate": "G0",
+  "status": "not_started",
+  "claimsCompletedHumanResearch": false,
+  "population": {
+    "minimumAge": 18,
+    "languages": ["ru", "en", "uk"]
+  },
+  "authoringSource": {
+    "repository": "before-we-build-research",
+    "path": "instruments/pilot-question-bank.md",
+    "role": "single_source_of_truth"
+  },
+  "initialSync": {
+    "status": "verified",
+    "verifiedBankVersion": "2026-07-28.1",
+    "verifiedSha256": "c5233f9ec39d9cca190a14e52adb5d5c01d3773bc926027a280aba1ab5da1db7",
+    "targetContentItemCounts": {
+      "psychosophy": 48,
+      "temporistics": 48,
+      "socionics": 16
+    },
+    "releaseBlockedUntilMatched": true
+  },
+  "candidatePoolTargets": {
+    "psychosophy": {
+      "unit": "aspect_x_position",
+      "minimumItemsPerUnit": 6,
+      "targetItemsPerUnit": 8
+    },
+    "temporistics": {
+      "unit": "aspect_x_position",
+      "minimumItemsPerUnit": 6,
+      "targetItemsPerUnit": 8
+    },
+    "socionics": {
+      "unit": "element",
+      "minimumItemsPerUnit": 4,
+      "targetItemsPerUnit": 6,
+      "requiredFacets": [
+        "information_noticing",
+        "preference",
+        "behavior",
+        "subjective_ease"
+      ]
+    }
+  },
+  "blueprintRequiredFields": [
+    "itemId",
+    "construct",
+    "aspect",
+    "positionRole",
+    "facet",
+    "context",
+    "inclusion",
+    "exclusion",
+    "rivalConstructs",
+    "readingLevel",
+    "languageNotes",
+    "itemVersion",
+    "status"
+  ],
+  "workstreams": [
+    {
+      "id": "G0-BLUEPRINT",
+      "status": "not_started",
+      "exitCriteria": [
+        "Every candidate item maps to one complete blueprint row",
+        "Every unit meets its candidate-pool target",
+        "Rival constructs and exclusion boundaries are explicit"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "G0-COGNITIVE-RU",
+      "status": "not_started",
+      "waves": [
+        {"wave": 1, "minimumParticipants": 8, "targetParticipants": 12},
+        {"wave": 2, "minimumParticipants": 6, "targetParticipants": 10}
+      ],
+      "exitCriteria": [
+        "All participants are adults with recorded consent",
+        "Comprehension, recall, response mapping, sensitivity and timing are coded per item",
+        "An item is revised when target meaning is missed by more than 20 percent in either wave"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "G0-COGNITIVE-EN",
+      "status": "not_started",
+      "waves": [
+        {"wave": 1, "minimumParticipants": 8, "targetParticipants": 12},
+        {"wave": 2, "minimumParticipants": 6, "targetParticipants": 10}
+      ],
+      "exitCriteria": [
+        "All participants are adults with recorded consent",
+        "Comprehension, recall, response mapping, sensitivity and timing are coded per item",
+        "An item is revised when target meaning is missed by more than 20 percent in either wave"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "G0-COGNITIVE-UK",
+      "status": "not_started",
+      "waves": [
+        {"wave": 1, "minimumParticipants": 8, "targetParticipants": 12},
+        {"wave": 2, "minimumParticipants": 6, "targetParticipants": 10}
+      ],
+      "exitCriteria": [
+        "All participants are adults with recorded consent",
+        "Comprehension, recall, response mapping, sensitivity and timing are coded per item",
+        "An item is revised when target meaning is missed by more than 20 percent in either wave"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "G0-QSORT",
+      "status": "not_started",
+      "minimumIndependentExperts": 8,
+      "targetIndependentExperts": 12,
+      "exitCriteria": [
+        "Item authors are not a majority of the panel",
+        "Experts classify without seeing the answer key",
+        "At least 80 percent classify each retained item to its intended aspect and role",
+        "Confusion matrices, agreement estimates with uncertainty and rival-construct choices are archived"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "G0-TRAPD",
+      "status": "not_started",
+      "stages": ["translation", "review", "adjudication", "pretest", "documentation"],
+      "exitCriteria": [
+        "Every retained item has an adjudicated RU, EN and UK version",
+        "Meaning-changing decisions and language-specific risks are logged",
+        "Pretest evidence links to the final item version"
+      ],
+      "evidence": []
+    }
+  ],
+  "itemDecisionRecordRequiredFields": [
+    "itemId",
+    "itemVersion",
+    "language",
+    "reviewStage",
+    "decision",
+    "reason",
+    "evidenceRefs",
+    "reviewerIds",
+    "decidedAt"
+  ],
+  "completionRule": {
+    "allWorkstreamsMustPass": true,
+    "evidenceMustBeNonEmpty": true,
+    "independentReviewRequired": true,
+    "allowedFinalDecisions": ["pass", "revise", "drop"]
+  }
+}
