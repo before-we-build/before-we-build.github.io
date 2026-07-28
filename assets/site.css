@@ -49,11 +49,8 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 .tiktok-video-grid .tiktok-embed { margin: 0 !important; max-width: 100% !important; min-width: 0 !important; }
 .tiktok-page > .muted { margin-top: 28px; }
 .test-shell { margin-top: 30px; }
-.public-start-card, .test-item, .story-test-card, .test-result { border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,.82); box-shadow: var(--shadow); padding: clamp(18px, 3vw, 30px); }
+.public-start-card, .test-item, .test-result { border: 1px solid var(--line); border-radius: 24px; background: rgba(255,255,255,.82); box-shadow: var(--shadow); padding: clamp(18px, 3vw, 30px); }
 .public-start-card h2 { margin: 0 0 12px; }
-.public-age-field { display: grid; gap: 7px; max-width: 360px; margin: 22px 0; font-weight: 800; }
-.public-age-field small { color: var(--muted); font-weight: 500; }
-.public-age-field select { border: 1px solid var(--line); border-radius: 14px; padding: 11px 14px; font: inherit; background: #fff; }
 .public-route-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 14px 0 22px; }
 .public-route-card { display: grid; gap: 7px; width: 100%; min-height: 112px; padding: 16px; text-align: left; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.72); color: inherit; }
 .public-route-card:hover, .public-route-card:focus-visible { border-color: var(--primary); background: #fff; }
@@ -67,7 +64,7 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 .public-prefs label { display: flex; align-items: center; gap: 6px; }
 .privacy-note { margin: 22px 0 0; color: var(--muted); font-size: .95rem; }
 .test-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
-.test-item, .story-test-card { margin: 16px 0; }
+.test-item { margin: 16px 0; }
 .public-step-list > .test-item:not(.active-step) { display: none; }
 .story-progress { margin: 18px 0; }
 .story-progress > div { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
@@ -75,7 +72,7 @@ button:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(84, 53,
 .story-progress > span > i { display: block; width: 0; height: 100%; border-radius: inherit; background: var(--primary); transition: width .18s ease; }
 .public-step-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 14px; }
 button:disabled { cursor: not-allowed; opacity: .48; transform: none; }
-.test-item.missing-answer, .story-test-card.missing-answer { border-color: #b73a2d; box-shadow: 0 0 0 3px rgba(183, 58, 45, .13); }
+.test-item.missing-answer { border-color: #b73a2d; box-shadow: 0 0 0 3px rgba(183, 58, 45, .13); }
 .scale { display: grid; grid-template-columns: repeat(5, minmax(52px, 1fr)); gap: 10px; margin-top: 16px; }
 .scale label { min-height: 56px; border: 1px solid var(--line); border-radius: 16px; padding: 10px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; font-weight: 800; background: #fff; touch-action: manipulation; }
 .scale label:has(input:checked) { border-color: var(--primary); background: var(--surface-soft); box-shadow: 0 0 0 3px rgba(122, 79, 42, .14); }
@@ -112,7 +109,7 @@ button:disabled { cursor: not-allowed; opacity: .48; transform: none; }
   .public-step-nav { display: grid; grid-template-columns: 1fr 1fr; }
   button { min-height: 56px; width: 100%; text-align: center; font-size: 1rem; }
   .lang-switch button { width: auto; min-height: 44px; padding: 10px 12px; }
-  .test-item, .story-test-card { padding: 20px 16px; }
+  .test-item { padding: 20px 16px; }
   .scale { gap: 8px; grid-template-columns: repeat(5, minmax(48px, 1fr)); }
   .scale label { min-height: 60px; padding: 8px 4px; flex-direction: column; gap: 3px; }
   .scale input { inline-size: 20px; block-size: 20px; }

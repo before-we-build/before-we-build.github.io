@@ -84,7 +84,7 @@ const sandbox = {
 
 vm.createContext(sandbox);
 vm.runInContext(
-  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2; globalThis.publicAlternatives = typeof publicAlternatives !== "undefined" ? publicAlternatives : null; globalThis.FEATURE_FLAGS_REF = FEATURE_FLAGS; globalThis.recordAnswerFn = recordAnswer; globalThis.resetAnswerStateFn = resetAnswerState; globalThis.renderClassicPublicItemFn = renderClassicPublicItem; globalThis.publicModeForAgeFn = publicModeForAge; globalThis.setPublicTestKeysFn = keys => { publicTestKeys = keys; };',
+  testsJsCode + '\n;globalThis.TESTS_REF = TESTS; globalThis.I18N_REF = I18N; globalThis.currentLang = currentLang; globalThis.activeTest = activeTest; globalThis.scorePublicRouteV2Fn = scorePublicRouteV2; globalThis.publicAlternatives = typeof publicAlternatives !== "undefined" ? publicAlternatives : null; globalThis.recordAnswerFn = recordAnswer; globalThis.resetAnswerStateFn = resetAnswerState; globalThis.renderPublicStartFn = renderPublicStart; globalThis.renderClassicPublicItemFn = renderClassicPublicItem; globalThis.setPublicTestKeysFn = keys => { publicTestKeys = keys; };',
   sandbox
 );
 
@@ -96,19 +96,13 @@ assert.equal(sandbox.currentLang, 'uk', 'currentLang default should be uk');
 assert.ok(sandbox.activeTest, 'activeTest should be initialized');
 assert.ok(sandbox.TESTS_REF, 'TESTS object should be initialized');
 
-// 2. Verify the under-18 visual route is disabled by default and can be enabled explicitly
-assert.equal(sandbox.FEATURE_FLAGS_REF.under18VisualMode, false, 'Under-18 visual mode feature flag should default to off');
-assert.equal(sandbox.publicModeForAgeFn('under-18'), 'classic', 'Under-18 respondents should use classic mode while the flag is off');
-assert.equal(sandbox.publicModeForAgeFn('25-34'), 'classic', 'Adult respondents should continue to use classic mode');
-sandbox.FEATURE_FLAGS_REF.under18VisualMode = true;
-assert.equal(sandbox.publicModeForAgeFn('under-18'), 'visual', 'Under-18 visual mode should be available when explicitly enabled');
-assert.equal(sandbox.publicModeForAgeFn('25-34'), 'classic', 'Enabling the flag should not change adult mode');
-sandbox.FEATURE_FLAGS_REF.under18VisualMode = false;
+// 2. Verify the public route has no age gate or age-dependent format
+const publicStartHtml = sandbox.renderPublicStartFn(sandbox.I18N_REF.uk);
+assert.ok(!publicStartHtml.includes('data-public-age') && !publicStartHtml.includes('<select'), 'Public start should not ask for age');
+assert.ok(!publicStartHtml.includes('до 18') && !publicStartHtml.includes('under 18'), 'Public start should not mention a minor mode');
 
 // 3. Verify scorePublicRouteV2 function exists and runs cleanly
 assert.equal(typeof sandbox.scorePublicRouteV2Fn, 'function', 'scorePublicRouteV2 must be a function');
-assert.equal(sandbox.publicModeForAgeFn('under-18'), 'classic', 'Age must not silently select a different questionnaire format');
-assert.equal(sandbox.publicModeForAgeFn('55+'), 'classic', 'All age groups should receive the same measurement format');
 sandbox.setPublicTestKeysFn(Object.keys(sandbox.TESTS_REF));
 
 // A language-triggered re-render should be able to restore previously selected answers.
@@ -135,7 +129,9 @@ assert.ok(lastPayload, 'scorePublicRouteV2 should generate a payload');
 assert.equal(lastPayload.qualityFlags.changedOften, false, 'First selections should NOT trigger changedOften flag');
 assert.equal(lastPayload.qualityFlags.attentionCheckPresented, false, 'Public route should report that its omitted attention checks were not presented');
 assert.equal(lastPayload.qualityFlags.failedAttentionCheck, false, 'An omitted attention check must not be treated as failed');
-assert.equal(lastPayload.instrumentVersion, 'public-modular-route-v0.4', 'Public payload should expose the modular route version');
+assert.equal(lastPayload.instrumentVersion, 'public-modular-route-v0.5', 'Public payload should expose the unified route version');
+assert.equal(lastPayload.metadata.mode, 'classic', 'Public payload should record the single measurement format');
+assert.ok(!Object.hasOwn(lastPayload.metadata, 'ageBand'), 'Public payload should not include an age-derived mode field');
 assert.ok(lastPayload.questionBankVersion, 'Public payload should expose the question-bank version');
 assert.equal(lastPayload.qualityFlags.tooFast, true, 'Instant synthetic completion should trigger hard quality withholding');
 assert.equal(lastPayload.modelResults?.psychosophy?.evidence, undefined, 'Hard quality withholding must not leak position winners through evidence');

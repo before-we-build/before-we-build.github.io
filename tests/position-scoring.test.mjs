@@ -36,7 +36,6 @@ vm.runInContext(
     globalThis.shuffleRef = shuffle;
     globalThis.validPositionTestRef = validPositionTest;
     globalThis.isQuestionBankRef = isQuestionBank;
-    globalThis.publicModeForAgeRef = publicModeForAge;
     globalThis.publicMainHypothesisRef = publicMainHypothesis;
     globalThis.publicAlternativesRef = publicAlternatives;
     globalThis.musicRecommendationRef = musicRecommendation;
@@ -52,7 +51,6 @@ const profileDefined = sandbox.profileDefinedRef;
 const shuffle = sandbox.shuffleRef;
 const validPositionTest = sandbox.validPositionTestRef;
 const isQuestionBank = sandbox.isQuestionBankRef;
-const publicModeForAge = sandbox.publicModeForAgeRef;
 const publicMainHypothesis = sandbox.publicMainHypothesisRef;
 const publicAlternatives = sandbox.publicAlternativesRef;
 const musicRecommendation = sandbox.musicRecommendationRef;
@@ -269,8 +267,6 @@ const falseTop = [
   { raw: 0.7, display: 'ЛВФЭ', en: 'LVFE', defined: false, signal: 0 }
 ];
 assert.equal(profileDefined(falseTop), false);
-assert.equal(publicModeForAge('under-18'), 'classic', 'Age should not select a different measurement presentation');
-assert.equal(publicModeForAge('55+'), 'classic', 'All age bands should receive the same measurement presentation');
 assert.doesNotMatch(publicMainHypothesis([{ label: 'Psy', top: falseTop }]), /ЛВЭФ|LVEF/);
 assert.doesNotMatch(publicAlternatives([{ label: 'Psy', top: falseTop }]), /ЛВЭФ|LVEF/);
 assert.doesNotMatch(resultLinks(falseTop), /temporistics-type-/);
